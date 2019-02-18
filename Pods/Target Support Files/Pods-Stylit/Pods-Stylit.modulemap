@@ -1,0 +1,6 @@
+framework module Pods_Stylit {
+  umbrella header "Pods-Stylit-umbrella.h"
+
+  export *
+  module * { export * }
+}

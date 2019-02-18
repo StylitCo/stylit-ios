@@ -1,0 +1,543 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5DF0768FC9C2AE696F9340E0 /* Pods_Stylit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D597E7022FBE6153D8CE300 /* Pods_Stylit.framework */; };
+		71373915221B1FB900CE4056 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71373914221B1FB900CE4056 /* AppDelegate.swift */; };
+		7137391E221B1FBB00CE4056 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7137391D221B1FBB00CE4056 /* Assets.xcassets */; };
+		7137392C221B1FBB00CE4056 /* StylitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7137392B221B1FBB00CE4056 /* StylitTests.swift */; };
+		71373939221B265600CE4056 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71373938221B265600CE4056 /* TabBarViewController.swift */; };
+		7137393B221B292200CE4056 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7137393A221B292200CE4056 /* FeedViewController.swift */; };
+		D5BD1744B4F1CD8CC3642FFC /* Pods_StylitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 607BA1F3D824FD37D4B98FF5 /* Pods_StylitTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		71373928221B1FBB00CE4056 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 71373909221B1FB900CE4056 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 71373910221B1FB900CE4056;
+			remoteInfo = Stylit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		02B193B5F3200E89E72DEC68 /* Pods-StylitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StylitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StylitTests/Pods-StylitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3B63AE99E4CDBE5729645A2E /* Pods-Stylit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stylit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stylit/Pods-Stylit.debug.xcconfig"; sourceTree = "<group>"; };
+		607BA1F3D824FD37D4B98FF5 /* Pods_StylitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StylitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71373911221B1FB900CE4056 /* Stylit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stylit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		71373914221B1FB900CE4056 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7137391D221B1FBB00CE4056 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		71373922221B1FBB00CE4056 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71373927221B1FBB00CE4056 /* StylitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StylitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7137392B221B1FBB00CE4056 /* StylitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylitTests.swift; sourceTree = "<group>"; };
+		7137392D221B1FBB00CE4056 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71373938221B265600CE4056 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		7137393A221B292200CE4056 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		7D597E7022FBE6153D8CE300 /* Pods_Stylit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stylit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA225A14954C52A998C2A754 /* Pods-StylitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StylitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StylitTests/Pods-StylitTests.release.xcconfig"; sourceTree = "<group>"; };
+		CF772CB0107A38F3CB1D4D0F /* Pods-Stylit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stylit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stylit/Pods-Stylit.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7137390E221B1FB900CE4056 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DF0768FC9C2AE696F9340E0 /* Pods_Stylit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71373924221B1FBB00CE4056 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5BD1744B4F1CD8CC3642FFC /* Pods_StylitTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4F60B88D685DEC8B531CE262 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3B63AE99E4CDBE5729645A2E /* Pods-Stylit.debug.xcconfig */,
+				CF772CB0107A38F3CB1D4D0F /* Pods-Stylit.release.xcconfig */,
+				02B193B5F3200E89E72DEC68 /* Pods-StylitTests.debug.xcconfig */,
+				CA225A14954C52A998C2A754 /* Pods-StylitTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		71373908221B1FB900CE4056 = {
+			isa = PBXGroup;
+			children = (
+				71373913221B1FB900CE4056 /* Stylit */,
+				7137392A221B1FBB00CE4056 /* StylitTests */,
+				71373912221B1FB900CE4056 /* Products */,
+				4F60B88D685DEC8B531CE262 /* Pods */,
+				7A9BA366AD8A9CC613E20BF0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		71373912221B1FB900CE4056 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				71373911221B1FB900CE4056 /* Stylit.app */,
+				71373927221B1FBB00CE4056 /* StylitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		71373913221B1FB900CE4056 /* Stylit */ = {
+			isa = PBXGroup;
+			children = (
+				71373914221B1FB900CE4056 /* AppDelegate.swift */,
+				7137391D221B1FBB00CE4056 /* Assets.xcassets */,
+				71373922221B1FBB00CE4056 /* Info.plist */,
+				71373938221B265600CE4056 /* TabBarViewController.swift */,
+				7137393A221B292200CE4056 /* FeedViewController.swift */,
+			);
+			path = Stylit;
+			sourceTree = "<group>";
+		};
+		7137392A221B1FBB00CE4056 /* StylitTests */ = {
+			isa = PBXGroup;
+			children = (
+				7137392B221B1FBB00CE4056 /* StylitTests.swift */,
+				7137392D221B1FBB00CE4056 /* Info.plist */,
+			);
+			path = StylitTests;
+			sourceTree = "<group>";
+		};
+		7A9BA366AD8A9CC613E20BF0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7D597E7022FBE6153D8CE300 /* Pods_Stylit.framework */,
+				607BA1F3D824FD37D4B98FF5 /* Pods_StylitTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		71373910221B1FB900CE4056 /* Stylit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71373930221B1FBB00CE4056 /* Build configuration list for PBXNativeTarget "Stylit" */;
+			buildPhases = (
+				FD5615C7A8E1C3263CB4CDC9 /* [CP] Check Pods Manifest.lock */,
+				7137390D221B1FB900CE4056 /* Sources */,
+				7137390E221B1FB900CE4056 /* Frameworks */,
+				7137390F221B1FB900CE4056 /* Resources */,
+				D85850114B13AC2E40CA563D /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Stylit;
+			productName = Stylit;
+			productReference = 71373911221B1FB900CE4056 /* Stylit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		71373926221B1FBB00CE4056 /* StylitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71373933221B1FBB00CE4056 /* Build configuration list for PBXNativeTarget "StylitTests" */;
+			buildPhases = (
+				36C6D6E563AE1FBD554FAB4B /* [CP] Check Pods Manifest.lock */,
+				71373923221B1FBB00CE4056 /* Sources */,
+				71373924221B1FBB00CE4056 /* Frameworks */,
+				71373925221B1FBB00CE4056 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				71373929221B1FBB00CE4056 /* PBXTargetDependency */,
+			);
+			name = StylitTests;
+			productName = StylitTests;
+			productReference = 71373927221B1FBB00CE4056 /* StylitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		71373909221B1FB900CE4056 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Lucas Wotton";
+				TargetAttributes = {
+					71373910221B1FB900CE4056 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					71373926221B1FBB00CE4056 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 71373910221B1FB900CE4056;
+					};
+				};
+			};
+			buildConfigurationList = 7137390C221B1FB900CE4056 /* Build configuration list for PBXProject "Stylit" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 71373908221B1FB900CE4056;
+			productRefGroup = 71373912221B1FB900CE4056 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				71373910221B1FB900CE4056 /* Stylit */,
+				71373926221B1FBB00CE4056 /* StylitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7137390F221B1FB900CE4056 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7137391E221B1FBB00CE4056 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71373925221B1FBB00CE4056 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		36C6D6E563AE1FBD554FAB4B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StylitTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D85850114B13AC2E40CA563D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Stylit/Pods-Stylit-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stylit/Pods-Stylit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD5615C7A8E1C3263CB4CDC9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Stylit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7137390D221B1FB900CE4056 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71373939221B265600CE4056 /* TabBarViewController.swift in Sources */,
+				7137393B221B292200CE4056 /* FeedViewController.swift in Sources */,
+				71373915221B1FB900CE4056 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71373923221B1FBB00CE4056 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7137392C221B1FBB00CE4056 /* StylitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		71373929221B1FBB00CE4056 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 71373910221B1FB900CE4056 /* Stylit */;
+			targetProxy = 71373928221B1FBB00CE4056 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		7137392E221B1FBB00CE4056 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7137392F221B1FBB00CE4056 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		71373931221B1FBB00CE4056 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3B63AE99E4CDBE5729645A2E /* Pods-Stylit.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6BAB9MP32S;
+				INFOPLIST_FILE = Stylit/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.Stylit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		71373932221B1FBB00CE4056 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF772CB0107A38F3CB1D4D0F /* Pods-Stylit.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6BAB9MP32S;
+				INFOPLIST_FILE = Stylit/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.Stylit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		71373934221B1FBB00CE4056 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02B193B5F3200E89E72DEC68 /* Pods-StylitTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6BAB9MP32S;
+				INFOPLIST_FILE = StylitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.StylitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stylit.app/Stylit";
+			};
+			name = Debug;
+		};
+		71373935221B1FBB00CE4056 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA225A14954C52A998C2A754 /* Pods-StylitTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6BAB9MP32S;
+				INFOPLIST_FILE = StylitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.StylitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stylit.app/Stylit";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7137390C221B1FB900CE4056 /* Build configuration list for PBXProject "Stylit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7137392E221B1FBB00CE4056 /* Debug */,
+				7137392F221B1FBB00CE4056 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		71373930221B1FBB00CE4056 /* Build configuration list for PBXNativeTarget "Stylit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71373931221B1FBB00CE4056 /* Debug */,
+				71373932221B1FBB00CE4056 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		71373933221B1FBB00CE4056 /* Build configuration list for PBXNativeTarget "StylitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71373934221B1FBB00CE4056 /* Debug */,
+				71373935221B1FBB00CE4056 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 71373909221B1FB900CE4056 /* Project object */;
+}
