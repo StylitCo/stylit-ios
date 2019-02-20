@@ -24,6 +24,10 @@ class HomeViewController: UIViewController {
     private let dislikeButton = UIButton()
     private let likeButton = UIButton()
     
+    // navigation
+    private let cartButton = UIButton()
+    private let feedButton = UIButton()
+    
     private let cardView = UIView()
     
     private var dataSource: [UIImage] = {
@@ -70,7 +74,7 @@ extension HomeViewController {
         
         view.addSubview(headerView)
         
-        kolodaView.backgroundColor = .purple
+//        kolodaView.backgroundColor = .purple
         
         let likeImage = UIImage(named: "Like")
         likeButton.setImage(likeImage, for: .normal)
@@ -80,42 +84,71 @@ extension HomeViewController {
         let dislikeImage = UIImage(named: "Dislike")
         dislikeButton.setImage(dislikeImage, for: .normal)
         dislikeButton.addTarget(self, action: #selector(HomeViewController.dislikeButtonTapped(_:)), for: .touchUpInside)
+        
+        let cartImage = UIImage(named: "Cart")
+        cartButton.setImage(cartImage, for: .normal)
+        cartButton.addTarget(self, action: #selector(HomeViewController.cartButtonTapped(_:)),                             for: .touchUpInside)
+        
+        let feedImage = UIImage(named: "Grid")
+        feedButton.setImage(feedImage, for: .normal)
+        feedButton.addTarget(self, action: #selector(HomeViewController.feedButtonTapped(_:)),                             for: .touchUpInside)
 
-        likeButton.backgroundColor = .red
-        dislikeButton.backgroundColor = .blue
+//        likeButton.backgroundColor = .red
+//        dislikeButton.backgroundColor = .blue
         
         view.addSubview(kolodaView)
         view.addSubview(dislikeButton)
         view.addSubview(likeButton)
-        
-        view.backgroundColor = .black
+        view.addSubview(cartButton)
+        view.addSubview(feedButton)
+
+        // set up gradient background
+        let gradient = CAGradientLayer()
+        gradient.frame = view.bounds
+        gradient.colors = [UIColor.purple.cgColor, UIColor.white.cgColor]
+        view.layer.insertSublayer(gradient, at: 0)
+//        view.backgroundColor = .purple
     }
     
     private func setupLayout() {
         kolodaView.snp.makeConstraints { make in
             if #available(iOS 11, *) {
-                make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(20)
+                make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(50)
             } else {
-                make.top.equalTo(view.snp.topMargin).offset(20)
+                make.top.equalTo(view.snp.topMargin).offset(50)
             }
             make.leading.equalToSuperview().offset(10)
             make.trailing.equalToSuperview().offset(-10)
         }
         
         dislikeButton.snp.makeConstraints { make in
-            make.centerX.equalToSuperview().offset(-50)
+            make.centerX.equalToSuperview().offset(-90)
             make.top.equalTo(kolodaView.snp.bottom).offset(50)
-            make.height.equalTo(40)
-            make.width.equalTo(40)
+            make.height.equalTo(80)
+            make.width.equalTo(80)
             make.bottom.equalToSuperview().offset(-50)
         }
 
         likeButton.snp.makeConstraints { make in
-            make.centerX.equalToSuperview().offset(50)
+            make.centerX.equalToSuperview().offset(90)
             make.top.equalTo(kolodaView.snp.bottom).offset(50)
+            make.height.equalTo(80)
+            make.width.equalTo(80)
+            make.bottom.equalToSuperview().offset(-50)
+        }
+        
+        cartButton.snp.makeConstraints { make in
+            make.bottom.equalTo(kolodaView.snp.top).offset(-10)
+            make.trailing.equalToSuperview().offset(-20)
             make.height.equalTo(40)
             make.width.equalTo(40)
-            make.bottom.equalToSuperview().offset(-50)
+        }
+        
+        feedButton.snp.makeConstraints { make in
+            make.bottom.equalTo(kolodaView.snp.top).offset(-10)
+            make.leading.equalToSuperview().offset(20)
+            make.height.equalTo(40)
+            make.width.equalTo(40)
         }
     }
 }
@@ -167,5 +200,13 @@ extension HomeViewController {
     
     @objc func dislikeButtonTapped(_ sender: UIButton) {
         kolodaView.swipe(.left)
+    }
+    
+    @objc func cartButtonTapped(_ sender: UIButton) {
+        print("cart button tapped")
+    }
+    
+    @objc func feedButtonTapped(_ sender: UIButton) {
+        print("feed button tapped")
     }
 }
