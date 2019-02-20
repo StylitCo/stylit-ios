@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5DF0768FC9C2AE696F9340E0 /* Pods_Stylit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D597E7022FBE6153D8CE300 /* Pods_Stylit.framework */; };
+		710C13E7221D247A00A5A6F4 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710C13E6221D247A00A5A6F4 /* Util.swift */; };
 		71373915221B1FB900CE4056 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71373914221B1FB900CE4056 /* AppDelegate.swift */; };
 		7137391E221B1FBB00CE4056 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7137391D221B1FBB00CE4056 /* Assets.xcassets */; };
 		7137392C221B1FBB00CE4056 /* StylitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7137392B221B1FBB00CE4056 /* StylitTests.swift */; };
@@ -29,6 +30,7 @@
 		02B193B5F3200E89E72DEC68 /* Pods-StylitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StylitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StylitTests/Pods-StylitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3B63AE99E4CDBE5729645A2E /* Pods-Stylit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stylit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stylit/Pods-Stylit.debug.xcconfig"; sourceTree = "<group>"; };
 		607BA1F3D824FD37D4B98FF5 /* Pods_StylitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StylitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		710C13E6221D247A00A5A6F4 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		71373911221B1FB900CE4056 /* Stylit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stylit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71373914221B1FB900CE4056 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7137391D221B1FBB00CE4056 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				7137391D221B1FBB00CE4056 /* Assets.xcassets */,
 				71373922221B1FBB00CE4056 /* Info.plist */,
 				7137393A221B292200CE4056 /* HomeViewController.swift */,
+				710C13E6221D247A00A5A6F4 /* Util.swift */,
 			);
 			path = Stylit;
 			sourceTree = "<group>";
@@ -245,11 +248,15 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Stylit/Pods-Stylit-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Koloda/Koloda.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Koloda.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -282,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7137393B221B292200CE4056 /* HomeViewController.swift in Sources */,
+				710C13E7221D247A00A5A6F4 /* Util.swift in Sources */,
 				71373915221B1FB900CE4056 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
