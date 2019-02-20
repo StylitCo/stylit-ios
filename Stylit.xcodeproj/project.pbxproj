@@ -11,8 +11,7 @@
 		71373915221B1FB900CE4056 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71373914221B1FB900CE4056 /* AppDelegate.swift */; };
 		7137391E221B1FBB00CE4056 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7137391D221B1FBB00CE4056 /* Assets.xcassets */; };
 		7137392C221B1FBB00CE4056 /* StylitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7137392B221B1FBB00CE4056 /* StylitTests.swift */; };
-		71373939221B265600CE4056 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71373938221B265600CE4056 /* TabBarViewController.swift */; };
-		7137393B221B292200CE4056 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7137393A221B292200CE4056 /* FeedViewController.swift */; };
+		7137393B221B292200CE4056 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7137393A221B292200CE4056 /* HomeViewController.swift */; };
 		D5BD1744B4F1CD8CC3642FFC /* Pods_StylitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 607BA1F3D824FD37D4B98FF5 /* Pods_StylitTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,8 +36,7 @@
 		71373927221B1FBB00CE4056 /* StylitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StylitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7137392B221B1FBB00CE4056 /* StylitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylitTests.swift; sourceTree = "<group>"; };
 		7137392D221B1FBB00CE4056 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		71373938221B265600CE4056 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		7137393A221B292200CE4056 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		7137393A221B292200CE4056 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7D597E7022FBE6153D8CE300 /* Pods_Stylit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stylit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA225A14954C52A998C2A754 /* Pods-StylitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StylitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StylitTests/Pods-StylitTests.release.xcconfig"; sourceTree = "<group>"; };
 		CF772CB0107A38F3CB1D4D0F /* Pods-Stylit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stylit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stylit/Pods-Stylit.release.xcconfig"; sourceTree = "<group>"; };
@@ -101,8 +99,7 @@
 				71373914221B1FB900CE4056 /* AppDelegate.swift */,
 				7137391D221B1FBB00CE4056 /* Assets.xcassets */,
 				71373922221B1FBB00CE4056 /* Info.plist */,
-				71373938221B265600CE4056 /* TabBarViewController.swift */,
-				7137393A221B292200CE4056 /* FeedViewController.swift */,
+				7137393A221B292200CE4056 /* HomeViewController.swift */,
 			);
 			path = Stylit;
 			sourceTree = "<group>";
@@ -284,8 +281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71373939221B265600CE4056 /* TabBarViewController.swift in Sources */,
-				7137393B221B292200CE4056 /* FeedViewController.swift in Sources */,
+				7137393B221B292200CE4056 /* HomeViewController.swift in Sources */,
 				71373915221B1FB900CE4056 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

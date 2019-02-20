@@ -17,10 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
-        let tabBar = TabBarViewController()
-        tabBar.initializeTabViewControllers()
+        let homeView = HomeViewController()
         
-        let navigationController = UINavigationController(rootViewController: tabBar)
+        let navigationController = UINavigationController(rootViewController: homeView)
         navigationController.isNavigationBarHidden = true
         window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = navigationController

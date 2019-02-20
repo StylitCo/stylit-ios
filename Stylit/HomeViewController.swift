@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class FeedViewController: UIViewController {
+class HomeViewController: UIViewController {
     
     private let stylitLabel = UILabel()
     private let separatorView = UIView()
@@ -38,7 +38,7 @@ class FeedViewController: UIViewController {
 }
 
 // MARK: Setup subviews
-extension FeedViewController {
+extension HomeViewController {
     private func setupSubviews() {
         stylitLabel.text = "Stylit"
         stylitLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
