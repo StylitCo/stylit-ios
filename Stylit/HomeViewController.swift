@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import Koloda
+import Hero
 
 private var numberOfCards: Int = 5
 
@@ -87,10 +88,12 @@ extension HomeViewController {
         
         let cartImage = UIImage(named: "Cart")
         cartButton.setImage(cartImage, for: .normal)
+        cartButton.tintColor = .white
         cartButton.addTarget(self, action: #selector(HomeViewController.cartButtonTapped(_:)),                             for: .touchUpInside)
         
         let feedImage = UIImage(named: "Grid")
         feedButton.setImage(feedImage, for: .normal)
+        feedButton.tintColor = .white
         feedButton.addTarget(self, action: #selector(HomeViewController.feedButtonTapped(_:)),                             for: .touchUpInside)
 
 //        likeButton.backgroundColor = .red
@@ -138,14 +141,14 @@ extension HomeViewController {
         }
         
         cartButton.snp.makeConstraints { make in
-            make.bottom.equalTo(kolodaView.snp.top).offset(-10)
+            make.top.equalToSuperview().offset(50)
             make.trailing.equalToSuperview().offset(-20)
             make.height.equalTo(40)
             make.width.equalTo(40)
         }
         
         feedButton.snp.makeConstraints { make in
-            make.bottom.equalTo(kolodaView.snp.top).offset(-10)
+            make.top.equalToSuperview().offset(50)
             make.leading.equalToSuperview().offset(20)
             make.height.equalTo(40)
             make.width.equalTo(40)
@@ -208,5 +211,11 @@ extension HomeViewController {
     
     @objc func feedButtonTapped(_ sender: UIButton) {
         print("feed button tapped")
+        
+        // animate transition
+        let vc = LikesViewController()
+        vc.hero.isEnabled = true
+        vc.hero.modalAnimationType = .cover(direction: .right)
+        present(vc, animated: true, completion: nil)
     }
 }
