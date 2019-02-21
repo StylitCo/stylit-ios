@@ -87,10 +87,12 @@ extension HomeViewController {
         
         let cartImage = UIImage(named: "Cart")
         cartButton.setImage(cartImage, for: .normal)
+        cartButton.tintColor = .white
         cartButton.addTarget(self, action: #selector(HomeViewController.cartButtonTapped(_:)),                             for: .touchUpInside)
         
         let feedImage = UIImage(named: "Grid")
         feedButton.setImage(feedImage, for: .normal)
+        feedButton.tintColor = .white
         feedButton.addTarget(self, action: #selector(HomeViewController.feedButtonTapped(_:)),                             for: .touchUpInside)
 
 //        likeButton.backgroundColor = .red
@@ -208,5 +210,9 @@ extension HomeViewController {
     
     @objc func feedButtonTapped(_ sender: UIButton) {
         print("feed button tapped")
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }
