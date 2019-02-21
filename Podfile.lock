@@ -3,22 +3,26 @@ PODS:
     - pop (~> 1.0)
   - pop (1.0.12)
   - SnapKit (4.0.1)
+  - VerticalCardSwiper (0.1.0-beta7)
 
 DEPENDENCIES:
   - Koloda
   - SnapKit (~> 4.0.0)
+  - VerticalCardSwiper (= 0.1.0-beta7)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Koloda
     - pop
     - SnapKit
+    - VerticalCardSwiper
 
 SPEC CHECKSUMS:
   Koloda: bcf5acded25fc49020d1447ed8ddd87e14d01e7e
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
+  VerticalCardSwiper: 90e12939a3aa690a582cd4bfc2b976a17063309d
 
-PODFILE CHECKSUM: c43ee0f8e8debf30808f0ce4391b7e8928585c1e
+PODFILE CHECKSUM: 8b0ef6b837483008553f904500579412b2e9847a
 
 COCOAPODS: 1.5.3

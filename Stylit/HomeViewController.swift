@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import Koloda
+import VerticalCardSwiper
 
 private var numberOfCards: Int = 5
 
@@ -18,7 +19,8 @@ class HomeViewController: UIViewController {
     private let separatorView = UIView()
     private let headerView = UIView()
     
-    private let kolodaView = KolodaView()
+    private let cardSwiper = VerticalCardSwiper()
+    
     
     private let buttonView = UIView()
     private let dislikeButton = UIButton()
@@ -30,14 +32,15 @@ class HomeViewController: UIViewController {
     
     private let cardView = UIView()
     
-    private var dataSource: [UIImage] = {
+    private var cardDataSource: [UIImage] = {
         var array: [UIImage] = []
-        for index in 0..<numberOfCards {
+        for index in 0..<5 {
             array.append(UIImage(named: "StylishMan")!)
         }
         
         return array
     }()
+    
     init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -48,9 +51,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        kolodaView.dataSource = self
-        kolodaView.delegate = self
-        self.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
         setupSubviews()
         setupLayout()
     }
@@ -63,6 +63,10 @@ class HomeViewController: UIViewController {
 // MARK: Setup subviews
 extension HomeViewController {
     private func setupSubviews() {
+        cardSwiper.delegate = self
+        cardSwiper.datasource = self
+        cardSwiper.register(MyCardCell.self, forCellWithReuseIdentifier: MyCardCell.Constants.name)
+        
         stylitLabel.text = "Stylit"
         stylitLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         stylitLabel.numberOfLines = 1
@@ -96,7 +100,7 @@ extension HomeViewController {
 //        likeButton.backgroundColor = .red
 //        dislikeButton.backgroundColor = .blue
         
-        view.addSubview(kolodaView)
+        view.addSubview(cardSwiper)
         view.addSubview(dislikeButton)
         view.addSubview(likeButton)
         view.addSubview(cartButton)
@@ -111,7 +115,7 @@ extension HomeViewController {
     }
     
     private func setupLayout() {
-        kolodaView.snp.makeConstraints { make in
+        cardSwiper.snp.makeConstraints { make in
             if #available(iOS 11, *) {
                 make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(50)
             } else {
@@ -123,7 +127,7 @@ extension HomeViewController {
         
         dislikeButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview().offset(-90)
-            make.top.equalTo(kolodaView.snp.bottom).offset(50)
+            make.top.equalTo(cardSwiper.snp.bottom).offset(50)
             make.height.equalTo(80)
             make.width.equalTo(80)
             make.bottom.equalToSuperview().offset(-50)
@@ -131,21 +135,21 @@ extension HomeViewController {
 
         likeButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview().offset(90)
-            make.top.equalTo(kolodaView.snp.bottom).offset(50)
+            make.top.equalTo(cardSwiper.snp.bottom).offset(50)
             make.height.equalTo(80)
             make.width.equalTo(80)
             make.bottom.equalToSuperview().offset(-50)
         }
         
         cartButton.snp.makeConstraints { make in
-            make.bottom.equalTo(kolodaView.snp.top).offset(-10)
+            make.bottom.equalTo(cardSwiper.snp.top).offset(-10)
             make.trailing.equalToSuperview().offset(-20)
             make.height.equalTo(40)
             make.width.equalTo(40)
         }
         
         feedButton.snp.makeConstraints { make in
-            make.bottom.equalTo(kolodaView.snp.top).offset(-10)
+            make.bottom.equalTo(cardSwiper.snp.top).offset(-10)
             make.leading.equalToSuperview().offset(20)
             make.height.equalTo(40)
             make.width.equalTo(40)
@@ -154,52 +158,55 @@ extension HomeViewController {
 }
 
 // Koloda view delegate
-extension HomeViewController: KolodaViewDelegate {
-    func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
-        let position = kolodaView.currentCardIndex
-        for _ in 1...4 {
-            dataSource.append(UIImage(named: "StylishMan")!)
-        }
-        kolodaView.insertCardAtIndexRange(position..<position + 4, animated: true)
-    }
+//extension HomeViewController: KolodaViewDelegate {
+//    func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
+//        let position = kolodaView.currentCardIndex
+//        for _ in 1...4 {
+//            cardDataSource.append(UIImage(named: "StylishMan")!)
+//        }
+//        kolodaView.insertCardAtIndexRange(position..<position + 4, animated: true)
+//    }
+//
+//    func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
+//        print("selected!")
+//        // TODO: Do something when selected
+//    }
+//}
+
+// Vertical Card Swiper Delegate
+extension HomeViewController: VerticalCardSwiperDelegate {
     
-    func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
-        print("selected!")
-        // TODO: Do something when selected
-    }
+    
 }
 
-// Koloda datasource delegate
-extension HomeViewController: KolodaViewDataSource {
-    
-    func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
-        let imageView = UIImageView(image: dataSource[Int(index)])
-        imageView.backgroundColor = .white
-        imageView.layer.cornerRadius = 8.0
-        imageView.clipsToBounds = true
+extension HomeViewController: VerticalCardSwiperDatasource {
+    func cardForItemAt(verticalCardSwiperView: VerticalCardSwiperView, cardForItemAt index: Int) -> CardCell {
         
-        // TODO: Add shadows?
-        
-        return imageView
+        if let cardCell = verticalCardSwiperView.dequeueReusableCell(withReuseIdentifier: MyCardCell.Constants.name, for: index) as? MyCardCell {
+            
+            let image = cardDataSource[index]
+            
+            cardCell.setRandomBackgroundColor()
+            cardCell.setImage = image
+            return cardCell
+        }
+        return CardCell()
     }
+
     
-    func kolodaSpeedThatCardShouldDrag(_ koloda: KolodaView) -> DragSpeed {
-        return .default
-    }
-    
-    func kolodaNumberOfCards(_ koloda: KolodaView) -> Int {
-        return dataSource.count
+    func numberOfCards(verticalCardSwiperView: VerticalCardSwiperView) -> Int {
+        return cardDataSource.count
     }
 }
 
 // button functions
 extension HomeViewController {
     @objc func likeButtonTapped(_ sender: UIButton) {
-        kolodaView.swipe(.right)
+//        kolodaView.swipe(.right)
     }
     
     @objc func dislikeButtonTapped(_ sender: UIButton) {
-        kolodaView.swipe(.left)
+//        kolodaView.swipe(.left)
     }
     
     @objc func cartButtonTapped(_ sender: UIButton) {
