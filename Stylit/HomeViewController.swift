@@ -207,6 +207,12 @@ extension HomeViewController {
     
     @objc func cartButtonTapped(_ sender: UIButton) {
         print("cart button tapped")
+        
+        // animate transition
+        let vc = CartViewController()
+        vc.hero.isEnabled = true
+        vc.hero.modalAnimationType = .cover(direction: .left)
+        present(vc, animated: true, completion: nil)
     }
     
     @objc func feedButtonTapped(_ sender: UIButton) {
