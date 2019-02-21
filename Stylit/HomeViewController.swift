@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import Koloda
+import Hero
 
 private var numberOfCards: Int = 5
 
@@ -140,14 +141,14 @@ extension HomeViewController {
         }
         
         cartButton.snp.makeConstraints { make in
-            make.bottom.equalTo(kolodaView.snp.top).offset(-10)
+            make.top.equalToSuperview().offset(50)
             make.trailing.equalToSuperview().offset(-20)
             make.height.equalTo(40)
             make.width.equalTo(40)
         }
         
         feedButton.snp.makeConstraints { make in
-            make.bottom.equalTo(kolodaView.snp.top).offset(-10)
+            make.top.equalToSuperview().offset(50)
             make.leading.equalToSuperview().offset(20)
             make.height.equalTo(40)
             make.width.equalTo(40)
@@ -206,10 +207,22 @@ extension HomeViewController {
     
     @objc func cartButtonTapped(_ sender: UIButton) {
         print("cart button tapped")
+        
+        // animate transition
+        let vc = CartViewController()
+        vc.hero.isEnabled = true
+        vc.hero.modalAnimationType = .cover(direction: .left)
+        present(vc, animated: true, completion: nil)
     }
     
     @objc func feedButtonTapped(_ sender: UIButton) {
         print("feed button tapped")
+        
+        // animate transition
+        let vc = LikesViewController()
+        vc.hero.isEnabled = true
+        vc.hero.modalAnimationType = .cover(direction: .right)
+        present(vc, animated: true, completion: nil)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
