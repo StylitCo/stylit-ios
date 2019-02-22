@@ -8,6 +8,7 @@ target 'Stylit' do
   # Pods for Stylit
   pod 'SnapKit', '~> 4.0.0'
   pod 'Koloda'
+  pod 'Hero'
 
   target 'StylitTests' do
     inherit! :search_paths

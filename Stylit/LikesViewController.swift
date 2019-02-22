@@ -19,10 +19,14 @@ class LikesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dismiss(animated: true, completion: nil)
+        self.hero.isEnabled = true
         view.backgroundColor = UIColor.purple
         
         setupSubViews()
         setupLayout()
+        
+        recommendedButton.hero.id = "hello"
     }
     
     private func setupSubViews() {
@@ -83,7 +87,7 @@ class LikesViewController: UIViewController {
         // animate transition
         let vc = RecommendedViewController()
         vc.hero.isEnabled = true
-        vc.hero.modalAnimationType = .zoom
+        vc.hero.modalAnimationType = .fade
         present(vc, animated: true, completion: nil)
     }
 }
@@ -97,10 +101,14 @@ class RecommendedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dismiss(animated: true, completion: nil)
+        self.hero.isEnabled = true
         view.backgroundColor = UIColor.blue
         
         setupSubViews()
         setupLayout()
+        
+        likesButton.hero.id = "hello"
     }
     
     private func setupSubViews() {
@@ -138,14 +146,16 @@ class RecommendedViewController: UIViewController {
         
         likesButton.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(50)
-            make.leading.equalToSuperview().offset(20)
+//            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalTo(homeButton.snp.leading).offset(-10)
             make.height.equalTo(40)
             make.width.equalTo(40)
         }
         
         mainLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
+//            make.centerX.equalToSuperview()
             make.centerY.equalTo(homeButton.snp.centerY)
+            make.leading.equalToSuperview().offset(20)
         }
     }
     
@@ -161,7 +171,7 @@ class RecommendedViewController: UIViewController {
         // animate transition
         let vc = LikesViewController()
         vc.hero.isEnabled = true
-        vc.hero.modalAnimationType = .zoom
+        vc.hero.modalAnimationType = .fade
         present(vc, animated: true, completion: nil)
     }
 }

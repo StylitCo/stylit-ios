@@ -1,24 +1,28 @@
 PODS:
+  - Hero (1.4.0)
   - Koloda (4.6):
     - pop (~> 1.0)
   - pop (1.0.12)
   - SnapKit (4.0.1)
 
 DEPENDENCIES:
+  - Hero
   - Koloda
   - SnapKit (~> 4.0.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Hero
     - Koloda
     - pop
     - SnapKit
 
 SPEC CHECKSUMS:
+  Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   Koloda: bcf5acded25fc49020d1447ed8ddd87e14d01e7e
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
 
-PODFILE CHECKSUM: c43ee0f8e8debf30808f0ce4391b7e8928585c1e
+PODFILE CHECKSUM: b4144ee410cd1675398611e324d076b99299b7da
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.0
