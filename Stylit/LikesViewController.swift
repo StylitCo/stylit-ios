@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import Hero
+import CollectionKit
 
 class LikesViewController: UIViewController {
     
@@ -17,16 +18,44 @@ class LikesViewController: UIViewController {
     
     private let mainLabel = UILabel()
     
+    let collectionView = CollectionView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         dismiss(animated: true, completion: nil)
         self.hero.isEnabled = true
         view.backgroundColor = UIColor.purple
-        
+
         setupSubViews()
         setupLayout()
         
         recommendedButton.hero.id = "hello"
+        
+        
+        let dataSource = ArrayDataSource(data: [1, 2, 3, 4])
+        let viewSource = ClosureViewSource(viewUpdater: { (view: UILabel, data: Int, index: Int) in
+            view.backgroundColor = .red
+            view.text = "\(data)"
+        })
+        let sizeSource = { (index: Int, data: Int, collectionSize: CGSize) -> CGSize in
+            return CGSize(width: 50, height: 50)
+        }
+        let provider = BasicProvider(
+            dataSource: dataSource,
+            viewSource: viewSource,
+            sizeSource: sizeSource
+        )
+        
+        //lastly assign this provider to the collectionView to display the content
+        collectionView.provider = provider
+        
+        view.addSubview(collectionView)
+        collectionView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(70)
+            make.bottom.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+        }
     }
     
     private func setupSubViews() {
