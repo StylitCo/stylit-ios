@@ -88,16 +88,28 @@ class LikesViewController: UIViewController {
         }
     }
     
+    private func cellImage() -> UIImageView {
+        let image = UIImage(named: "StylishMan")
+        let imageView = UIImageView(image: image)
+        
+        return imageView
+    }
+    
     private func setupCollection() {
         var data: [Int] = []
-        for i in 1...500 {
+        for i in 1...50 {
             data.append(i)
         }
         
         let dataSource = ArrayDataSource(data: data)
-        let viewSource = ClosureViewSource(viewUpdater: { (view: UILabel, data: Int, index: Int) in
-            view.backgroundColor = .red
-            view.text = "\(data)"
+        let viewSource = ClosureViewSource(viewUpdater: { (view: UIView, data: Int, index: Int) in
+            let imageView = self.cellImage()
+            imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
+            view.addSubview(imageView)
+            view.bringSubviewToFront(imageView)
+            view.backgroundColor = .white
+            view.layer.masksToBounds = true
+            view.layer.cornerRadius = 10
         })
         let sizeSource = { (index: Int, data: Int, collectionSize: CGSize) -> CGSize in
             return CGSize(width: 100, height: 200)
