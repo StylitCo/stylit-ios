@@ -31,8 +31,6 @@ class LikesViewController: UIViewController {
         setupLayout()
         
         recommendedButton.hero.id = "hello"
-
-        
     }
     
     private func setupSubViews() {
@@ -91,19 +89,27 @@ class LikesViewController: UIViewController {
     }
     
     private func setupCollection() {
-        let dataSource = ArrayDataSource(data: [1, 2, 3, 4,7,8,9,10,11,14])
+        var data: [Int] = []
+        for i in 1...500 {
+            data.append(i)
+        }
+        
+        let dataSource = ArrayDataSource(data: data)
         let viewSource = ClosureViewSource(viewUpdater: { (view: UILabel, data: Int, index: Int) in
             view.backgroundColor = .red
             view.text = "\(data)"
         })
         let sizeSource = { (index: Int, data: Int, collectionSize: CGSize) -> CGSize in
-            return CGSize(width: 50, height: 50)
+            return CGSize(width: 100, height: 200)
         }
         let provider = BasicProvider(
             dataSource: dataSource,
             viewSource: viewSource,
             sizeSource: sizeSource
         )
+        
+        provider.layout = FlowLayout(spacing: 10, justifyContent: .center)
+        provider.animator = WobbleAnimator()
         
         //lastly assign this provider to the collectionView to display the content
         collectionView.provider = provider

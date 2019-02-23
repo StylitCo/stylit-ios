@@ -10,6 +10,7 @@ target 'Stylit' do
   pod 'Koloda'
   pod 'Hero'
   pod 'CollectionKit'
+  pod 'CollectionKit/WobbleAnimator'
 
   target 'StylitTests' do
     inherit! :search_paths
