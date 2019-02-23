@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5A519584221E5D8C00E5B839 /* LikesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A519583221E5D8C00E5B839 /* LikesViewController.swift */; };
 		5A519586221E7FDF00E5B839 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A519585221E7FDF00E5B839 /* CartViewController.swift */; };
-		5AFD34432220010F0002A96D /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFD34422220010F0002A96D /* CollectionViewController.swift */; };
+		5AF0D2212220CB3E00237FC6 /* RecommendedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0D2202220CB3E00237FC6 /* RecommendedViewController.swift */; };
 		5DF0768FC9C2AE696F9340E0 /* Pods_Stylit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D597E7022FBE6153D8CE300 /* Pods_Stylit.framework */; };
 		710C13E7221D247A00A5A6F4 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710C13E6221D247A00A5A6F4 /* Util.swift */; };
 		71373915221B1FB900CE4056 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71373914221B1FB900CE4056 /* AppDelegate.swift */; };
@@ -34,7 +34,7 @@
 		3B63AE99E4CDBE5729645A2E /* Pods-Stylit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stylit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stylit/Pods-Stylit.debug.xcconfig"; sourceTree = "<group>"; };
 		5A519583221E5D8C00E5B839 /* LikesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesViewController.swift; sourceTree = "<group>"; };
 		5A519585221E7FDF00E5B839 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
-		5AFD34422220010F0002A96D /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		5AF0D2202220CB3E00237FC6 /* RecommendedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedViewController.swift; sourceTree = "<group>"; };
 		607BA1F3D824FD37D4B98FF5 /* Pods_StylitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StylitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		710C13E6221D247A00A5A6F4 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		71373911221B1FB900CE4056 /* Stylit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stylit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,7 +111,7 @@
 				710C13E6221D247A00A5A6F4 /* Util.swift */,
 				5A519583221E5D8C00E5B839 /* LikesViewController.swift */,
 				5A519585221E7FDF00E5B839 /* CartViewController.swift */,
-				5AFD34422220010F0002A96D /* CollectionViewController.swift */,
+				5AF0D2202220CB3E00237FC6 /* RecommendedViewController.swift */,
 			);
 			path = Stylit;
 			sourceTree = "<group>";
@@ -301,7 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AFD34432220010F0002A96D /* CollectionViewController.swift in Sources */,
+				5AF0D2212220CB3E00237FC6 /* RecommendedViewController.swift in Sources */,
 				7137393B221B292200CE4056 /* HomeViewController.swift in Sources */,
 				710C13E7221D247A00A5A6F4 /* Util.swift in Sources */,
 				5A519586221E7FDF00E5B839 /* CartViewController.swift in Sources */,
