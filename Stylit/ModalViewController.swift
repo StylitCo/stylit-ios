@@ -24,12 +24,6 @@ class ModalViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-//        label.text = "\(num ?? -1)"
-//        view.addSubview(label)
-//        label.snp.makeConstraints { make in
-//            make.centerX.equalToSuperview()
-//            make.centerY.equalToSuperview()
-//        }
         
         setupSubviews()
         setupLayout()
