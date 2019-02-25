@@ -52,14 +52,6 @@ class CartViewController: UIViewController {
         }
     }
     
-    // this could return a random image maybe
-    private func cellImage() -> UIImageView {
-        let image = UIImage(named: "StylishMan")
-        let imageView = UIImageView(image: image)
-        
-        return imageView
-    }
-    
     private func setupCollection() {
         var data: [Int] = []
         for i in 1...50 {
