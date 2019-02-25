@@ -6,8 +6,13 @@
 build/
 DerivedData/
 
+Pods/
+
 ## Various settings
 *.pbxuser
+*.xcscheme
+*.plist
+*.xcconfig
 !default.pbxuser
 *.mode1v3
 !default.mode1v3

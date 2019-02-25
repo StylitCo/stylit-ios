@@ -75,11 +75,8 @@ extension HomeViewController {
         
         view.addSubview(headerView)
         
-//        kolodaView.backgroundColor = .purple
-        
         let likeImage = UIImage(named: "Like")
         likeButton.setImage(likeImage, for: .normal)
-        //likeButton.setImage(likeImage?.maskWithColor(color: .red), for: .selected)
         likeButton.addTarget(self, action: #selector(HomeViewController.likeButtonTapped(_:)), for: .touchUpInside)
         
         let dislikeImage = UIImage(named: "Dislike")
@@ -96,9 +93,6 @@ extension HomeViewController {
         feedButton.tintColor = .white
         feedButton.addTarget(self, action: #selector(HomeViewController.feedButtonTapped(_:)),                             for: .touchUpInside)
 
-//        likeButton.backgroundColor = .red
-//        dislikeButton.backgroundColor = .blue
-        
         view.addSubview(kolodaView)
         view.addSubview(dislikeButton)
         view.addSubview(likeButton)
@@ -110,7 +104,6 @@ extension HomeViewController {
         gradient.frame = view.bounds
         gradient.colors = [UIColor.purple.cgColor, UIColor.white.cgColor]
         view.layer.insertSublayer(gradient, at: 0)
-//        view.backgroundColor = .purple
     }
     
     private func setupLayout() {
@@ -202,8 +195,6 @@ extension HomeViewController {
     }
     
     @objc func cartButtonTapped(_ sender: UIButton) {
-        print("cart button tapped")
-        
         // animate transition
         let vc = CartViewController()
         vc.hero.isEnabled = true
@@ -212,8 +203,6 @@ extension HomeViewController {
     }
     
     @objc func feedButtonTapped(_ sender: UIButton) {
-        print("feed button tapped")
-        
         // animate transition
         let vc = LikesViewController()
         vc.hero.isEnabled = true

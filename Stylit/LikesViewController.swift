@@ -18,7 +18,7 @@ class LikesViewController: UIViewController {
     
     private let mainLabel = UILabel()
     
-    let collectionView = CollectionView()
+    private let collectionView = CollectionView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +85,7 @@ class LikesViewController: UIViewController {
         }
         
         collectionView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(100)
+            make.top.equalTo(recommendedButton.snp.bottom).offset(40)
             make.bottom.equalToSuperview()
             make.width.equalToSuperview()
             make.leading.equalToSuperview()
@@ -113,9 +113,7 @@ class LikesViewController: UIViewController {
             imageView.layer.masksToBounds = true
             imageView.layer.cornerRadius = 25
             view.addSubview(imageView)
-            view.bringSubviewToFront(imageView)
             view.backgroundColor = .white
-            view.layer.masksToBounds = true
             view.layer.cornerRadius = 25
             
             view.layer.shadowPath =
