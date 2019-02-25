@@ -9,6 +9,7 @@
 import UIKit
 import Hero
 import SnapKit
+import CollectionKit
 
 class RecommendedViewController: UIViewController {
     
@@ -16,6 +17,8 @@ class RecommendedViewController: UIViewController {
     private let likesButton = UIButton()
     
     private let mainLabel = UILabel()
+    
+    let collectionView = CollectionView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +29,59 @@ class RecommendedViewController: UIViewController {
         setupLayout()
         
         likesButton.hero.id = "hello"
+    }
+    
+    // this could return a random image maybe
+    private func cellImage() -> UIImageView {
+        let image = UIImage(named: "StylishMan")
+        let imageView = UIImageView(image: image)
+        
+        return imageView
+    }
+    
+    private func setupCollection() {
+        var data: [Int] = []
+        for i in 1...50 {
+            data.append(i)
+        }
+        
+        let dataSource = ArrayDataSource(data: data)
+        let viewSource = ClosureViewSource(viewUpdater: { (view: UIView, data: Int, index: Int) in
+            let imageView = self.cellImage()
+            imageView.frame = CGRect(x: 0, y: 0, width: 150, height: 300)
+            imageView.layer.masksToBounds = true
+            imageView.layer.cornerRadius = 25
+            view.addSubview(imageView)
+            view.bringSubviewToFront(imageView)
+            view.backgroundColor = .white
+            view.layer.masksToBounds = true
+            view.layer.cornerRadius = 25
+            
+            view.layer.shadowPath =
+                UIBezierPath(roundedRect: view.bounds,
+                             cornerRadius: view.layer.cornerRadius).cgPath
+            view.layer.shadowColor = UIColor.black.cgColor
+            view.layer.shadowOpacity = 0.5
+            view.layer.shadowOffset = CGSize(width: 2, height: 2)
+            view.layer.shadowRadius = 1
+            view.layer.masksToBounds = false
+        })
+        let sizeSource = { (index: Int, data: Int, collectionSize: CGSize) -> CGSize in
+            return CGSize(width: 150, height: 300)
+        }
+        let provider = BasicProvider(
+            dataSource: dataSource,
+            viewSource: viewSource,
+            sizeSource: sizeSource
+        )
+        
+        provider.layout = FlowLayout(spacing: 25, justifyContent: .center)
+        provider.animator = WobbleAnimator()
+        
+        collectionView.backgroundColor = UIColor.clear
+        
+        //lastly assign this provider to the collectionView to display the content
+        collectionView.provider = provider
     }
     
     private func setupSubViews() {
@@ -51,6 +107,13 @@ class RecommendedViewController: UIViewController {
         mainLabel.textColor = UIColor.white
         
         view.addSubview(mainLabel)
+        
+        view.addSubview(collectionView)
+        
+        let gradient = CAGradientLayer()
+        gradient.frame = view.bounds
+        gradient.colors = [UIColor.purple.cgColor, UIColor.white.cgColor]
+        view.layer.insertSublayer(gradient, at: 0)
     }
     
     private func setupLayout() {
@@ -74,22 +137,20 @@ class RecommendedViewController: UIViewController {
             make.centerY.equalTo(homeButton.snp.centerY)
             make.leading.equalToSuperview().offset(20)
         }
+        
+        collectionView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(100)
+            make.bottom.equalToSuperview()
+            make.width.equalToSuperview()
+            make.leading.equalToSuperview()
+        }
     }
     
     @objc func homeButtonTapped(_ sender: UIButton) {
-        // animate transition
-        let vc = HomeViewController()
-        vc.hero.isEnabled = true
-        vc.hero.modalAnimationType = .uncover(direction: .left)
-        present(vc, animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     @objc func likesButtonTapped(_ sender: UIButton) {
-        // animate transition
-        let vc = LikesViewController()
-        vc.hero.isEnabled = true
-        vc.hero.modalAnimationType = .fade
-        present(vc, animated: true, completion: nil)
         dismiss(animated: true, completion: nil)
     }
 }

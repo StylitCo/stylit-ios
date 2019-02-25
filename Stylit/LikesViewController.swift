@@ -150,7 +150,7 @@ class LikesViewController: UIViewController {
         let vc = HomeViewController()
         vc.hero.isEnabled = true
         vc.hero.modalAnimationType = .slide(direction: .left)
-        present(vc, animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     @objc func recommendedButtonTapped(_ sender: UIButton) {
@@ -159,7 +159,6 @@ class LikesViewController: UIViewController {
         vc.hero.isEnabled = true
         vc.hero.modalAnimationType = .fade
         present(vc, animated: true, completion: nil)
-        dismiss(animated: true, completion: nil)
     }
 }
 

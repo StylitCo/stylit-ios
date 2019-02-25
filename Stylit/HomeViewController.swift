@@ -207,9 +207,8 @@ extension HomeViewController {
         // animate transition
         let vc = CartViewController()
         vc.hero.isEnabled = true
-        vc.hero.modalAnimationType = .cover(direction: .left)
+        vc.hero.modalAnimationType = .selectBy(presenting:.slide(direction: .left), dismissing:.slide(direction: .right))
         present(vc, animated: true, completion: nil)
-        dismiss(animated: true, completion: nil)
     }
     
     @objc func feedButtonTapped(_ sender: UIButton) {
@@ -218,9 +217,9 @@ extension HomeViewController {
         // animate transition
         let vc = LikesViewController()
         vc.hero.isEnabled = true
-        vc.hero.modalAnimationType = .slide(direction: .right)
+        vc.hero.modalAnimationType = .selectBy(presenting:.slide(direction: .right), dismissing:.slide(direction: .left))
         present(vc, animated: true, completion: nil)
-        dismiss(animated: true, completion: nil)
+        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
