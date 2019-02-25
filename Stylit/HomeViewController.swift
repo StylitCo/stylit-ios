@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 import Koloda
 import Hero
+import Presentr
 
 private var numberOfCards: Int = 5
 
@@ -157,7 +158,34 @@ extension HomeViewController: KolodaViewDelegate {
     
     func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
         print("selected!")
-        // TODO: Do something when selected
+
+        // present modal view with Presentr
+        let presenter: Presentr = {
+            let width = ModalSize.full
+            let height = ModalSize.half
+            let center = ModalCenterPosition.bottomCenter
+            let customType = PresentationType.custom(width: width, height: height, center: center)
+            
+            let customPresenter = Presentr(presentationType: customType)
+            customPresenter.transitionType = .coverVertical
+            customPresenter.dismissTransitionType = .crossDissolve
+            customPresenter.roundCorners = true
+            customPresenter.backgroundColor = .purple
+            customPresenter.backgroundOpacity = 0.5
+            customPresenter.dismissOnSwipe = true
+            customPresenter.dismissOnSwipeDirection = .default
+            return customPresenter
+        }()
+        
+        let controller = ModalViewController()
+        controller.num = index
+        
+        controller.setItemName(name: "Sport Coat")
+        controller.setItemBrand(brand: "Supreme")
+        controller.setItemPrice(price: "29.95")
+        controller.setItemDetails(details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+        
+        customPresentViewController(presenter, viewController: controller, animated: true, completion: nil)
     }
 }
 

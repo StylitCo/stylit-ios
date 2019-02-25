@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A2784282223A7C000F38CE0 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2784272223A7C000F38CE0 /* ModalViewController.swift */; };
 		5A519584221E5D8C00E5B839 /* LikesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A519583221E5D8C00E5B839 /* LikesViewController.swift */; };
 		5A519586221E7FDF00E5B839 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A519585221E7FDF00E5B839 /* CartViewController.swift */; };
 		5AF0D2212220CB3E00237FC6 /* RecommendedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0D2202220CB3E00237FC6 /* RecommendedViewController.swift */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		02B193B5F3200E89E72DEC68 /* Pods-StylitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StylitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StylitTests/Pods-StylitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3B63AE99E4CDBE5729645A2E /* Pods-Stylit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stylit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stylit/Pods-Stylit.debug.xcconfig"; sourceTree = "<group>"; };
+		5A2784272223A7C000F38CE0 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		5A519583221E5D8C00E5B839 /* LikesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesViewController.swift; sourceTree = "<group>"; };
 		5A519585221E7FDF00E5B839 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		5AF0D2202220CB3E00237FC6 /* RecommendedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				710C13E6221D247A00A5A6F4 /* Util.swift */,
 				5A519583221E5D8C00E5B839 /* LikesViewController.swift */,
 				5AF0D2202220CB3E00237FC6 /* RecommendedViewController.swift */,
+				5A2784272223A7C000F38CE0 /* ModalViewController.swift */,
 			);
 			path = Stylit;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				"${BUILT_PRODUCTS_DIR}/CollectionKit/CollectionKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/Koloda/Koloda.framework",
+				"${BUILT_PRODUCTS_DIR}/Presentr/Presentr.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/YetAnotherAnimationLibrary/YetAnotherAnimationLibrary.framework",
 				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
@@ -280,6 +284,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CollectionKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Koloda.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Presentr.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YetAnotherAnimationLibrary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
@@ -321,6 +326,7 @@
 				5A519586221E7FDF00E5B839 /* CartViewController.swift in Sources */,
 				71373915221B1FB900CE4056 /* AppDelegate.swift in Sources */,
 				5A519584221E5D8C00E5B839 /* LikesViewController.swift in Sources */,
+				5A2784282223A7C000F38CE0 /* ModalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
