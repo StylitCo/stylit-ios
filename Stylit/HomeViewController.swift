@@ -49,7 +49,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dismiss(animated: true, completion: nil)
         kolodaView.dataSource = self
         kolodaView.delegate = self
         self.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
@@ -214,6 +213,7 @@ extension HomeViewController {
         vc.hero.isEnabled = true
         vc.hero.modalAnimationType = .cover(direction: .left)
         present(vc, animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     @objc func feedButtonTapped(_ sender: UIButton) {
@@ -222,8 +222,9 @@ extension HomeViewController {
         // animate transition
         let vc = LikesViewController()
         vc.hero.isEnabled = true
-        vc.hero.modalAnimationType = .cover(direction: .right)
+        vc.hero.modalAnimationType = .slide(direction: .right)
         present(vc, animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

@@ -19,7 +19,6 @@ class RecommendedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dismiss(animated: true, completion: nil)
         self.hero.isEnabled = true
         view.backgroundColor = UIColor.blue
         
@@ -91,5 +90,6 @@ class RecommendedViewController: UIViewController {
         vc.hero.isEnabled = true
         vc.hero.modalAnimationType = .fade
         present(vc, animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }

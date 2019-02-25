@@ -22,7 +22,6 @@ class LikesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dismiss(animated: true, completion: nil)
         self.hero.isEnabled = true
         view.backgroundColor = UIColor.purple
 
@@ -40,7 +39,7 @@ class LikesViewController: UIViewController {
         homeButton.tintColor = .white
         homeButton.addTarget(self, action: #selector(LikesViewController.homeButtonTapped(_:)),                             for: .touchUpInside)
         
-        let glassImage = UIImage(named: "magnifying_glass")
+        let glassImage = UIImage(named: "Star")
         recommendedButton.setImage(glassImage, for: .normal)
         recommendedButton.tintColor = .white
         recommendedButton.addTarget(self, action: #selector(LikesViewController.recommendedButtonTapped(_:)),                             for: .touchUpInside)
@@ -58,6 +57,11 @@ class LikesViewController: UIViewController {
         view.addSubview(mainLabel)
         
         view.addSubview(collectionView)
+        
+        let gradient = CAGradientLayer()
+        gradient.frame = view.bounds
+        gradient.colors = [UIColor.purple.cgColor, UIColor.white.cgColor]
+        view.layer.insertSublayer(gradient, at: 0)
     }
     
     private func setupLayout() {
@@ -88,6 +92,7 @@ class LikesViewController: UIViewController {
         }
     }
     
+    // this could return a random image maybe
     private func cellImage() -> UIImageView {
         let image = UIImage(named: "StylishMan")
         let imageView = UIImageView(image: image)
@@ -104,15 +109,26 @@ class LikesViewController: UIViewController {
         let dataSource = ArrayDataSource(data: data)
         let viewSource = ClosureViewSource(viewUpdater: { (view: UIView, data: Int, index: Int) in
             let imageView = self.cellImage()
-            imageView.frame = CGRect(x: 0, y: 0, width: 100, height: 200)
+            imageView.frame = CGRect(x: 0, y: 0, width: 150, height: 300)
+            imageView.layer.masksToBounds = true
+            imageView.layer.cornerRadius = 25
             view.addSubview(imageView)
             view.bringSubviewToFront(imageView)
             view.backgroundColor = .white
             view.layer.masksToBounds = true
-            view.layer.cornerRadius = 10
+            view.layer.cornerRadius = 25
+            
+            view.layer.shadowPath =
+                UIBezierPath(roundedRect: view.bounds,
+                             cornerRadius: view.layer.cornerRadius).cgPath
+            view.layer.shadowColor = UIColor.black.cgColor
+            view.layer.shadowOpacity = 0.5
+            view.layer.shadowOffset = CGSize(width: 2, height: 2)
+            view.layer.shadowRadius = 1
+            view.layer.masksToBounds = false
         })
         let sizeSource = { (index: Int, data: Int, collectionSize: CGSize) -> CGSize in
-            return CGSize(width: 100, height: 200)
+            return CGSize(width: 150, height: 300)
         }
         let provider = BasicProvider(
             dataSource: dataSource,
@@ -120,8 +136,10 @@ class LikesViewController: UIViewController {
             sizeSource: sizeSource
         )
         
-        provider.layout = FlowLayout(spacing: 10, justifyContent: .center)
+        provider.layout = FlowLayout(spacing: 25, justifyContent: .center)
         provider.animator = WobbleAnimator()
+        
+        collectionView.backgroundColor = UIColor.clear
         
         //lastly assign this provider to the collectionView to display the content
         collectionView.provider = provider
@@ -131,7 +149,7 @@ class LikesViewController: UIViewController {
         // animate transition
         let vc = HomeViewController()
         vc.hero.isEnabled = true
-        vc.hero.modalAnimationType = .uncover(direction: .left)
+        vc.hero.modalAnimationType = .slide(direction: .left)
         present(vc, animated: true, completion: nil)
     }
     
@@ -141,6 +159,7 @@ class LikesViewController: UIViewController {
         vc.hero.isEnabled = true
         vc.hero.modalAnimationType = .fade
         present(vc, animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }
 
