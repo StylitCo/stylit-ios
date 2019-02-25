@@ -11,6 +11,7 @@ target 'Stylit' do
   pod 'Hero'
   pod 'CollectionKit'
   pod 'CollectionKit/WobbleAnimator'
+  pod 'Presentr'
 
   target 'StylitTests' do
     inherit! :search_paths
