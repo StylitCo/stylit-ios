@@ -25,6 +25,7 @@ class RecommendedViewController: UIViewController {
         self.hero.isEnabled = true
         view.backgroundColor = UIColor.blue
         
+        setupCollection()
         setupSubViews()
         setupLayout()
         
@@ -75,7 +76,7 @@ class RecommendedViewController: UIViewController {
             sizeSource: sizeSource
         )
         
-        provider.layout = FlowLayout(spacing: 25, justifyContent: .center)
+        provider.layout = FlowLayout(spacing: 25, justifyContent: .center).transposed()
         provider.animator = WobbleAnimator()
         
         collectionView.backgroundColor = UIColor.clear
@@ -147,7 +148,7 @@ class RecommendedViewController: UIViewController {
     }
     
     @objc func homeButtonTapped(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     @objc func likesButtonTapped(_ sender: UIButton) {
