@@ -114,12 +114,22 @@ extension HomeViewController {
     }
     
     private func setupLayout() {
+        cartButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(30)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(40)
+            make.width.equalTo(40)
+        }
+        
+        feedButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(30)
+            make.leading.equalToSuperview().offset(20)
+            make.height.equalTo(40)
+            make.width.equalTo(40)
+        }
+        
         kolodaView.snp.makeConstraints { make in
-            if #available(iOS 11, *) {
-                make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(50)
-            } else {
-                make.top.equalTo(view.snp.topMargin).offset(50)
-            }
+            make.top.equalTo(feedButton.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(10)
             make.trailing.equalToSuperview().offset(-10)
         }
@@ -138,20 +148,6 @@ extension HomeViewController {
             make.height.equalTo(80)
             make.width.equalTo(80)
             make.bottom.equalToSuperview().offset(-50)
-        }
-        
-        cartButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(50)
-            make.trailing.equalToSuperview().offset(-20)
-            make.height.equalTo(40)
-            make.width.equalTo(40)
-        }
-        
-        feedButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(50)
-            make.leading.equalToSuperview().offset(20)
-            make.height.equalTo(40)
-            make.width.equalTo(40)
         }
     }
 }
@@ -211,7 +207,7 @@ extension HomeViewController {
         // animate transition
         let vc = CartViewController()
         vc.hero.isEnabled = true
-        vc.hero.modalAnimationType = .cover(direction: .left)
+        vc.hero.modalAnimationType = .selectBy(presenting:.slide(direction: .left), dismissing:.slide(direction: .right))
         present(vc, animated: true, completion: nil)
     }
     
@@ -221,8 +217,9 @@ extension HomeViewController {
         // animate transition
         let vc = LikesViewController()
         vc.hero.isEnabled = true
-        vc.hero.modalAnimationType = .cover(direction: .right)
+        vc.hero.modalAnimationType = .selectBy(presenting:.slide(direction: .right), dismissing:.slide(direction: .left))
         present(vc, animated: true, completion: nil)
+        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
