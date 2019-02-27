@@ -8,6 +8,7 @@ PODS:
   - Hero (1.4.0)
   - Koloda (4.6):
     - pop (~> 1.0)
+  - PMSuperButton (2.2.0)
   - pop (1.0.12)
   - Presentr (1.9)
   - SnapKit (4.0.1)
@@ -18,6 +19,7 @@ DEPENDENCIES:
   - CollectionKit/WobbleAnimator
   - Hero
   - Koloda
+  - PMSuperButton
   - Presentr
   - SnapKit (~> 4.0.0)
 
@@ -26,6 +28,7 @@ SPEC REPOS:
     - CollectionKit
     - Hero
     - Koloda
+    - PMSuperButton
     - pop
     - Presentr
     - SnapKit
@@ -35,11 +38,12 @@ SPEC CHECKSUMS:
   CollectionKit: 6910479bf865bfe49040e73322ce4b8fe8991231
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   Koloda: bcf5acded25fc49020d1447ed8ddd87e14d01e7e
+  PMSuperButton: 5e7b2eb79468dba1ced3fd00e47a7ce88a1fa664
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   Presentr: 7078d7eb5d1661ebeaae60c9e42a1e534de1b993
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   YetAnotherAnimationLibrary: 69655d8bc9986919f334c940ddebde8e42bdd007
 
-PODFILE CHECKSUM: a92d61b06c73b1db3da8ad3270f7e0b4e3d6303c
+PODFILE CHECKSUM: 215569ff5bca20856fd574fd06dadbb3a300885d
 
 COCOAPODS: 1.5.3
