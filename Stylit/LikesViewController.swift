@@ -101,14 +101,18 @@ class LikesViewController: UIViewController {
     }
     
     private func setupCollection() {
+        var likesData = LikesService.getLikedImages()
+        
         var data: [Int] = []
-        for i in 1...50 {
-            data.append(i)
+        if !likesData.isEmpty {
+            for i in 0..<likesData.count {
+                data.append(i)
+            }
         }
         
         let dataSource = ArrayDataSource(data: data)
         let viewSource = ClosureViewSource(viewUpdater: { (view: UIView, data: Int, index: Int) in
-            let imageView = self.cellImage()
+            let imageView = UIImageView(image: likesData[data])
             imageView.frame = CGRect(x: 0, y: 0, width: 150, height: 300)
             imageView.layer.masksToBounds = true
             imageView.layer.cornerRadius = 25
