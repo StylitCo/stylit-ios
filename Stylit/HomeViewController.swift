@@ -34,8 +34,10 @@ class HomeViewController: UIViewController {
     
     private var dataSource: [UIImage] = {
         var array: [UIImage] = []
-        for index in 0..<numberOfCards {
-            array.append(UIImage(named: "StylishMan")!)
+        for index in 1...10 {
+            array.append(UIImage(named: "shoes\(index)")!)
+            array.append(UIImage(named: "shirt\(index)")!)
+            array.append(UIImage(named: "pant\(index)")!)
         }
         
         return array
