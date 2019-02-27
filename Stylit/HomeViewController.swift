@@ -16,11 +16,21 @@ private var numberOfCards: Int = 5
 
 class HomeViewController: UIViewController {
     
+    // logo
+    
+    private let logoView = UIImageView()
+    
+    // labels
+    
     private let stylitLabel = UILabel()
     private let separatorView = UIView()
     private let headerView = UIView()
     
+    // card stack
+    
     private let kolodaView = KolodaView()
+    
+    // buttons
     
     private let buttonView = UIView()
     private let dislikeButton = UIButton()
@@ -67,6 +77,13 @@ class HomeViewController: UIViewController {
 // MARK: Setup subviews
 extension HomeViewController {
     private func setupSubviews() {
+        
+        // set up logo
+        logoView.image = UIImage(named: "StylitLogo")
+        logoView.contentMode = UIView.ContentMode.scaleAspectFit
+        
+        view.addSubview(logoView)
+        
         stylitLabel.text = "Stylit"
         stylitLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         stylitLabel.numberOfLines = 1
@@ -110,6 +127,12 @@ extension HomeViewController {
     }
     
     private func setupLayout() {
+        logoView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin)
+            make.centerX.equalToSuperview().offset(-2)
+            make.height.equalTo(50)
+        }
+        
         cartButton.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin)
             make.trailing.equalToSuperview().offset(-20)
