@@ -38,7 +38,7 @@ class CartViewController: UIViewController {
     
     private func setupLayout() {
         homeButton.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(50)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin)
             make.leading.equalToSuperview().offset(20)
             make.height.equalTo(40)
             make.width.equalTo(40)

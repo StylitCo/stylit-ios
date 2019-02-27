@@ -111,14 +111,14 @@ extension HomeViewController {
     
     private func setupLayout() {
         cartButton.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(30)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin)
             make.trailing.equalToSuperview().offset(-20)
             make.height.equalTo(40)
             make.width.equalTo(40)
         }
         
         feedButton.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(30)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin)
             make.leading.equalToSuperview().offset(20)
             make.height.equalTo(40)
             make.width.equalTo(40)
