@@ -104,8 +104,10 @@ class LikesViewController: UIViewController {
         var likesData = LikesService.getLikedImages()
         
         var data: [Int] = []
-        for i in 1...likesData.count {
-            data.append(i)
+        if !likesData.isEmpty {
+            for i in 1...likesData.count {
+                data.append(i)
+            }
         }
         
         let dataSource = ArrayDataSource(data: data)
