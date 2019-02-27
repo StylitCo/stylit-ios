@@ -18,71 +18,57 @@ class RecommendedViewController: UIViewController {
     
     private let mainLabel = UILabel()
     
-    let collectionView = CollectionView()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hero.isEnabled = true
         view.backgroundColor = UIColor.blue
         
-        setupCollection()
+        setupBlurb()
         setupSubViews()
         setupLayout()
         
         likesButton.hero.id = "hello"
     }
     
-    // this could return a random image maybe
-    private func cellImage() -> UIImageView {
-        let image = UIImage(named: "StylishMan")
-        let imageView = UIImageView(image: image)
+    private func setupBlurb() {
+        let topLabel = UILabel()
+        topLabel.text = "Recommendations"
+        topLabel.font = UIFont.systemFont(ofSize: 40, weight: .bold)
+        topLabel.textColor = .darkGray
+        topLabel.textAlignment = .center
         
-        return imageView
-    }
-    
-    private func setupCollection() {
-        var data: [Int] = []
-        for i in 1...50 {
-            data.append(i)
+        let midLabel = UILabel()
+        midLabel.text = "See clothes and styles \npersonalized to your tastes."
+        midLabel.numberOfLines = 2
+        midLabel.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        midLabel.textColor = .darkGray
+        midLabel.textAlignment = .center
+        
+        let botLabel = UILabel()
+        botLabel.text = "Coming Soon!"
+        botLabel.font = UIFont.systemFont(ofSize: 30, weight: .semibold)
+        botLabel.textColor = .darkGray
+        botLabel.textAlignment = .center
+        
+        view.addSubview(topLabel)
+        view.addSubview(midLabel)
+        view.addSubview(botLabel)
+        
+        topLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(midLabel.snp.top).offset(-10)
         }
         
-        let dataSource = ArrayDataSource(data: data)
-        let viewSource = ClosureViewSource(viewUpdater: { (view: UIView, data: Int, index: Int) in
-            let imageView = self.cellImage()
-            imageView.frame = CGRect(x: 0, y: 0, width: 150, height: 300)
-            imageView.layer.masksToBounds = true
-            imageView.layer.cornerRadius = 25
-            view.addSubview(imageView)
-            view.bringSubviewToFront(imageView)
-            view.backgroundColor = .white
-            view.layer.masksToBounds = true
-            view.layer.cornerRadius = 25
-            
-            view.layer.shadowPath =
-                UIBezierPath(roundedRect: view.bounds,
-                             cornerRadius: view.layer.cornerRadius).cgPath
-            view.layer.shadowColor = UIColor.black.cgColor
-            view.layer.shadowOpacity = 0.5
-            view.layer.shadowOffset = CGSize(width: 2, height: 2)
-            view.layer.shadowRadius = 1
-            view.layer.masksToBounds = false
-        })
-        let sizeSource = { (index: Int, data: Int, collectionSize: CGSize) -> CGSize in
-            return CGSize(width: 150, height: 300)
+        midLabel.snp.makeConstraints { make in
+            make.width.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
         }
-        let provider = BasicProvider(
-            dataSource: dataSource,
-            viewSource: viewSource,
-            sizeSource: sizeSource
-        )
         
-        provider.layout = FlowLayout(spacing: 25, justifyContent: .center).transposed()
-        provider.animator = WobbleAnimator()
-        
-        collectionView.backgroundColor = UIColor.clear
-        
-        //lastly assign this provider to the collectionView to display the content
-        collectionView.provider = provider
+        botLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(midLabel.snp.bottom).offset(10)
+        }
     }
     
     private func setupSubViews() {
@@ -108,8 +94,6 @@ class RecommendedViewController: UIViewController {
         mainLabel.textColor = UIColor.white
         
         view.addSubview(mainLabel)
-        
-        view.addSubview(collectionView)
         
         let gradient = CAGradientLayer()
         gradient.frame = view.bounds
@@ -137,13 +121,6 @@ class RecommendedViewController: UIViewController {
             //            make.centerX.equalToSuperview()
             make.centerY.equalTo(homeButton.snp.centerY)
             make.leading.equalToSuperview().offset(20)
-        }
-        
-        collectionView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(100)
-            make.bottom.equalToSuperview()
-            make.width.equalToSuperview()
-            make.leading.equalToSuperview()
         }
     }
     
