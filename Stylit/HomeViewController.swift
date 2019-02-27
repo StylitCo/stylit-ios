@@ -11,6 +11,7 @@ import SnapKit
 import Koloda
 import Hero
 import Presentr
+import PMSuperButton
 
 private var numberOfCards: Int = 5
 
@@ -23,8 +24,8 @@ class HomeViewController: UIViewController {
     private let kolodaView = KolodaView()
     
     private let buttonView = UIView()
-    private let dislikeButton = UIButton()
-    private let likeButton = UIButton()
+    private let dislikeButton = PMSuperButton()
+    private let likeButton = PMSuperButton()
     
     // navigation
     private let cartButton = UIButton()
@@ -80,10 +81,26 @@ extension HomeViewController {
         
         let likeImage = UIImage(named: "Like")
         likeButton.setImage(likeImage, for: .normal)
+        likeButton.ripple = true
+        likeButton.cornerRadius = 41
+        likeButton.animatedScaleWhenHighlighted = 1.2
+        likeButton.animatedScaleWhenSelected = 1.2
+        likeButton.gradientEnabled = true
+        likeButton.gradientHorizontal = true
+        likeButton.gradientStartColor = UIColor.red
+        likeButton.gradientEndColor = UIColor.purple
         likeButton.addTarget(self, action: #selector(HomeViewController.likeButtonTapped(_:)), for: .touchUpInside)
         
         let dislikeImage = UIImage(named: "Dislike")
         dislikeButton.setImage(dislikeImage, for: .normal)
+        dislikeButton.ripple = true
+        dislikeButton.cornerRadius = 41
+        dislikeButton.animatedScaleWhenHighlighted = 1.2
+        dislikeButton.animatedScaleWhenSelected = 1.2
+        dislikeButton.gradientEnabled = true
+        dislikeButton.gradientHorizontal = true
+        dislikeButton.gradientStartColor = UIColor.blue
+        dislikeButton.gradientEndColor = UIColor.purple
         dislikeButton.addTarget(self, action: #selector(HomeViewController.dislikeButtonTapped(_:)), for: .touchUpInside)
         
         let cartImage = UIImage(named: "Cart")
