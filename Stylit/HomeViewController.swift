@@ -161,24 +161,7 @@ extension HomeViewController: KolodaViewDelegate {
     func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
         print("selected!")
 
-        // present modal view with Presentr
-        let presenter: Presentr = {
-            let width = ModalSize.full
-            let height = ModalSize.half
-            let center = ModalCenterPosition.bottomCenter
-            let customType = PresentationType.custom(width: width, height: height, center: center)
-            
-            let customPresenter = Presentr(presentationType: customType)
-            customPresenter.transitionType = .coverVertical
-            customPresenter.dismissTransitionType = .crossDissolve
-            customPresenter.roundCorners = true
-            customPresenter.backgroundColor = .purple
-            customPresenter.backgroundOpacity = 0.5
-            customPresenter.dismissOnSwipe = true
-            customPresenter.dismissOnSwipeDirection = .default
-            return customPresenter
-        }()
-        
+        let presenter: Presentr = Util.getPresentr()
         let controller = ModalViewController()
         controller.num = index
         
