@@ -197,7 +197,6 @@ extension HomeViewController: KolodaViewDataSource {
         imageView.backgroundColor = .white
         imageView.layer.cornerRadius = 8.0
         imageView.clipsToBounds = true
-        
         // TODO: Add shadows?
         
         return imageView
@@ -209,6 +208,17 @@ extension HomeViewController: KolodaViewDataSource {
     
     func kolodaNumberOfCards(_ koloda: KolodaView) -> Int {
         return dataSource.count
+    }
+    
+    func koloda(_ koloda: KolodaView, didSwipeCardAt index: Int, in direction: SwipeResultDirection) {
+        let swipedImage = dataSource[index]
+        if direction == .left {
+            LikesService.dislikeImage(dislikedImage: swipedImage)
+        } else if direction == .right {
+            LikesService.likeImage(likedImage: swipedImage)
+        } else {
+            print("Unexpected direction: \(direction)")
+        }
     }
 }
 
