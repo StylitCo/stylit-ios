@@ -103,22 +103,20 @@ class RecommendedViewController: UIViewController {
     
     private func setupLayout() {
         homeButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(50)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin)
             make.trailing.equalToSuperview().offset(-20)
             make.height.equalTo(40)
             make.width.equalTo(40)
         }
         
         likesButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(50)
-            //            make.leading.equalToSuperview().offset(20)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin)
             make.trailing.equalTo(homeButton.snp.leading).offset(-10)
             make.height.equalTo(40)
             make.width.equalTo(40)
         }
         
         mainLabel.snp.makeConstraints { make in
-            //            make.centerX.equalToSuperview()
             make.centerY.equalTo(homeButton.snp.centerY)
             make.leading.equalToSuperview().offset(20)
         }
