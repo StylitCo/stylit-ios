@@ -12,6 +12,7 @@ import Koloda
 import Hero
 import Presentr
 import PMSuperButton
+import PKHUD
 
 private var numberOfCards: Int = 5
 
@@ -36,6 +37,7 @@ class HomeViewController: UIViewController {
     private let buttonView = UIView()
     private let dislikeButton = PMSuperButton()
     private let likeButton = PMSuperButton()
+    private let addToCartButton = PMSuperButton()
     
     // navigation
     private let cartButton = UIButton()
@@ -120,6 +122,19 @@ extension HomeViewController {
         dislikeButton.gradientEndColor = UIColor.purple
         dislikeButton.addTarget(self, action: #selector(HomeViewController.dislikeButtonTapped(_:)), for: .touchUpInside)
         
+        let addToCartImage = UIImage(named: "addtocart")
+        addToCartButton.setImage(addToCartImage, for: .normal)
+        addToCartButton.tintColor = .yellow
+        addToCartButton.ripple = true
+        addToCartButton.cornerRadius = 41
+        addToCartButton.animatedScaleWhenHighlighted = 1.2
+        addToCartButton.animatedScaleWhenSelected = 1.2
+        addToCartButton.gradientEnabled = true
+        addToCartButton.gradientHorizontal = true
+        addToCartButton.gradientStartColor = UIColor.black
+        addToCartButton.gradientEndColor = UIColor.black
+        addToCartButton.addTarget(self, action: #selector(HomeViewController.addToCartButtonTapped(_:)), for: .touchUpInside)
+        
         let cartImage = UIImage(named: "Cart")
         cartButton.setImage(cartImage, for: .normal)
         cartButton.tintColor = .white
@@ -133,6 +148,7 @@ extension HomeViewController {
         view.addSubview(kolodaView)
         view.addSubview(dislikeButton)
         view.addSubview(likeButton)
+        view.addSubview(addToCartButton)
         view.addSubview(cartButton)
         view.addSubview(feedButton)
 
@@ -171,7 +187,7 @@ extension HomeViewController {
         }
         
         dislikeButton.snp.makeConstraints { make in
-            make.centerX.equalToSuperview().offset(-90)
+            make.centerX.equalToSuperview().offset(-120)
             make.top.equalTo(kolodaView.snp.bottom).offset(50)
             make.height.equalTo(80)
             make.width.equalTo(80)
@@ -179,7 +195,15 @@ extension HomeViewController {
         }
 
         likeButton.snp.makeConstraints { make in
-            make.centerX.equalToSuperview().offset(90)
+            make.centerX.equalToSuperview().offset(120)
+            make.top.equalTo(kolodaView.snp.bottom).offset(50)
+            make.height.equalTo(80)
+            make.width.equalTo(80)
+            make.bottom.equalToSuperview().offset(-50)
+        }
+        
+        addToCartButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
             make.top.equalTo(kolodaView.snp.bottom).offset(50)
             make.height.equalTo(80)
             make.width.equalTo(80)
@@ -255,6 +279,16 @@ extension HomeViewController {
     
     @objc func dislikeButtonTapped(_ sender: UIButton) {
         kolodaView.swipe(.left)
+    }
+    
+    @objc func addToCartButtonTapped(_ sender: UIButton) {
+        print("add to cart")
+        let selectedImage = dataSource[kolodaView.currentCardIndex]
+        if CartService.addImageToCart(cartImage: selectedImage) == 1 {
+            HUD.flash(.label("Added to Cart"), delay: 0.5)
+        } else {
+            HUD.flash(.label("Item Already in Cart"), delay: 0.5)
+        }
     }
     
     @objc func cartButtonTapped(_ sender: UIButton) {

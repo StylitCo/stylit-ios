@@ -53,14 +53,19 @@ class CartViewController: UIViewController {
     }
     
     private func setupCollection() {
+        var cartData = CartService.getCartImages()
+        
         var data: [Int] = []
-        for i in 1...50 {
-            data.append(i)
+        if !cartData.isEmpty {
+            for i in 0..<cartData.count {
+                data.append(i)
+            }
         }
         
         let dataSource = ArrayDataSource(data: data)
         let width = self.view.frame.width - 20
         let viewSource = ClosureViewSource(viewUpdater: { (view: CartCellView, data: Int, index: Int) in
+            view.setImageIndex(i: data)
             // TODO: Do something with data
             print("data: \(data)")
         })

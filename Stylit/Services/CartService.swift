@@ -12,8 +12,12 @@ class CartService {
     // TODO: Make network calls instead of storing locally
     private static var cartImages = [UIImage]()
     
-    static func addImageToCart(cartImage: UIImage) {
+    static func addImageToCart(cartImage: UIImage) -> Int {
+        if (cartImages.contains(cartImage)) {
+            return 0
+        }
         cartImages.append(cartImage)
+        return 1
     }
     
     static func getCartImages() -> [UIImage] {
