@@ -78,7 +78,7 @@ class CartViewController: UIViewController {
             dataSource: dataSource,
             viewSource: viewSource,
             sizeSource: sizeSource,
-            layout: FlowLayout(spacing: 25, justifyContent: .center)
+            layout: FlowLayout(spacing: 5, justifyContent: .center)
         )
         
         provider.animator = WobbleAnimator()

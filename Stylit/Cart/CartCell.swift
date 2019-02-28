@@ -8,11 +8,12 @@
 
 import Foundation
 import UIKit
+import PMSuperButton
 
 class CartCellView: UIView {
     let itemImageView = UIImageView()
-    let buyButton = UIButton()
-    let removeButton = UIButton()
+    let buyButton = PMSuperButton()
+    let removeButton = PMSuperButton()
     
     let titleLabel = UILabel()
     let priceLabel = UILabel()
@@ -55,6 +56,7 @@ private extension CartCellView {
         buyButton.backgroundColor = .purple
         buyButton.clipsToBounds = true
         buyButton.layer.cornerRadius = 10
+        buyButton.ripple = true
 //        buyButton.addTarget(self, action: #selector(EventPostCollectionViewCell.attendButtonPressed(_:)), for: .touchUpInside)
         self.addSubview(buyButton)
         
@@ -62,9 +64,10 @@ private extension CartCellView {
         removeButton.titleLabel?.textAlignment = .natural
         removeButton.setTitle("Remove", for: .normal)
         removeButton.setTitleColor(.white, for: .normal)
-        removeButton.backgroundColor = .darkGray
+        removeButton.backgroundColor = UIColor.init(red: 0.61, green: 0.0156, blue: 0.004, alpha: 1.0)
         removeButton.clipsToBounds = true
         removeButton.layer.cornerRadius = 10
+        removeButton.ripple = true
         //        buyButton.addTarget(self, action: #selector(EventPostCollectionViewCell.attendButtonPressed(_:)), for: .touchUpInside)
         self.addSubview(removeButton)
         
@@ -82,7 +85,7 @@ private extension CartCellView {
         self.addSubview(titleLabel)
         self.addSubview(priceLabel)
         
-        backgroundColor = UIColor.lightGray
+        backgroundColor = UIColor.white
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 12)
         layer.shadowRadius = 10
@@ -107,14 +110,14 @@ private extension CartCellView {
             make.top.equalTo(titleLabel.snp.bottom).offset(10)
         }
         
-        buyButton.snp.makeConstraints { make in
+        removeButton.snp.makeConstraints { make in
             make.leading.equalTo(itemImageView.snp.trailing).offset(20)
             make.bottom.equalToSuperview().offset(-15)
             make.width.equalTo(100)
         }
         
-        removeButton.snp.makeConstraints { make in
-            make.leading.equalTo(buyButton.snp.trailing).offset(15)
+        buyButton.snp.makeConstraints { make in
+            make.leading.equalTo(removeButton.snp.trailing).offset(10)
             make.bottom.equalToSuperview().offset(-15)
             make.width.equalTo(100)
         }
