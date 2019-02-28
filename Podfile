@@ -13,6 +13,7 @@ target 'Stylit' do
   pod 'CollectionKit/WobbleAnimator'
   pod 'Presentr'
   pod 'PMSuperButton'
+  pod 'PKHUD', '~> 5.0'
 
   target 'StylitTests' do
     inherit! :search_paths

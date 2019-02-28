@@ -18,6 +18,8 @@ class CartCellView: UIView {
     let titleLabel = UILabel()
     let priceLabel = UILabel()
     
+    var cartIndex = 0
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupSubviews()
@@ -27,13 +29,25 @@ class CartCellView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    public func setImageIndex(i: Int) {
+        cartIndex = i
+        print(cartIndex)
+        
+        var cartData = CartService.getCartImages()
+        itemImageView.image = cartData[cartIndex]
+    }
 }
 
 private extension CartCellView {
+    
     func setupSubviews() {
         itemImageView.image = UIImage(named: "StylishMan")
+//        itemImageView.image = cartImage
         itemImageView.layer.masksToBounds = true
         itemImageView.layer.cornerRadius = 25
+        
+        self.addSubview(itemImageView)
         
         buyButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         buyButton.titleLabel?.textAlignment = .natural
@@ -67,7 +81,7 @@ private extension CartCellView {
         priceLabel.textAlignment = .natural
         priceLabel.text = "Item Price"
         
-        self.addSubview(itemImageView)
+//        self.addSubview(itemImageView)
         self.addSubview(titleLabel)
         self.addSubview(priceLabel)
         
