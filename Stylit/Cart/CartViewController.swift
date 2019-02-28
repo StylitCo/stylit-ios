@@ -66,8 +66,9 @@ class CartViewController: UIViewController {
         let width = self.view.frame.width - 20
         let viewSource = ClosureViewSource(viewUpdater: { (view: CartCellView, data: Int, index: Int) in
             view.setImageIndex(i: data)
+            view.setNeedsDisplay()
             // TODO: Do something with data
-            print("data: \(data)")
+//            print("data: \(data)")
         })
         let sizeSource = { (index: Int, data: Int, collectionSize: CGSize) -> CGSize in
             return CGSize(width: width

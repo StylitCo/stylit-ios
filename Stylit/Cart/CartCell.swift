@@ -31,16 +31,18 @@ class CartCellView: UIView {
     
     public func setImageIndex(i: Int) {
         cartIndex = i
+        print(cartIndex)
+        
+        var cartData = CartService.getCartImages()
+        itemImageView.image = cartData[cartIndex]
     }
 }
 
 private extension CartCellView {
     
     func setupSubviews() {
-//        itemImageView.image = UIImage(named: "StylishMan")
-        var cartData = CartService.getCartImages()
-        print(cartIndex)
-        itemImageView.image = cartData[cartIndex]
+        itemImageView.image = UIImage(named: "StylishMan")
+//        itemImageView.image = cartImage
         itemImageView.layer.masksToBounds = true
         itemImageView.layer.cornerRadius = 25
         
