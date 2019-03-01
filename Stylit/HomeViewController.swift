@@ -45,12 +45,12 @@ class HomeViewController: UIViewController {
     
     private let cardView = UIView()
     
-    private var dataSource: [UIImage] = {
-        var array: [UIImage] = []
+    private var dataSource: [Item] = {
+        var array: [Item] = []
         for index in 1...10 {
-            array.append(UIImage(named: "shoes\(index)")!)
-            array.append(UIImage(named: "shirt\(index)")!)
-            array.append(UIImage(named: "pant\(index)")!)
+            array.append(Item(image: UIImage(named: "shoes\(index)")!, title: "Shoe", description: "Some fresh shoes", brand: "Balenciaga", price: 100))
+            array.append(Item(image: UIImage(named: "shirt\(index)")!, title: "Shirt", description: "A fresh shirt", brand: "Bape", price: 100))
+            array.append(Item(image: UIImage(named: "pant\(index)")!, title: "Pants", description: "Some fresh pants", brand: "Supreme", price: 100))
         }
         
         return array
@@ -217,7 +217,7 @@ extension HomeViewController: KolodaViewDelegate {
     func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
         let position = kolodaView.currentCardIndex
         for _ in 1...4 {
-            dataSource.append(UIImage(named: "StylishMan")!)
+            dataSource.append(Item(image: UIImage(named: "StylishMan")!, title: "Stylish Man", description: "A Stylish Man", brand: "Palace", price: 100))
         }
         kolodaView.insertCardAtIndexRange(position..<position + 4, animated: true)
     }
@@ -227,12 +227,13 @@ extension HomeViewController: KolodaViewDelegate {
 
         let presenter: Presentr = Util.getPresentr()
         let controller = ModalViewController()
+        let item = dataSource[index]
         controller.num = index
         
-        controller.setItemName(name: "Sport Coat")
-        controller.setItemBrand(brand: "Supreme")
-        controller.setItemPrice(price: "29.95")
-        controller.setItemDetails(details: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+        controller.setItemName(name: item.title)
+        controller.setItemBrand(brand: item.brand)
+        controller.setItemPrice(price: String(describing: item.price))
+        controller.setItemDetails(details: item.description)
         
         customPresentViewController(presenter, viewController: controller, animated: true, completion: nil)
     }
@@ -242,7 +243,7 @@ extension HomeViewController: KolodaViewDelegate {
 extension HomeViewController: KolodaViewDataSource {
     
     func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
-        let imageView = UIImageView(image: dataSource[Int(index)])
+        let imageView = UIImageView(image: dataSource[Int(index)].image)
         imageView.backgroundColor = .white
         imageView.layer.cornerRadius = 8.0
         imageView.clipsToBounds = true
@@ -260,7 +261,7 @@ extension HomeViewController: KolodaViewDataSource {
     }
     
     func koloda(_ koloda: KolodaView, didSwipeCardAt index: Int, in direction: SwipeResultDirection) {
-        let swipedImage = dataSource[index]
+        let swipedImage = dataSource[index].image
         if direction == .left {
             LikesService.dislikeImage(dislikedImage: swipedImage)
         } else if direction == .right {
@@ -283,7 +284,7 @@ extension HomeViewController {
     
     @objc func addToCartButtonTapped(_ sender: UIButton) {
         print("add to cart")
-        let selectedImage = dataSource[kolodaView.currentCardIndex]
+        let selectedImage = dataSource[kolodaView.currentCardIndex].image
         if CartService.addImageToCart(cartImage: selectedImage) == 1 {
             HUD.flash(.label("Added to Cart"), delay: 0.5)
         } else {
