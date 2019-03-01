@@ -122,9 +122,10 @@ extension HomeViewController {
         dislikeButton.gradientEndColor = UIColor.purple
         dislikeButton.addTarget(self, action: #selector(HomeViewController.dislikeButtonTapped(_:)), for: .touchUpInside)
         
-        let addToCartImage = UIImage(named: "addtocart")
+        let addToCartImage = UIImage(named: "add-to-the-cart")
         addToCartButton.setImage(addToCartImage, for: .normal)
-        addToCartButton.tintColor = .yellow
+        addToCartButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        addToCartButton.tintColor = .white
         addToCartButton.ripple = true
         addToCartButton.cornerRadius = 41
         addToCartButton.animatedScaleWhenHighlighted = 1.2
