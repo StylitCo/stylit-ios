@@ -16,6 +16,8 @@ class CartViewController: UIViewController {
     private let homeButton = UIButton()
     private let collectionView = CollectionView()
     
+    private let mainLabel = UILabel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.purple
@@ -34,6 +36,15 @@ class CartViewController: UIViewController {
         
         view.addSubview(homeButton)
         view.addSubview(collectionView)
+        
+        // top label
+        mainLabel.text = "Your Cart"
+        mainLabel.font = UIFont.systemFont(ofSize: 40, weight: .bold)
+        mainLabel.numberOfLines = 1
+        mainLabel.textAlignment = .right
+        mainLabel.textColor = UIColor.white
+        
+        view.addSubview(mainLabel)
     }
     
     private func setupLayout() {
@@ -49,6 +60,11 @@ class CartViewController: UIViewController {
             make.trailing.equalToSuperview()
             make.top.equalTo(homeButton.snp.bottom).offset(30)
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+        }
+        
+        mainLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(homeButton.snp.centerY)
+            make.trailing.equalToSuperview().offset(-20)
         }
     }
     
