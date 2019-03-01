@@ -284,7 +284,7 @@ extension HomeViewController {
     @objc func addToCartButtonTapped(_ sender: UIButton) {
         print("add to cart")
         let selectedImage = dataSource[kolodaView.currentCardIndex]
-        if CartService.addImageToCart(cartImage: selectedImage) == 1 {
+        if CartService.addImageToCart(cartImage: selectedImage) {
             HUD.flash(.label("Added to Cart"), delay: 0.5)
         } else {
             HUD.flash(.label("Item Already in Cart"), delay: 0.5)

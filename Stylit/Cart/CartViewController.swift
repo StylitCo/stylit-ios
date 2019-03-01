@@ -18,6 +18,8 @@ class CartViewController: UIViewController {
     
     private let mainLabel = UILabel()
     
+    private var arrayDataSource: ArrayDataSource<Int>?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.purple
@@ -69,7 +71,7 @@ class CartViewController: UIViewController {
     }
     
     private func setupCollection() {
-        var cartData = CartService.getCartImages()
+        let cartData = CartService.getCartImages()
         
         var data: [Int] = []
         if !cartData.isEmpty {
@@ -79,12 +81,12 @@ class CartViewController: UIViewController {
         }
         
         let dataSource = ArrayDataSource(data: data)
+        self.arrayDataSource = dataSource
         let width = self.view.frame.width - 20
         let viewSource = ClosureViewSource(viewUpdater: { (view: CartCellView, data: Int, index: Int) in
-            view.setImageIndex(i: data)
-            view.setNeedsDisplay()
-            // TODO: Do something with data
-//            print("data: \(data)")
+            print("data: \(data)")
+            view.setImageIndex(atIndex: data)
+            view.buttonDelegate = self
         })
         let sizeSource = { (index: Int, data: Int, collectionSize: CGSize) -> CGSize in
             return CGSize(width: width
@@ -97,7 +99,7 @@ class CartViewController: UIViewController {
             layout: FlowLayout(spacing: 5, justifyContent: .center)
         )
         
-        provider.animator = WobbleAnimator()
+        provider.animator = DeleteAnimator()
         
         collectionView.backgroundColor = UIColor.clear
         
@@ -109,5 +111,25 @@ class CartViewController: UIViewController {
     @objc func homeButtonTapped(_ sender: UIButton) {
         // animate transition
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension CartViewController: CartCellButtonDelegate {
+    func didTapBuyButton(atIndex index: Int) {
+        print("In buy button parent!")
+    }
+    
+    func didTapRemoveButton(atIndex index: Int) {
+        CartService.removeImageFromCart(atIndex: index)
+        let cartData = CartService.getCartImages()
+        
+        var data: [Int] = []
+        if !cartData.isEmpty {
+            for i in 0..<cartData.count {
+                data.append(i)
+            }
+        }
+
+        self.arrayDataSource?.data = data
     }
 }
