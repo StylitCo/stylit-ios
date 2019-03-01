@@ -10,6 +10,11 @@ import Foundation
 import UIKit
 import PMSuperButton
 
+protocol CartCellButtonDelegate {
+    func didTapBuyButton(atIndex index: Int)
+    func didTapRemoveButton(atIndex index: Int)
+}
+
 class CartCellView: UIView {
     let itemImageView = UIImageView()
     let buyButton = PMSuperButton()
@@ -17,8 +22,9 @@ class CartCellView: UIView {
     
     let titleLabel = UILabel()
     let priceLabel = UILabel()
+    var cartIndex: Int?
     
-    var cartIndex = 0
+    var buttonDelegate: CartCellButtonDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -30,20 +36,17 @@ class CartCellView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func setImageIndex(i: Int) {
-        cartIndex = i
-        print(cartIndex)
-        
-        var cartData = CartService.getCartImages()
-        itemImageView.image = cartData[cartIndex]
+    public func setImageIndex(atIndex index: Int) {
+        guard index >= 0 else { fatalError("Negative index passed: \(index)") }
+        self.cartIndex = index
+        let cartData = CartService.getCartImages()
+        itemImageView.image = cartData[index]
     }
 }
 
 private extension CartCellView {
-    
     func setupSubviews() {
         itemImageView.image = UIImage(named: "StylishMan")
-//        itemImageView.image = cartImage
         itemImageView.layer.masksToBounds = true
         itemImageView.layer.cornerRadius = 25
         
@@ -57,7 +60,7 @@ private extension CartCellView {
         buyButton.clipsToBounds = true
         buyButton.layer.cornerRadius = 10
         buyButton.ripple = true
-//        buyButton.addTarget(self, action: #selector(EventPostCollectionViewCell.attendButtonPressed(_:)), for: .touchUpInside)
+        buyButton.addTarget(self, action: #selector(CartCellView.buyButtonPressed(_:)), for: .touchUpInside)
         self.addSubview(buyButton)
         
         removeButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
@@ -68,7 +71,7 @@ private extension CartCellView {
         removeButton.clipsToBounds = true
         removeButton.layer.cornerRadius = 10
         removeButton.ripple = true
-        //        buyButton.addTarget(self, action: #selector(EventPostCollectionViewCell.attendButtonPressed(_:)), for: .touchUpInside)
+        removeButton.addTarget(self, action: #selector(CartCellView.removeButtonPressed(_:)), for: .touchUpInside)
         self.addSubview(removeButton)
         
         titleLabel.textColor = .black
@@ -121,5 +124,20 @@ private extension CartCellView {
             make.bottom.equalToSuperview().offset(-15)
             make.width.equalTo(100)
         }
+    }
+}
+
+// Button functions
+extension CartCellView {
+    @objc func buyButtonPressed(_ sender: UIButton) {
+        print("Buy button tapped")
+        guard let index = self.cartIndex else { fatalError("Index is not defined") }
+        buttonDelegate?.didTapBuyButton(atIndex: index)
+    }
+    
+    @objc func removeButtonPressed(_ sender: UIButton) {
+        print("Remove button tapped")
+        guard let index = self.cartIndex else { fatalError("Index is not defined") }
+        buttonDelegate?.didTapRemoveButton(atIndex: index)
     }
 }

@@ -17,6 +17,7 @@
 		710ED90D2223ACD800BDEB45 /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710ED90C2223ACD800BDEB45 /* CartCell.swift */; };
 		7122CACF22262AF50052232D /* LikesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7122CACE22262AF50052232D /* LikesService.swift */; };
 		7122CAD22226330A0052232D /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7122CAD12226330A0052232D /* CartService.swift */; };
+		7122CAD62228D6160052232D /* DeleteAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7122CAD52228D6160052232D /* DeleteAnimator.swift */; };
 		71373915221B1FB900CE4056 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71373914221B1FB900CE4056 /* AppDelegate.swift */; };
 		7137391E221B1FBB00CE4056 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7137391D221B1FBB00CE4056 /* Assets.xcassets */; };
 		7137392C221B1FBB00CE4056 /* StylitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7137392B221B1FBB00CE4056 /* StylitTests.swift */; };
@@ -47,6 +48,7 @@
 		710ED90C2223ACD800BDEB45 /* CartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
 		7122CACE22262AF50052232D /* LikesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesService.swift; sourceTree = "<group>"; };
 		7122CAD12226330A0052232D /* CartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartService.swift; sourceTree = "<group>"; };
+		7122CAD52228D6160052232D /* DeleteAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAnimator.swift; sourceTree = "<group>"; };
 		71373911221B1FB900CE4056 /* Stylit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stylit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71373914221B1FB900CE4056 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7137391D221B1FBB00CE4056 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				5A519583221E5D8C00E5B839 /* LikesViewController.swift */,
 				5AF0D2202220CB3E00237FC6 /* RecommendedViewController.swift */,
 				5A2784272223A7C000F38CE0 /* ModalViewController.swift */,
+				7122CAD52228D6160052232D /* DeleteAnimator.swift */,
 			);
 			path = Stylit;
 			sourceTree = "<group>";
@@ -295,7 +298,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Stylit/Pods-Stylit-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Stylit/Pods-Stylit-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CollectionKit/CollectionKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/Koloda/Koloda.framework",
@@ -320,7 +323,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Stylit/Pods-Stylit-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stylit/Pods-Stylit-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD5615C7A8E1C3263CB4CDC9 /* [CP] Check Pods Manifest.lock */ = {
@@ -357,6 +360,7 @@
 				4422305C2228C01C00B50DA2 /* Item.swift in Sources */,
 				5A519586221E7FDF00E5B839 /* CartViewController.swift in Sources */,
 				71373915221B1FB900CE4056 /* AppDelegate.swift in Sources */,
+				7122CAD62228D6160052232D /* DeleteAnimator.swift in Sources */,
 				5A519584221E5D8C00E5B839 /* LikesViewController.swift in Sources */,
 				5A2784282223A7C000F38CE0 /* ModalViewController.swift in Sources */,
 			);
