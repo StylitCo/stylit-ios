@@ -230,10 +230,7 @@ extension HomeViewController: KolodaViewDelegate {
         let item = dataSource[index]
         controller.num = index
         
-        controller.setItemName(name: item.title)
-        controller.setItemBrand(brand: item.brand)
-        controller.setItemPrice(price: String(describing: item.price))
-        controller.setItemDetails(details: item.description)
+        controller.setItem(item: item)
         
         customPresentViewController(presenter, viewController: controller, animated: true, completion: nil)
     }

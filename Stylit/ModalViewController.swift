@@ -121,20 +121,12 @@ class ModalViewController: UIViewController {
         }
     }
     
-    public func setItemName(name: String) {
-        nameLabel.text = name
-    }
     
-    public func setItemBrand(brand: String) {
-        brandLabel.text = brand
-    }
-    
-    public func setItemPrice(price: String) {
-        priceLabel.text = "$\(price)"
-    }
-    
-    public func setItemDetails(details: String) {
-        detailsLabel.text = details
+    public func setItem(item: Item) {
+        nameLabel.text = item.title
+        brandLabel.text = item.brand
+        priceLabel.text = "$\(item.price)"
+        detailsLabel.text = item.description
     }
     
 }
