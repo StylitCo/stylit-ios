@@ -71,7 +71,7 @@ class CartViewController: UIViewController {
     }
     
     private func setupCollection() {
-        let cartData = CartService.getCartImages()
+        let cartData = CartService.getCartItems()
         
         var data: [Int] = []
         if !cartData.isEmpty {
@@ -116,12 +116,12 @@ class CartViewController: UIViewController {
 
 extension CartViewController: CartCellButtonDelegate {
     func didTapBuyButton(atIndex index: Int) {
-        print("In buy button parent!")
+        print("Currently doing nothing.")
     }
     
     func didTapRemoveButton(atIndex index: Int) {
         CartService.removeImageFromCart(atIndex: index)
-        let cartData = CartService.getCartImages()
+        let cartData = CartService.getCartItems()
         
         var data: [Int] = []
         if !cartData.isEmpty {

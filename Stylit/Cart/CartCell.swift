@@ -39,8 +39,8 @@ class CartCellView: UIView {
     public func setImageIndex(atIndex index: Int) {
         guard index >= 0 else { fatalError("Negative index passed: \(index)") }
         self.cartIndex = index
-        let cartData = CartService.getCartImages()
-        itemImageView.image = cartData[index]
+        let cartData = CartService.getCartItems()
+        itemImageView.image = cartData[index].image
     }
 }
 
