@@ -10,21 +10,21 @@ import UIKit
 
 class CartService {
     // TODO: Make network calls instead of storing locally
-    private static var cartImages = [UIImage]()
+    private static var cartItems = [Item]()
     
-    static func addImageToCart(cartImage: UIImage) -> Bool {
-        if (cartImages.contains(cartImage)) {
+    static func addImageToCart(item: Item) -> Bool {
+        if (cartItems.contains(item)) {
             return false
         }
-        cartImages.append(cartImage)
+        cartItems.append(item)
         return true
     }
     
     static func removeImageFromCart(atIndex index: Int) {
-        cartImages.remove(at: index)
+        cartItems.remove(at: index)
     }
     
-    static func getCartImages() -> [UIImage] {
-        return cartImages
+    static func getCartItems() -> [Item] {
+        return cartItems
     }
 }

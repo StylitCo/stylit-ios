@@ -14,8 +14,6 @@ import Presentr
 import PMSuperButton
 import PKHUD
 
-private var numberOfCards: Int = 5
-
 class HomeViewController: UIViewController {
     
     // logo
@@ -270,7 +268,7 @@ extension HomeViewController: KolodaViewDataSource {
         } else if direction == .right {
             LikesService.likeImage(likedImage: swipedImage)
         } else {
-            print("Unexpected direction: \(direction)")
+            fatalError("Unexpected direction: \(direction)")
         }
     }
 }
@@ -286,12 +284,11 @@ extension HomeViewController {
     }
     
     @objc func addToCartButtonTapped(_ sender: UIButton) {
-        print("add to cart")
-        let selectedImage = dataSource[kolodaView.currentCardIndex].image
-        if CartService.addImageToCart(cartImage: selectedImage) {
-            HUD.flash(.label("Added to Cart"), delay: 0.5)
+        let item = dataSource[kolodaView.currentCardIndex]
+        if CartService.addImageToCart(item: item) {
+            HUD.flash(.label("Added to Cart"), delay: 0.2)
         } else {
-            HUD.flash(.label("Item Already in Cart"), delay: 0.5)
+            HUD.flash(.label("Item Already in Cart"), delay: 0.2)
         }
     }
     
