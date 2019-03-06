@@ -98,42 +98,47 @@ extension HomeViewController {
         
         view.addSubview(headerView)
         
-        let likeImage = UIImage(named: "Like")
+        let likeImage = UIImage(named: "tinder-heart")
         likeButton.setImage(likeImage, for: .normal)
+        likeButton.imageEdgeInsets = UIEdgeInsets(top: 11, left: 0, bottom: 8, right: 0)
         likeButton.ripple = true
+        let pink = UIColor(red:1.00, green:0.75, blue:0.80, alpha:1.0)
+        likeButton.tintColor = pink
         likeButton.cornerRadius = 41
         likeButton.animatedScaleWhenHighlighted = 1.2
         likeButton.animatedScaleWhenSelected = 1.2
         likeButton.gradientEnabled = true
         likeButton.gradientHorizontal = true
-        likeButton.gradientStartColor = UIColor.red
-        likeButton.gradientEndColor = UIColor.purple
+        likeButton.gradientStartColor = UIColor.white
+        likeButton.gradientEndColor = UIColor.white
         likeButton.addTarget(self, action: #selector(HomeViewController.likeButtonTapped(_:)), for: .touchUpInside)
         
-        let dislikeImage = UIImage(named: "Dislike")
+        let dislikeImage = UIImage(named: "tinder-x")
         dislikeButton.setImage(dislikeImage, for: .normal)
+        dislikeButton.backgroundColor = .white
+        let skyBlue = UIColor(red:0.00, green:0.75, blue:1.00, alpha:1.0)
+        dislikeButton.tintColor = skyBlue
         dislikeButton.ripple = true
         dislikeButton.cornerRadius = 41
         dislikeButton.animatedScaleWhenHighlighted = 1.2
         dislikeButton.animatedScaleWhenSelected = 1.2
         dislikeButton.gradientEnabled = true
         dislikeButton.gradientHorizontal = true
-        dislikeButton.gradientStartColor = UIColor.blue
-        dislikeButton.gradientEndColor = UIColor.purple
         dislikeButton.addTarget(self, action: #selector(HomeViewController.dislikeButtonTapped(_:)), for: .touchUpInside)
         
-        let addToCartImage = UIImage(named: "add-to-the-cart")
+        let addToCartImage = UIImage(named: "superlike")
         addToCartButton.setImage(addToCartImage, for: .normal)
         addToCartButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        addToCartButton.tintColor = .white
+        let gray = UIColor(red:0.71, green:0.75, blue:0.94, alpha:1.0)
+        addToCartButton.tintColor = gray
         addToCartButton.ripple = true
         addToCartButton.cornerRadius = 41
         addToCartButton.animatedScaleWhenHighlighted = 1.2
         addToCartButton.animatedScaleWhenSelected = 1.2
         addToCartButton.gradientEnabled = true
         addToCartButton.gradientHorizontal = true
-        addToCartButton.gradientStartColor = UIColor.black
-        addToCartButton.gradientEndColor = UIColor.black
+        addToCartButton.gradientStartColor = UIColor.white
+        addToCartButton.gradientEndColor = UIColor.white
         addToCartButton.addTarget(self, action: #selector(HomeViewController.addToCartButtonTapped(_:)), for: .touchUpInside)
         
         let cartImage = UIImage(named: "Cart")
