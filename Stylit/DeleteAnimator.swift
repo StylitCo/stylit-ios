@@ -63,7 +63,6 @@ class DeleteAnimator: Animator {
 //    }
     
     override func update(collectionView: CollectionView, view: UIView, at: Int, frame: CGRect) {
-        print("UPDATING")
         if view.center != frame.center {
             UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0, options: [.layoutSubviews], animations: {
                 view.center = frame.center

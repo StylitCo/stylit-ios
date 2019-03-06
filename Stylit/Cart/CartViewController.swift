@@ -83,7 +83,7 @@ class CartViewController: UIViewController {
         let dataSource = ArrayDataSource(data: data)
         self.arrayDataSource = dataSource
         let viewSource = ClosureViewSource(viewUpdater: { (view: CartCellView, data: Int, index: Int) in
-            view.setImageIndex(atIndex: data)
+            view.setItemIndex(atIndex: data)
             view.buttonDelegate = self
             view.layer.cornerRadius = 10.0
             view.clipsToBounds = true

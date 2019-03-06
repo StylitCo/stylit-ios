@@ -36,7 +36,7 @@ class CartCellView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func setImageIndex(atIndex index: Int) {
+    public func setItemIndex(atIndex index: Int) {
         guard index >= 0 else { fatalError("Negative index passed: \(index)") }
         self.cartIndex = index
         let cartData = CartService.getCartItems()
@@ -52,7 +52,6 @@ private extension CartCellView {
         itemImageView.image = UIImage(named: "StylishMan")
         itemImageView.layer.masksToBounds = true
         itemImageView.layer.cornerRadius = 25
-        
         self.addSubview(itemImageView)
         
         buyButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
