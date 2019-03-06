@@ -84,8 +84,7 @@ class CartViewController: UIViewController {
         self.arrayDataSource = dataSource
         let width = self.view.frame.width - 20
         let viewSource = ClosureViewSource(viewUpdater: { (view: CartCellView, data: Int, index: Int) in
-            print("data: \(data)")
-            view.setImageIndex(atIndex: data)
+            view.setItemIndex(atIndex: data)
             view.buttonDelegate = self
         })
         let sizeSource = { (index: Int, data: Int, collectionSize: CGSize) -> CGSize in
