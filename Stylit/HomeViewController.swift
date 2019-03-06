@@ -16,6 +16,7 @@ import PKHUD
 
 private var numberOfCards: Int = 5
 
+
 class HomeViewController: UIViewController {
     
     // logo
@@ -80,9 +81,13 @@ class HomeViewController: UIViewController {
 // MARK: Setup subviews
 extension HomeViewController {
     private func setupSubviews() {
-        
+        let purple = UIColor(red:0.54, green:0.17, blue:0.89, alpha:1.0)
+        let gray = UIColor(red:0.71, green:0.75, blue:0.94, alpha:1.0)
+        let lightPurple = UIColor(red:0.85, green:0.44, blue:0.84, alpha:1.0)
+        let lightGray = UIColor(red:0.66, green:0.66, blue:0.66, alpha:0.1)
         // set up logo
-        logoView.image = UIImage(named: "StylitLogo")
+        logoView.image = UIImage(named: "StylitAppIcon")
+        logoView.tintColor = purple
         logoView.contentMode = UIView.ContentMode.scaleAspectFit
         
         view.addSubview(logoView)
@@ -100,13 +105,14 @@ extension HomeViewController {
         
         let likeImage = UIImage(named: "tinder-heart")
         likeButton.setImage(likeImage, for: .normal)
-        likeButton.imageEdgeInsets = UIEdgeInsets(top: 11, left: 0, bottom: 8, right: 0)
+        likeButton.imageEdgeInsets = UIEdgeInsets(top: 21, left: 10, bottom: 20, right: 10)
         likeButton.ripple = true
-        let pink = UIColor(red:1.00, green:0.75, blue:0.80, alpha:1.0)
-        likeButton.tintColor = pink
+        likeButton.tintColor = UIColor(red:0.87, green:0.63, blue:0.87, alpha:1.0)
         likeButton.cornerRadius = 41
         likeButton.animatedScaleWhenHighlighted = 1.2
         likeButton.animatedScaleWhenSelected = 1.2
+        likeButton.borderColor = lightGray
+        likeButton.borderWidth = 10
         likeButton.gradientEnabled = true
         likeButton.gradientHorizontal = true
         likeButton.gradientStartColor = UIColor.white
@@ -116,25 +122,30 @@ extension HomeViewController {
         let dislikeImage = UIImage(named: "tinder-x")
         dislikeButton.setImage(dislikeImage, for: .normal)
         dislikeButton.backgroundColor = .white
+        dislikeButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         let skyBlue = UIColor(red:0.00, green:0.75, blue:1.00, alpha:1.0)
         dislikeButton.tintColor = skyBlue
         dislikeButton.ripple = true
         dislikeButton.cornerRadius = 41
+        dislikeButton.borderColor = lightGray
+        dislikeButton.borderWidth = 10
         dislikeButton.animatedScaleWhenHighlighted = 1.2
         dislikeButton.animatedScaleWhenSelected = 1.2
         dislikeButton.gradientEnabled = true
         dislikeButton.gradientHorizontal = true
         dislikeButton.addTarget(self, action: #selector(HomeViewController.dislikeButtonTapped(_:)), for: .touchUpInside)
         
+        
         let addToCartImage = UIImage(named: "superlike")
         addToCartButton.setImage(addToCartImage, for: .normal)
-        addToCartButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        let gray = UIColor(red:0.71, green:0.75, blue:0.94, alpha:1.0)
+        addToCartButton.imageEdgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         addToCartButton.tintColor = gray
         addToCartButton.ripple = true
         addToCartButton.cornerRadius = 41
         addToCartButton.animatedScaleWhenHighlighted = 1.2
         addToCartButton.animatedScaleWhenSelected = 1.2
+        addToCartButton.borderColor = lightGray
+        addToCartButton.borderWidth = 10
         addToCartButton.gradientEnabled = true
         addToCartButton.gradientHorizontal = true
         addToCartButton.gradientStartColor = UIColor.white
@@ -143,12 +154,12 @@ extension HomeViewController {
         
         let cartImage = UIImage(named: "Cart")
         cartButton.setImage(cartImage, for: .normal)
-        cartButton.tintColor = .white
+        cartButton.tintColor = purple
         cartButton.addTarget(self, action: #selector(HomeViewController.cartButtonTapped(_:)),                             for: .touchUpInside)
         
         let feedImage = UIImage(named: "Grid")
         feedButton.setImage(feedImage, for: .normal)
-        feedButton.tintColor = .white
+        feedButton.tintColor = purple
         feedButton.addTarget(self, action: #selector(HomeViewController.feedButtonTapped(_:)),                             for: .touchUpInside)
 
         view.addSubview(kolodaView)
@@ -159,17 +170,14 @@ extension HomeViewController {
         view.addSubview(feedButton)
 
         // set up gradient background
-        let gradient = CAGradientLayer()
-        gradient.frame = view.bounds
-        gradient.colors = [UIColor.purple.cgColor, UIColor.white.cgColor]
-        view.layer.insertSublayer(gradient, at: 0)
+        view.backgroundColor = .white
     }
     
     private func setupLayout() {
         logoView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin)
             make.centerX.equalToSuperview().offset(-2)
-            make.height.equalTo(50)
+            make.height.equalTo(45)
         }
         
         cartButton.snp.makeConstraints { make in
