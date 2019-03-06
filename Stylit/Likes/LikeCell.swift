@@ -1,8 +1,8 @@
 //
-//  CartCell.swift
+//  LikeCell.swift
 //  Stylit
 //
-//  Created by Lucas Wotton on 2/24/19.
+//  Created by Lucas Wotton on 3/6/19.
 //  Copyright © 2019 Lucas Wotton. All rights reserved.
 //
 
@@ -10,19 +10,19 @@ import Foundation
 import UIKit
 import PMSuperButton
 
-protocol CartCellButtonDelegate {
+protocol LikeCellButtonDelegate {
     func didTapBuyButton(atIndex index: Int)
     func didTapRemoveButton(atIndex index: Int)
 }
 
-class CartCellView: UIView {
+class LikeCellView: UIView {
     let itemImageView = UIImageView()
     let buyButton = PMSuperButton()
     let removeButton = PMSuperButton()
     
     let titleLabel = UILabel()
     let priceLabel = UILabel()
-    var cartIndex: Int?
+    var likeIndex: Int?
     
     var buttonDelegate: CartCellButtonDelegate?
     
@@ -38,16 +38,17 @@ class CartCellView: UIView {
     
     public func setImageIndex(atIndex index: Int) {
         guard index >= 0 else { fatalError("Negative index passed: \(index)") }
-        self.cartIndex = index
-        let cartData = CartService.getCartItems()
-        let item = cartData[index]
+        self.likeIndex = index
+        let likeData = LikesService.getLikedItems()
+        let item = likeData[index]
+        
         itemImageView.image = item.image
         titleLabel.text = item.title
         priceLabel.text = "$\(item.price)"
     }
 }
 
-private extension CartCellView {
+private extension LikeCellView {
     func setupSubviews() {
         itemImageView.image = UIImage(named: "StylishMan")
         itemImageView.layer.masksToBounds = true
@@ -57,13 +58,13 @@ private extension CartCellView {
         
         buyButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         buyButton.titleLabel?.textAlignment = .natural
-        buyButton.setTitle("Buy Now", for: .normal)
+        buyButton.setTitle("Add To Cart", for: .normal)
         buyButton.setTitleColor(.white, for: .normal)
         buyButton.backgroundColor = .purple
         buyButton.clipsToBounds = true
         buyButton.layer.cornerRadius = 10
         buyButton.ripple = true
-        buyButton.addTarget(self, action: #selector(CartCellView.buyButtonPressed(_:)), for: .touchUpInside)
+        buyButton.addTarget(self, action: #selector(LikeCellView.addToCartButtonPressed(_:)), for: .touchUpInside)
         self.addSubview(buyButton)
         
         removeButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
@@ -74,7 +75,7 @@ private extension CartCellView {
         removeButton.clipsToBounds = true
         removeButton.layer.cornerRadius = 10
         removeButton.ripple = true
-        removeButton.addTarget(self, action: #selector(CartCellView.removeButtonPressed(_:)), for: .touchUpInside)
+        removeButton.addTarget(self, action: #selector(LikeCellView.removeButtonPressed(_:)), for: .touchUpInside)
         self.addSubview(removeButton)
         
         titleLabel.textColor = .black
@@ -87,6 +88,7 @@ private extension CartCellView {
         priceLabel.textAlignment = .natural
         priceLabel.text = "Item Price"
         
+        //        self.addSubview(itemImageView)
         self.addSubview(titleLabel)
         self.addSubview(priceLabel)
         
@@ -116,7 +118,6 @@ private extension CartCellView {
         }
         
         removeButton.snp.makeConstraints { make in
-            make.leading.equalTo(itemImageView.snp.trailing).offset(20)
             make.bottom.equalToSuperview().offset(-15)
             make.width.equalTo(100)
         }
@@ -124,20 +125,21 @@ private extension CartCellView {
         buyButton.snp.makeConstraints { make in
             make.leading.equalTo(removeButton.snp.trailing).offset(10)
             make.bottom.equalToSuperview().offset(-15)
-            make.width.equalTo(100)
+            make.width.equalTo(120)
+            make.trailing.equalToSuperview().offset(-10)
         }
     }
 }
 
 // Button functions
-extension CartCellView {
-    @objc func buyButtonPressed(_ sender: UIButton) {
-        guard let index = self.cartIndex else { fatalError("Index is not defined") }
+extension LikeCellView {
+    @objc func addToCartButtonPressed(_ sender: UIButton) {
+        guard let index = self.likeIndex else { fatalError("Index is not defined") }
         buttonDelegate?.didTapBuyButton(atIndex: index)
     }
     
     @objc func removeButtonPressed(_ sender: UIButton) {
-        guard let index = self.cartIndex else { fatalError("Index is not defined") }
+        guard let index = self.likeIndex else { fatalError("Index is not defined") }
         buttonDelegate?.didTapRemoveButton(atIndex: index)
     }
 }
