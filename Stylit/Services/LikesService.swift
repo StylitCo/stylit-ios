@@ -11,22 +11,26 @@ import UIKit
 
 class LikesService {
     // TODO: Make network calls instead of storing locally
-    private static var likedImages = [UIImage]()
-    private static var dislikedImages = [UIImage]()
+    private static var likedItems = [Item]()
+    private static var dislikedItems = [Item]()
     
-    static func likeImage(likedImage: UIImage) {
-        likedImages.append(likedImage)
+    static func likeItem(likedItem: Item) {
+        likedItems.append(likedItem)
     }
     
-    static func dislikeImage(dislikedImage: UIImage) {
-        dislikedImages.append(dislikedImage)
+    static func removeItemFromLikes(atIndex index: Int) {
+        likedItems.remove(at: index)
     }
     
-    static func getLikedImages() -> [UIImage] {
-        return likedImages
+    static func dislikeItem(dislikedItem: Item) {
+        dislikedItems.append(dislikedItem)
     }
     
-    static func getDislikedImages() -> [UIImage] {
-        return dislikedImages
+    static func getLikedItems() -> [Item] {
+        return likedItems
+    }
+    
+    static func getDislikedItems() -> [Item] {
+        return dislikedItems
     }
 }

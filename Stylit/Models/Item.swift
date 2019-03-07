@@ -23,5 +23,10 @@ class Item {
         self.brand = brand
         self.price = price
     }
-    
+}
+
+extension Item: Equatable {
+    static func == (lhs: Item, rhs: Item) -> Bool {
+        return lhs.image == rhs.image && lhs.title == rhs.title && lhs.description == rhs.description && lhs.brand == rhs.brand && lhs.price == rhs.price
+    }
 }
