@@ -48,6 +48,25 @@ class FilterService {
         chosenTags = tags
     }
     
+    static func getTags() -> [String] {
+        return chosenTags
+    }
+    
+    static func deleteTag(item: String) {
+        var result = [String]()
+        for tag in chosenTags {
+            if tag != item {
+                result.append(tag)
+            }
+        }
+        
+        chosenTags = result
+    }
+    
+    static func addTag(item: String) {
+        chosenTags.append(item)
+    }
+    
 }
 
 

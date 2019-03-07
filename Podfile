@@ -14,6 +14,7 @@ target 'Stylit' do
   pod 'Presentr'
   pod 'PMSuperButton'
   pod 'PKHUD', '~> 5.0'
+  pod 'DynamicButton', '~> 6.1.0'
 
   target 'StylitTests' do
     inherit! :search_paths

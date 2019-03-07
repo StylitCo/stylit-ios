@@ -5,6 +5,7 @@ PODS:
   - CollectionKit/WobbleAnimator (2.3.0):
     - CollectionKit/Core
     - YetAnotherAnimationLibrary (~> 1.3.0)
+  - DynamicButton (6.1.0)
   - Hero (1.4.0)
   - Koloda (4.6):
     - pop (~> 1.0)
@@ -18,6 +19,7 @@ PODS:
 DEPENDENCIES:
   - CollectionKit
   - CollectionKit/WobbleAnimator
+  - DynamicButton (~> 6.1.0)
   - Hero
   - Koloda
   - PKHUD (~> 5.0)
@@ -28,6 +30,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - CollectionKit
+    - DynamicButton
     - Hero
     - Koloda
     - PKHUD
@@ -39,6 +42,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   CollectionKit: 6910479bf865bfe49040e73322ce4b8fe8991231
+  DynamicButton: 5a3ae2bf26dc196fb6c85b3e1aac956add860718
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   Koloda: bcf5acded25fc49020d1447ed8ddd87e14d01e7e
   PKHUD: 4e6162c4c39ac367c6934e9855c6b4762ee16256
@@ -48,6 +52,6 @@ SPEC CHECKSUMS:
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   YetAnotherAnimationLibrary: 69655d8bc9986919f334c940ddebde8e42bdd007
 
-PODFILE CHECKSUM: 4f24636e9a6c9088baba4e94d3cf2c7b3b96c492
+PODFILE CHECKSUM: bdd0369bb8f2785a4df01a9e91686baffe953502
 
 COCOAPODS: 1.6.0
