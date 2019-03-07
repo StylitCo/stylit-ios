@@ -18,6 +18,7 @@
 		7122CACF22262AF50052232D /* LikesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7122CACE22262AF50052232D /* LikesService.swift */; };
 		7122CAD22226330A0052232D /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7122CAD12226330A0052232D /* CartService.swift */; };
 		7122CAD62228D6160052232D /* DeleteAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7122CAD52228D6160052232D /* DeleteAnimator.swift */; };
+		7122CADD223087350052232D /* LikeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7122CADC223087350052232D /* LikeCell.swift */; };
 		71373915221B1FB900CE4056 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71373914221B1FB900CE4056 /* AppDelegate.swift */; };
 		7137391E221B1FBB00CE4056 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7137391D221B1FBB00CE4056 /* Assets.xcassets */; };
 		7137392C221B1FBB00CE4056 /* StylitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7137392B221B1FBB00CE4056 /* StylitTests.swift */; };
@@ -49,6 +50,7 @@
 		7122CACE22262AF50052232D /* LikesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesService.swift; sourceTree = "<group>"; };
 		7122CAD12226330A0052232D /* CartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartService.swift; sourceTree = "<group>"; };
 		7122CAD52228D6160052232D /* DeleteAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAnimator.swift; sourceTree = "<group>"; };
+		7122CADC223087350052232D /* LikeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeCell.swift; sourceTree = "<group>"; };
 		71373911221B1FB900CE4056 /* Stylit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stylit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71373914221B1FB900CE4056 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7137391D221B1FBB00CE4056 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -119,6 +121,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		7122CAD9223086C40052232D /* Likes */ = {
+			isa = PBXGroup;
+			children = (
+				7122CADC223087350052232D /* LikeCell.swift */,
+			);
+			path = Likes;
+			sourceTree = "<group>";
+		};
 		71373908221B1FB900CE4056 = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +152,7 @@
 		71373913221B1FB900CE4056 /* Stylit */ = {
 			isa = PBXGroup;
 			children = (
+				7122CAD9223086C40052232D /* Likes */,
 				4422305A2228BFB000B50DA2 /* Models */,
 				7122CAD0222632EE0052232D /* Services */,
 				710ED90B2223ACA900BDEB45 /* Cart */,
@@ -358,6 +369,7 @@
 				7122CACF22262AF50052232D /* LikesService.swift in Sources */,
 				710C13E7221D247A00A5A6F4 /* Util.swift in Sources */,
 				4422305C2228C01C00B50DA2 /* Item.swift in Sources */,
+				7122CADD223087350052232D /* LikeCell.swift in Sources */,
 				5A519586221E7FDF00E5B839 /* CartViewController.swift in Sources */,
 				71373915221B1FB900CE4056 /* AppDelegate.swift in Sources */,
 				7122CAD62228D6160052232D /* DeleteAnimator.swift in Sources */,

@@ -20,6 +20,8 @@ class LikesViewController: UIViewController {
     
     private let collectionView = CollectionView()
     
+    private var arrayDataSource: ArrayDataSource<Int>?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hero.isEnabled = true
@@ -101,7 +103,7 @@ class LikesViewController: UIViewController {
     }
     
     private func setupCollection() {
-        var likesData = LikesService.getLikedImages()
+        let likesData = LikesService.getLikedItems()
         
         var data: [Int] = []
         if !likesData.isEmpty {
@@ -111,26 +113,15 @@ class LikesViewController: UIViewController {
         }
         
         let dataSource = ArrayDataSource(data: data)
-        let viewSource = ClosureViewSource(viewUpdater: { (view: UIView, data: Int, index: Int) in
-            let imageView = UIImageView(image: likesData[data])
-            imageView.frame = CGRect(x: 0, y: 0, width: 150, height: 300)
-            imageView.layer.masksToBounds = true
-            imageView.layer.cornerRadius = 25
-            view.addSubview(imageView)
-            view.backgroundColor = .white
-            view.layer.cornerRadius = 25
-            
-            view.layer.shadowPath =
-                UIBezierPath(roundedRect: view.bounds,
-                             cornerRadius: view.layer.cornerRadius).cgPath
-            view.layer.shadowColor = UIColor.black.cgColor
-            view.layer.shadowOpacity = 0.5
-            view.layer.shadowOffset = CGSize(width: 2, height: 2)
-            view.layer.shadowRadius = 1
-            view.layer.masksToBounds = false
+        self.arrayDataSource = dataSource
+        let viewSource = ClosureViewSource(viewUpdater: { (view: LikeCellView, data: Int, index: Int) in
+            view.setImageIndex(atIndex: data)
+            view.buttonDelegate = self
+            view.layer.cornerRadius = 10.0
+            view.clipsToBounds = true
         })
         let sizeSource = { (index: Int, data: Int, collectionSize: CGSize) -> CGSize in
-            return CGSize(width: 150, height: 300)
+            return CGSize(width: self.view.frame.width - 20, height: 150)
         }
         let provider = BasicProvider(
             dataSource: dataSource,
@@ -138,8 +129,8 @@ class LikesViewController: UIViewController {
             sizeSource: sizeSource
         )
         
-        provider.layout = FlowLayout(spacing: 25, justifyContent: .center)
-        provider.animator = WobbleAnimator()
+        provider.layout = FlowLayout(spacing: 5, justifyContent: .center)
+        provider.animator = DeleteAnimator()
         
         collectionView.backgroundColor = UIColor.clear
         
@@ -164,3 +155,22 @@ class LikesViewController: UIViewController {
     }
 }
 
+extension LikesViewController: CartCellButtonDelegate {
+    func didTapBuyButton(atIndex index: Int) {
+        print("Currently doing nothing.")
+    }
+    
+    func didTapRemoveButton(atIndex index: Int) {
+        LikesService.removeItemFromLikes(atIndex: index)
+        let likesData = LikesService.getLikedItems()
+        
+        var data: [Int] = []
+        if !likesData.isEmpty {
+            for i in 0..<likesData.count {
+                data.append(i)
+            }
+        }
+        
+        self.arrayDataSource?.data = data
+    }
+}

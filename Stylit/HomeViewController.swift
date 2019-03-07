@@ -262,11 +262,11 @@ extension HomeViewController: KolodaViewDataSource {
     }
     
     func koloda(_ koloda: KolodaView, didSwipeCardAt index: Int, in direction: SwipeResultDirection) {
-        let swipedImage = dataSource[index].image
+        let swipedItem = dataSource[index]
         if direction == .left {
-            LikesService.dislikeImage(dislikedImage: swipedImage)
+            LikesService.dislikeItem(dislikedItem: swipedItem)
         } else if direction == .right {
-            LikesService.likeImage(likedImage: swipedImage)
+            LikesService.likeItem(likedItem: swipedItem)
         } else {
             fatalError("Unexpected direction: \(direction)")
         }
