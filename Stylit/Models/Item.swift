@@ -15,13 +15,15 @@ class Item {
     let description: String
     let brand: String
     let price: Int
+    let tags: [String]
     
-    init(image: UIImage, title: String, description: String, brand: String, price: Int) {
+    init(image: UIImage, title: String, description: String, brand: String, price: Int, tags: [String]) {
         self.image = image
         self.title = title
         self.description = description
         self.brand = brand
         self.price = price
+        self.tags = tags
     }
 }
 

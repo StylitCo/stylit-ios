@@ -43,14 +43,18 @@ class HomeViewController: UIViewController {
     private let cartButton = UIButton()
     private let feedButton = UIButton()
     
+    // card view
     private let cardView = UIView()
+    
+    // categories
+    private let categoriesMenuTab = UIButton()
     
     private var dataSource: [Item] = {
         var array: [Item] = []
         for index in 1...10 {
-            array.append(Item(image: UIImage(named: "shoes\(index)")!, title: "Shoe", description: "Some fresh shoes", brand: "Balenciaga", price: 100))
-            array.append(Item(image: UIImage(named: "shirt\(index)")!, title: "Shirt", description: "A fresh shirt", brand: "Bape", price: 100))
-            array.append(Item(image: UIImage(named: "pant\(index)")!, title: "Pants", description: "Some fresh pants", brand: "Supreme", price: 100))
+            array.append(Item(image: UIImage(named: "shoes\(index)")!, title: "Shoe", description: "Some fresh shoes", brand: "Balenciaga", price: 100, tags: ["shoe", "fresh"]))
+            array.append(Item(image: UIImage(named: "shirt\(index)")!, title: "Shirt", description: "A fresh shirt", brand: "Bape", price: 100, tags: ["shirt", "fresh"]))
+            array.append(Item(image: UIImage(named: "pant\(index)")!, title: "Pants", description: "Some fresh pants", brand: "Supreme", price: 100, tags: ["pant", "fresh"]))
         }
         
         return array
@@ -65,7 +69,9 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        kolodaView.dataSource = self
+        
+        FilterService.addItem(items: dataSource)
+        
         kolodaView.delegate = self
         self.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
         setupSubviews()
@@ -74,6 +80,8 @@ class HomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        dataSource = FilterService.getItems()
+        kolodaView.dataSource = self
     }
 }
 
@@ -167,6 +175,13 @@ extension HomeViewController {
         view.addSubview(addToCartButton)
         view.addSubview(cartButton)
         view.addSubview(feedButton)
+        
+        // set up categories tab
+        categoriesMenuTab.setImage(UIImage(named: "down-arrow"), for: .normal)
+        categoriesMenuTab.tintColor = purple
+        categoriesMenuTab.addTarget(self, action: #selector(HomeViewController.filterButtonTapped(_:)),                             for: .touchUpInside)
+        
+        view.addSubview(categoriesMenuTab)
 
         // set up gradient background
         view.backgroundColor = .white
@@ -175,7 +190,7 @@ extension HomeViewController {
     private func setupLayout() {
         logoView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin)
-            make.centerX.equalToSuperview().offset(-2)
+            make.centerX.equalToSuperview().offset(1)
             make.height.equalTo(45)
         }
         
@@ -193,8 +208,15 @@ extension HomeViewController {
             make.width.equalTo(40)
         }
         
+        categoriesMenuTab.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(40)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(30)
+            make.height.equalTo(30)
+        }
+        
         kolodaView.snp.makeConstraints { make in
-            make.top.equalTo(feedButton.snp.bottom).offset(20)
+            make.top.equalTo(feedButton.snp.bottom).offset(30)
             make.leading.equalToSuperview().offset(10)
             make.trailing.equalToSuperview().offset(-10)
         }
@@ -230,7 +252,7 @@ extension HomeViewController: KolodaViewDelegate {
     func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
         let position = kolodaView.currentCardIndex
         for _ in 1...4 {
-            dataSource.append(Item(image: UIImage(named: "StylishMan")!, title: "Stylish Man", description: "A Stylish Man", brand: "Palace", price: 100))
+            dataSource.append(Item(image: UIImage(named: "StylishMan")!, title: "Stylish Man", description: "A Stylish Man", brand: "Palace", price: 100, tags: ["man", "stylish"]))
         }
         kolodaView.insertCardAtIndexRange(position..<position + 4, animated: true)
     }
@@ -315,7 +337,13 @@ extension HomeViewController {
         vc.hero.isEnabled = true
         vc.hero.modalAnimationType = .selectBy(presenting:.slide(direction: .right), dismissing:.slide(direction: .left))
         present(vc, animated: true, completion: nil)
+    }
+    
+    @objc func filterButtonTapped(_ sender: UIButton) {
+        let presenter: Presentr = Util.getPresentr2()
+        let controller = FilterViewController()
         
+        customPresentViewController(presenter, viewController: controller, animated: true, completion: nil)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

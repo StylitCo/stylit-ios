@@ -7,3 +7,21 @@
 //
 
 import Foundation
+import UIKit
+
+class FilterViewController: UIViewController {
+    
+    private let label = UILabel()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        label.text = "hello"
+        label.backgroundColor = .white
+        view.addSubview(label)
+        label.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
+    }
+}

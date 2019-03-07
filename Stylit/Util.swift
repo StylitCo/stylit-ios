@@ -57,5 +57,27 @@ class Util {
         }()
         return presenter
     }
+    
+    static func getPresentr2() -> Presentr {
+        // present modal view with Presentr
+        let presenter: Presentr = {
+            let width = ModalSize.full
+            let height = ModalSize.full
+            let center = ModalCenterPosition.center
+            let customType = PresentationType.custom(width: width, height: height, center: center)
+            
+            let customPresenter = Presentr(presentationType: customType)
+            customPresenter.transitionType = .coverVerticalFromTop
+            customPresenter.dismissTransitionType = .coverVertical
+            customPresenter.roundCorners = true
+            customPresenter.backgroundColor = .purple
+            customPresenter.backgroundOpacity = 0.5
+            customPresenter.dismissOnSwipe = true
+            customPresenter.dismissOnSwipeDirection = .top
+            
+            return customPresenter
+        }()
+        return presenter
+    }
 
 }
