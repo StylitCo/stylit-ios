@@ -71,7 +71,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         FilterService.addItem(items: dataSource)
-        
+        dataSource = FilterService.getItems()
+        kolodaView.dataSource = self
         kolodaView.delegate = self
         self.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
         setupSubviews()
@@ -80,8 +81,10 @@ class HomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        print("hello")
+        print(FilterService.getTags())
         dataSource = FilterService.getItems()
-        kolodaView.dataSource = self
+        kolodaView.reloadData()
     }
 }
 
@@ -301,6 +304,7 @@ extension HomeViewController: KolodaViewDataSource {
         } else {
             fatalError("Unexpected direction: \(direction)")
         }
+        
     }
 }
 
@@ -340,10 +344,10 @@ extension HomeViewController {
     }
     
     @objc func filterButtonTapped(_ sender: UIButton) {
-        let presenter: Presentr = Util.getPresentr2()
-        let controller = FilterViewController()
-        
-        customPresentViewController(presenter, viewController: controller, animated: true, completion: nil)
+        let vc = FilterViewController()
+        vc.hero.isEnabled = true
+        vc.hero.modalAnimationType = .selectBy(presenting: .slide(direction: .down), dismissing: .slide(direction: .up))
+        present(vc, animated: true, completion: nil)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
