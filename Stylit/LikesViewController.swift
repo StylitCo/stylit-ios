@@ -33,10 +33,11 @@ class LikesViewController: UIViewController {
     }
     
     private func setupSubViews() {
-        
+        let purple = UIColor(red:0.54, green:0.17, blue:0.89, alpha:1.0)
+        let lightPurple = UIColor(red:0.85, green:0.44, blue:0.84, alpha:1.0)
         let homeImage = UIImage(named: "Home")
         homeButton.setImage(homeImage, for: .normal)
-        homeButton.tintColor = .white
+        homeButton.tintColor = purple
         homeButton.addTarget(self, action: #selector(LikesViewController.homeButtonTapped(_:)),                             for: .touchUpInside)
         
         let glassImage = UIImage(named: "Star")
@@ -52,16 +53,13 @@ class LikesViewController: UIViewController {
         mainLabel.font = UIFont.systemFont(ofSize: 40, weight: .bold)
         mainLabel.numberOfLines = 1
         mainLabel.textAlignment = .left
-        mainLabel.textColor = UIColor.white
+        mainLabel.textColor = purple
         
         view.addSubview(mainLabel)
         
         view.addSubview(collectionView)
         
-        let gradient = CAGradientLayer()
-        gradient.frame = view.bounds
-        gradient.colors = [UIColor.purple.cgColor, UIColor.white.cgColor]
-        view.layer.insertSublayer(gradient, at: 0)
+        view.backgroundColor = .white
     }
     
     private func setupLayout() {

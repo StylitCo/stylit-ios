@@ -136,7 +136,7 @@ extension HomeViewController {
         dislikeButton.addTarget(self, action: #selector(HomeViewController.dislikeButtonTapped(_:)), for: .touchUpInside)
         
         
-        let addToCartImage = UIImage(named: "superlike")
+        let addToCartImage = UIImage(named: "addtocart-new")
         addToCartButton.setImage(addToCartImage, for: .normal)
         addToCartButton.imageEdgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         addToCartButton.tintColor = gray
