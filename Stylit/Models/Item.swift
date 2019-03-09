@@ -15,18 +15,21 @@ class Item {
     let description: String
     let brand: String
     let price: Int
+    let tags: Set<ClothingTag>
     
-    init(image: UIImage, title: String, description: String, brand: String, price: Int) {
+    init(image: UIImage, title: String, description: String, brand: String, price: Int, tags: Set<ClothingTag>) {
         self.image = image
         self.title = title
         self.description = description
         self.brand = brand
         self.price = price
+        self.tags = tags
     }
 }
 
 extension Item: Equatable {
     static func == (lhs: Item, rhs: Item) -> Bool {
+        // TODO: Add tags in as a necessary equality attribute?
         return lhs.image == rhs.image && lhs.title == rhs.title && lhs.description == rhs.description && lhs.brand == rhs.brand && lhs.price == rhs.price
     }
 }
