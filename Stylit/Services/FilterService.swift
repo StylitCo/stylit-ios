@@ -12,16 +12,16 @@ import UIKit
 class FilterService {
     
     
-    private static var chosenTags: Set<ClothingTag> = [ClothingTag.Hat, ClothingTag.Outerwear, ClothingTag.Pants, ClothingTag.Shirt, ClothingTag.Shoes]
+    private static var chosenTags: Set<ClothingTag> = [.Hat, .Outerwear, .Pants, .Shirt, .Shoes]
     
     private static var unswipedItems: [Item] = initItems()
     
     static func initItems() -> [Item] {
         var items: [Item] = []
         for index in 1...2 {
-            let shoesTags: Set<ClothingTag> = [ClothingTag.Shoes]
-            let shirtTags: Set<ClothingTag> = [ClothingTag.Shirt]
-            let pantsTags: Set<ClothingTag> = [ClothingTag.Shoes]
+            let shoesTags: Set<ClothingTag> = [.Shoes]
+            let shirtTags: Set<ClothingTag> = [.Shirt]
+            let pantsTags: Set<ClothingTag> = [.Pants]
             
             items.append(Item(image: UIImage(named: "shoes\(index)")!, title: "Shoe", description: "Some fresh shoes", brand: "Balenciaga", price: 100, tags: shoesTags))
             items.append(Item(image: UIImage(named: "shirt\(index)")!, title: "Shirt", description: "A fresh shirt", brand: "Bape", price: 100, tags: shirtTags))
@@ -39,6 +39,7 @@ class FilterService {
                 filteredItems.append(item)
             }
         }
+        print("tags: \(chosenTags), count: \(filteredItems.count)")
         return filteredItems
     }
     
