@@ -39,7 +39,6 @@ class FilterService {
                 filteredItems.append(item)
             }
         }
-        print("tags: \(chosenTags), count: \(filteredItems.count)")
         return filteredItems
     }
     
