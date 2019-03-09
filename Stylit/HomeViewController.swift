@@ -14,8 +14,6 @@ import Presentr
 import PMSuperButton
 import PKHUD
 
-private var numberOfCards: Int = 5
-
 class HomeViewController: UIViewController {
     
     // logo
@@ -49,16 +47,7 @@ class HomeViewController: UIViewController {
     // categories
     private let categoriesMenuTab = UIButton()
     
-    private var dataSource: [Item] = {
-        var array: [Item] = []
-        for index in 1...10 {
-            array.append(Item(image: UIImage(named: "shoes\(index)")!, title: "Shoe", description: "Some fresh shoes", brand: "Balenciaga", price: 100, tags: ["shoe", "fresh"]))
-            array.append(Item(image: UIImage(named: "shirt\(index)")!, title: "Shirt", description: "A fresh shirt", brand: "Bape", price: 100, tags: ["shirt", "fresh"]))
-            array.append(Item(image: UIImage(named: "pant\(index)")!, title: "Pants", description: "Some fresh pants", brand: "Supreme", price: 100, tags: ["pant", "fresh"]))
-        }
-        
-        return array
-    }()
+    private var dataSource: [Item] = []
     init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -69,22 +58,12 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        FilterService.addItem(items: dataSource)
         dataSource = FilterService.getItems()
         kolodaView.dataSource = self
         kolodaView.delegate = self
         self.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
         setupSubviews()
         setupLayout()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        print("hello")
-        print(FilterService.getTags())
-        dataSource = FilterService.getItems()
-        kolodaView.reloadData()
     }
 }
 
@@ -141,8 +120,6 @@ extension HomeViewController {
         dislikeButton.borderWidth = 10
         dislikeButton.animatedScaleWhenHighlighted = 1.2
         dislikeButton.animatedScaleWhenSelected = 1.2
-        dislikeButton.gradientEnabled = true
-        dislikeButton.gradientHorizontal = true
         dislikeButton.addTarget(self, action: #selector(HomeViewController.dislikeButtonTapped(_:)), for: .touchUpInside)
         
         
@@ -156,10 +133,6 @@ extension HomeViewController {
         addToCartButton.animatedScaleWhenSelected = 1.2
         addToCartButton.borderColor = lightGray
         addToCartButton.borderWidth = 10
-        addToCartButton.gradientEnabled = true
-        addToCartButton.gradientHorizontal = true
-        addToCartButton.gradientStartColor = UIColor.white
-        addToCartButton.gradientEndColor = UIColor.white
         addToCartButton.addTarget(self, action: #selector(HomeViewController.addToCartButtonTapped(_:)), for: .touchUpInside)
         
         let cartImage = UIImage(named: "Cart")
@@ -253,16 +226,12 @@ extension HomeViewController {
 // Koloda view delegate
 extension HomeViewController: KolodaViewDelegate {
     func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
-        let position = kolodaView.currentCardIndex
-        for _ in 1...4 {
-            dataSource.append(Item(image: UIImage(named: "StylishMan")!, title: "Stylish Man", description: "A Stylish Man", brand: "Palace", price: 100, tags: ["man", "stylish"]))
-        }
-        kolodaView.insertCardAtIndexRange(position..<position + 4, animated: true)
+        FilterService.refreshItems()
+        dataSource = FilterService.getItems()
+        kolodaView.resetCurrentCardIndex()
     }
     
     func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
-        print("selected!")
-
         let presenter: Presentr = Util.getPresentr()
         let controller = ModalViewController()
         let item = dataSource[index]
@@ -298,13 +267,20 @@ extension HomeViewController: KolodaViewDataSource {
     func koloda(_ koloda: KolodaView, didSwipeCardAt index: Int, in direction: SwipeResultDirection) {
         let swipedItem = dataSource[index]
         if direction == .left {
-            LikesService.dislikeItem(dislikedItem: swipedItem)
+            FilterService.dislikeItem(swipedItem: swipedItem)
         } else if direction == .right {
-            LikesService.likeItem(likedItem: swipedItem)
+            FilterService.likeItem(swipedItem: swipedItem)
         } else {
             fatalError("Unexpected direction: \(direction)")
         }
         
+    }
+}
+
+extension HomeViewController: FilterViewDelegate {
+    func applyFilters() {
+        dataSource = FilterService.getItems()
+        kolodaView.resetCurrentCardIndex()
     }
 }
 
@@ -345,6 +321,7 @@ extension HomeViewController {
     
     @objc func filterButtonTapped(_ sender: UIButton) {
         let vc = FilterViewController()
+        vc.filterDelegate = self
         vc.hero.isEnabled = true
         vc.hero.modalAnimationType = .selectBy(presenting: .slide(direction: .down), dismissing: .slide(direction: .up))
         present(vc, animated: true, completion: nil)

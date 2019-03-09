@@ -25,6 +25,7 @@
 		7137391E221B1FBB00CE4056 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7137391D221B1FBB00CE4056 /* Assets.xcassets */; };
 		7137392C221B1FBB00CE4056 /* StylitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7137392B221B1FBB00CE4056 /* StylitTests.swift */; };
 		7137393B221B292200CE4056 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7137393A221B292200CE4056 /* HomeViewController.swift */; };
+		71B21587223427230099DD2D /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B21586223427230099DD2D /* Tag.swift */; };
 		D5BD1744B4F1CD8CC3642FFC /* Pods_StylitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 607BA1F3D824FD37D4B98FF5 /* Pods_StylitTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		7137392B221B1FBB00CE4056 /* StylitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylitTests.swift; sourceTree = "<group>"; };
 		7137392D221B1FBB00CE4056 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7137393A221B292200CE4056 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		71B21586223427230099DD2D /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		7D597E7022FBE6153D8CE300 /* Pods_Stylit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stylit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA225A14954C52A998C2A754 /* Pods-StylitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StylitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StylitTests/Pods-StylitTests.release.xcconfig"; sourceTree = "<group>"; };
 		CF772CB0107A38F3CB1D4D0F /* Pods-Stylit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stylit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stylit/Pods-Stylit.release.xcconfig"; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				4422305B2228C01C00B50DA2 /* Item.swift */,
+				71B21586223427230099DD2D /* Tag.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -315,7 +318,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Stylit/Pods-Stylit-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Stylit/Pods-Stylit-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CollectionKit/CollectionKit.framework",
 				"${BUILT_PRODUCTS_DIR}/DynamicButton/DynamicButton.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
@@ -342,7 +345,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Stylit/Pods-Stylit-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stylit/Pods-Stylit-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD5615C7A8E1C3263CB4CDC9 /* [CP] Check Pods Manifest.lock */ = {
@@ -370,6 +373,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71B21587223427230099DD2D /* Tag.swift in Sources */,
 				5AF0D2212220CB3E00237FC6 /* RecommendedViewController.swift in Sources */,
 				710ED90D2223ACD800BDEB45 /* CartCell.swift in Sources */,
 				7137393B221B292200CE4056 /* HomeViewController.swift in Sources */,

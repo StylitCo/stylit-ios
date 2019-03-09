@@ -11,62 +11,68 @@ import UIKit
 
 class FilterService {
     
-    private static var items = [Item]()
-    private static var chosenTags = [String]()
     
-    static func addItem(item: Item) {
-        items.append(item)
-    }
+    private static var chosenTags: Set<ClothingTag> = [ClothingTag.Hat, ClothingTag.Outerwear, ClothingTag.Pants, ClothingTag.Shirt, ClothingTag.Shoes]
     
-    static func addItem(items: [Item]) {
-        self.items.append(contentsOf: items)
+    private static var unswipedItems: [Item] = initItems()
+    
+    static func initItems() -> [Item] {
+        var items: [Item] = []
+        for index in 1...2 {
+            let shoesTags: Set<ClothingTag> = [ClothingTag.Shoes]
+            let shirtTags: Set<ClothingTag> = [ClothingTag.Shirt]
+            let pantsTags: Set<ClothingTag> = [ClothingTag.Shoes]
+            
+            items.append(Item(image: UIImage(named: "shoes\(index)")!, title: "Shoe", description: "Some fresh shoes", brand: "Balenciaga", price: 100, tags: shoesTags))
+            items.append(Item(image: UIImage(named: "shirt\(index)")!, title: "Shirt", description: "A fresh shirt", brand: "Bape", price: 100, tags: shirtTags))
+            items.append(Item(image: UIImage(named: "pant\(index)")!, title: "Pants", description: "Some fresh pants", brand: "Supreme", price: 100, tags: pantsTags))
+        }
+        return items
     }
     
     static func getItems() -> [Item] {
-        if chosenTags.isEmpty {
-            return items
-        } else {
-            return getItemsWithTags(tags: chosenTags)
-        }
-    }
-    
-    static func getItemsWithTags(tags: [String]) -> [Item] {
-        var result = [Item]()
-        for item in items {
-            for tag in tags {
-                if item.tags.contains(tag) {
-                    result.append(item)
-                    continue
-                }
+        var filteredItems = [Item]()
+        for item in unswipedItems {
+            let itemTags = item.tags
+            if chosenTags.intersection(itemTags).count > 0 {
+                // this item contains a tag in the chosen filters
+                filteredItems.append(item)
             }
         }
-        
-        return result;
+        return filteredItems
     }
     
-    static func setTags(tags: [String]) {
-        chosenTags = tags
+    static func dislikeItem(swipedItem: Item) {
+        guard let index = unswipedItems.firstIndex(of: swipedItem) else { fatalError("Disliked item doesn't exist in unswipedItems") }
+        unswipedItems.remove(at: index)
+        LikesService.dislikeItem(dislikedItem: swipedItem)
     }
     
-    static func getTags() -> [String] {
+    static func likeItem(swipedItem: Item) {
+        guard let index = unswipedItems.firstIndex(of: swipedItem) else { fatalError("Liked item doesn't exist in unswipedItems") }
+        unswipedItems.remove(at: index)
+        LikesService.likeItem(likedItem: swipedItem)
+    }
+    
+    static func addItemToCart(swipedItem: Item) {
+        // TODO: Add this functionality
+    }
+    
+    static func refreshItems() {
+        unswipedItems = initItems()
+    }
+
+    static func getTags() -> Set<ClothingTag> {
         return chosenTags
     }
     
-    static func deleteTag(item: String) {
-        var result = [String]()
-        for tag in chosenTags {
-            if tag != item {
-                result.append(tag)
-            }
-        }
-        
-        chosenTags = result
+    static func addTag(tag: ClothingTag) {
+        chosenTags.insert(tag)
     }
     
-    static func addTag(item: String) {
-        chosenTags.append(item)
+    static func deleteTag(tag: ClothingTag) {
+        chosenTags.remove(tag)
     }
-    
 }
 
 
