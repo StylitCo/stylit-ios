@@ -18,7 +18,6 @@ class CardOverlayView: OverlayView {
     let overlayImageView = UIImageView()
     
     override init(frame: CGRect) {
-        print("calling init")
         super.init(frame: frame)
         setupSubviews()
         setupLayout()
