@@ -255,13 +255,12 @@ extension HomeViewController: KolodaViewDelegate {
 extension HomeViewController: KolodaViewDataSource {
     
     func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
-        let imageView = UIImageView(image: dataSource[Int(index)].image)
-        imageView.backgroundColor = .white
-        imageView.layer.cornerRadius = 8.0
-        imageView.clipsToBounds = true
-        // TODO: Add shadows?
+        let item = dataSource[Int(index)]
+        let cardImage = item.image
         
-        return imageView
+        let card = CardView()
+        card.cardImageView.image = cardImage
+        return card
     }
     
     func kolodaSpeedThatCardShouldDrag(_ koloda: KolodaView) -> DragSpeed {

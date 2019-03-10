@@ -11,6 +11,7 @@ import UIKit
 
 class CardView: UIView {
     
+    let cardImageView = UIImageView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,17 +27,17 @@ class CardView: UIView {
 // Setup subviews
 extension CardView {
     private func setupSubviews() {
-        let imageView = UIImageView(image: dataSource[Int(index)].image)
-        imageView.backgroundColor = .white
-        imageView.layer.cornerRadius = 8.0
-        imageView.clipsToBounds = true
-        // TODO: Add shadows?
+        cardImageView.backgroundColor = .white
+        cardImageView.layer.cornerRadius = 8.0
+        cardImageView.clipsToBounds = true
+        self.addSubview(cardImageView)
         
-        return imageView
-
+        // TODO: Add shadows?
     }
     
     private func setupLayout() {
-        
+        cardImageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
 }
