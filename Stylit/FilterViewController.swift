@@ -29,6 +29,15 @@ class FilterViewController: UIViewController {
     private let shoesLabel = UILabel()
     private let shoesButton = DynamicButton()
     
+    private let hoodiesLabel = UILabel()
+    private let hoodiesButton = DynamicButton()
+    
+    private let jacketsLabel = UILabel()
+    private let jacketsButton = DynamicButton()
+    
+    private let sweatersLabel = UILabel()
+    private let sweatersButton = DynamicButton()
+    
     private let backButton = PMSuperButton()
     
     private var initialFilters: Set<ClothingTag> = []
@@ -85,13 +94,49 @@ extension FilterViewController {
         setupDynamicButton(for: shoesButton, for: .Shoes)
         shoesButton.addTarget(self, action: #selector(FilterViewController.shoesButtonTapped(_:)),                             for: .touchUpInside)
         view.addSubview(shoesButton)
-
+        
         // set up shoes label
         shoesLabel.text = "Shoes"
         shoesLabel.backgroundColor = .white
         shoesLabel.textAlignment = .center
         shoesLabel.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         view.addSubview(shoesLabel)
+        
+        // set up hoodies button
+        setupDynamicButton(for: hoodiesButton, for: .Hoodies)
+        hoodiesButton.addTarget(self, action: #selector(FilterViewController.hoodiesButtonTapped(_:)),                             for: .touchUpInside)
+        view.addSubview(hoodiesButton)
+        
+        // set up hoodies label
+        hoodiesLabel.text = "Hoodies"
+        hoodiesLabel.backgroundColor = .white
+        hoodiesLabel.textAlignment = .center
+        hoodiesLabel.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        view.addSubview(hoodiesLabel)
+
+        // set up jackets button
+        setupDynamicButton(for: jacketsButton, for: .Jacket)
+        jacketsButton.addTarget(self, action: #selector(FilterViewController.jacketsButtonTapped(_:)),                             for: .touchUpInside)
+        view.addSubview(jacketsButton)
+        
+        // set up jackets label
+        jacketsLabel.text = "Jackets"
+        jacketsLabel.backgroundColor = .white
+        jacketsLabel.textAlignment = .center
+        jacketsLabel.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        view.addSubview(jacketsLabel)
+        
+        // set up sweaters button
+        setupDynamicButton(for: sweatersButton, for: .Sweater)
+        sweatersButton.addTarget(self, action: #selector(FilterViewController.sweatersButtonTapped(_:)),                             for: .touchUpInside)
+        view.addSubview(sweatersButton)
+        
+        // set up sweaters label
+        sweatersLabel.text = "Sweaters"
+        sweatersLabel.backgroundColor = .white
+        sweatersLabel.textAlignment = .center
+        sweatersLabel.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        view.addSubview(sweatersLabel)
         
         // set up back button
         backButton.setImage(UIImage(named: "rounded-up-arrow"), for: .normal)
@@ -105,7 +150,7 @@ extension FilterViewController {
     
     func setupLayout() {
         filtersLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(20)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(25)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
         }
@@ -119,12 +164,12 @@ extension FilterViewController {
         
         shirtsLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(20)
-            make.top.equalTo(separatorView.snp.bottom).offset(10)
+            make.top.equalTo(separatorView.snp.bottom).offset(20)
             make.height.equalTo(50)
         }
         
         shirtButton.snp.makeConstraints { make in
-            make.leading.equalTo(shirtsLabel.snp.trailing).offset(10)
+            make.trailing.equalToSuperview().offset(-50)
             make.centerY.equalTo(shirtsLabel.snp.centerY)
             make.height.equalTo(50)
             make.width.equalTo(50)
@@ -137,7 +182,7 @@ extension FilterViewController {
         }
         
         pantsButton.snp.makeConstraints { make in
-            make.leading.equalTo(pantsLabel.snp.trailing).offset(10)
+            make.centerX.equalTo(shirtButton.snp.centerX)
             make.centerY.equalTo(pantsLabel.snp.centerY)
             make.height.equalTo(50)
             make.width.equalTo(50)
@@ -150,8 +195,47 @@ extension FilterViewController {
         }
         
         shoesButton.snp.makeConstraints { make in
-            make.leading.equalTo(shoesLabel.snp.trailing).offset(10)
+            make.centerX.equalTo(shirtButton.snp.centerX)
             make.centerY.equalTo(shoesLabel.snp.centerY)
+            make.height.equalTo(50)
+            make.width.equalTo(50)
+        }
+        
+        hoodiesLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.top.equalTo(shoesLabel.snp.bottom).offset(20)
+            make.height.equalTo(50)
+        }
+        
+        hoodiesButton.snp.makeConstraints { make in
+            make.centerX.equalTo(shirtButton.snp.centerX)
+            make.centerY.equalTo(hoodiesLabel.snp.centerY)
+            make.height.equalTo(50)
+            make.width.equalTo(50)
+        }
+        
+        jacketsLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.top.equalTo(hoodiesLabel.snp.bottom).offset(20)
+            make.height.equalTo(50)
+        }
+        
+        jacketsButton.snp.makeConstraints { make in
+            make.centerX.equalTo(shirtButton.snp.centerX)
+            make.centerY.equalTo(jacketsLabel.snp.centerY)
+            make.height.equalTo(50)
+            make.width.equalTo(50)
+        }
+        
+        sweatersLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.top.equalTo(jacketsLabel.snp.bottom).offset(20)
+            make.height.equalTo(50)
+        }
+        
+        sweatersButton.snp.makeConstraints { make in
+            make.centerX.equalTo(shirtButton.snp.centerX)
+            make.centerY.equalTo(sweatersLabel.snp.centerY)
             make.height.equalTo(50)
             make.width.equalTo(50)
         }
@@ -188,6 +272,18 @@ extension FilterViewController {
     
     @objc func shoesButtonTapped(_ sender: UIButton) {
         toggleFilterButton(button: shoesButton, for: .Shoes)
+    }
+    
+    @objc func hoodiesButtonTapped(_ sender: UIButton) {
+        toggleFilterButton(button: hoodiesButton, for: .Hoodies)
+    }
+    
+    @objc func jacketsButtonTapped(_ sender: UIButton) {
+        toggleFilterButton(button: jacketsButton, for: .Jacket)
+    }
+    
+    @objc func sweatersButtonTapped(_ sender: UIButton) {
+        toggleFilterButton(button: sweatersButton, for: .Sweater)
     }
     
     private func toggleFilterButton(button: DynamicButton, for tag: ClothingTag) {
