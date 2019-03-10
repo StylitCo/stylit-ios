@@ -72,7 +72,6 @@ extension HomeViewController {
     private func setupSubviews() {
         let purple = UIColor(red:0.54, green:0.17, blue:0.89, alpha:1.0)
         let gray = UIColor(red:0.71, green:0.75, blue:0.94, alpha:1.0)
-        let lightPurple = UIColor(red:0.85, green:0.44, blue:0.84, alpha:1.0)
         let lightGray = UIColor(red:0.66, green:0.66, blue:0.66, alpha:0.1)
         // set up logo
         logoView.image = UIImage(named: "StylitAppIcon")
@@ -232,13 +231,12 @@ extension HomeViewController: KolodaViewDelegate {
     }
     
     func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
-        let presenter: Presentr = Util.getPresentr()
-        let controller = ModalViewController()
+        let itemModalViewController = ItemModalViewController()
         let item = dataSource[index]
-        
-        controller.setItem(item: item)
-        
-        customPresentViewController(presenter, viewController: controller, animated: true, completion: nil)
+        itemModalViewController.setItem(item: item)
+        itemModalViewController.hero.isEnabled = true
+        itemModalViewController.hero.modalAnimationType = .selectBy(presenting:.slide(direction: .up), dismissing:.slide(direction: .down))
+        present(itemModalViewController, animated: true, completion: nil)
     }
     
     func koloda(_ koloda: KolodaView, allowedDirectionsForIndex index: Int) -> [SwipeResultDirection] {
@@ -249,17 +247,19 @@ extension HomeViewController: KolodaViewDelegate {
         let cardOverlayView = CardOverlayView()
         return cardOverlayView
     }
+    
+    func kolodaShouldTransparentizeNextCard(_ koloda: KolodaView) -> Bool {
+        return false
+    }
 }
 
 // Koloda datasource delegate
 extension HomeViewController: KolodaViewDataSource {
     
     func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
-        let item = dataSource[Int(index)]
-        let cardImage = item.image
-        
+        let item = dataSource[index]
         let card = CardView()
-        card.cardImageView.image = cardImage
+        card.updateCard(with: item)
         return card
     }
     

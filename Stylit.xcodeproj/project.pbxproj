@@ -163,6 +163,7 @@
 		71373913221B1FB900CE4056 /* Stylit */ = {
 			isa = PBXGroup;
 			children = (
+				71B21596223596310099DD2D /* ItemModal */,
 				71B2158D22356D800099DD2D /* Filter */,
 				71B2158C22356D770099DD2D /* Home */,
 				7122CAD9223086C40052232D /* Likes */,
@@ -173,7 +174,6 @@
 				7137391D221B1FBB00CE4056 /* Assets.xcassets */,
 				71373922221B1FBB00CE4056 /* Info.plist */,
 				710C13E6221D247A00A5A6F4 /* Util.swift */,
-				5A2784272223A7C000F38CE0 /* ModalViewController.swift */,
 				7122CAD52228D6160052232D /* DeleteAnimator.swift */,
 			);
 			path = Stylit;
@@ -204,6 +204,14 @@
 				5A6C7D542230BD3B00BAFEFA /* FilterViewController.swift */,
 			);
 			path = Filter;
+			sourceTree = "<group>";
+		};
+		71B21596223596310099DD2D /* ItemModal */ = {
+			isa = PBXGroup;
+			children = (
+				5A2784272223A7C000F38CE0 /* ModalViewController.swift */,
+			);
+			path = ItemModal;
 			sourceTree = "<group>";
 		};
 		7A9BA366AD8A9CC613E20BF0 /* Frameworks */ = {
