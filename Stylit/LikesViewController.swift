@@ -34,7 +34,6 @@ class LikesViewController: UIViewController {
     
     private func setupSubViews() {
         let purple = UIColor(red:0.54, green:0.17, blue:0.89, alpha:1.0)
-        
         let homeImage = UIImage(named: "Home")
         homeButton.setImage(homeImage, for: .normal)
         homeButton.tintColor = purple
