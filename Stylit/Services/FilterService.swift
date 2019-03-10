@@ -18,7 +18,7 @@ class FilterService {
     
     static func initItems() -> [Item] {
         var items: [Item] = []
-        for index in 1...2 {
+        for index in 1...5 {
             let shoesTags: Set<ClothingTag> = [.Shoes]
             let shirtTags: Set<ClothingTag> = [.Shirt]
             let pantsTags: Set<ClothingTag> = [.Pants]
