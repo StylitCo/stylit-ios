@@ -12,8 +12,6 @@ import SnapKit
 
 class ModalViewController: UIViewController {
     
-    var num: Int!
-    
     private let pulldownImage = UIImageView()
     private let separatorView = UIView()
 

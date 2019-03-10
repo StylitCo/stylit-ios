@@ -134,6 +134,7 @@
 		7122CAD9223086C40052232D /* Likes */ = {
 			isa = PBXGroup;
 			children = (
+				5A519583221E5D8C00E5B839 /* LikesViewController.swift */,
 				7122CADC223087350052232D /* LikeCell.swift */,
 			);
 			path = Likes;
@@ -162,6 +163,8 @@
 		71373913221B1FB900CE4056 /* Stylit */ = {
 			isa = PBXGroup;
 			children = (
+				71B2158D22356D800099DD2D /* Filter */,
+				71B2158C22356D770099DD2D /* Home */,
 				7122CAD9223086C40052232D /* Likes */,
 				4422305A2228BFB000B50DA2 /* Models */,
 				7122CAD0222632EE0052232D /* Services */,
@@ -169,10 +172,7 @@
 				71373914221B1FB900CE4056 /* AppDelegate.swift */,
 				7137391D221B1FBB00CE4056 /* Assets.xcassets */,
 				71373922221B1FBB00CE4056 /* Info.plist */,
-				7137393A221B292200CE4056 /* HomeViewController.swift */,
-				5A6C7D542230BD3B00BAFEFA /* FilterViewController.swift */,
 				710C13E6221D247A00A5A6F4 /* Util.swift */,
-				5A519583221E5D8C00E5B839 /* LikesViewController.swift */,
 				5A2784272223A7C000F38CE0 /* ModalViewController.swift */,
 				7122CAD52228D6160052232D /* DeleteAnimator.swift */,
 			);
@@ -337,7 +337,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Stylit/Pods-Stylit-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Stylit/Pods-Stylit-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CollectionKit/CollectionKit.framework",
 				"${BUILT_PRODUCTS_DIR}/DynamicButton/DynamicButton.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
@@ -364,7 +364,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Stylit/Pods-Stylit-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stylit/Pods-Stylit-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD5615C7A8E1C3263CB4CDC9 /* [CP] Check Pods Manifest.lock */ = {
@@ -399,6 +399,7 @@
 				7122CAD22226330A0052232D /* CartService.swift in Sources */,
 				7122CACF22262AF50052232D /* LikesService.swift in Sources */,
 				710C13E7221D247A00A5A6F4 /* Util.swift in Sources */,
+				71B2158F22356EF30099DD2D /* CardOverlayView.swift in Sources */,
 				4422305C2228C01C00B50DA2 /* Item.swift in Sources */,
 				7122CADD223087350052232D /* LikeCell.swift in Sources */,
 				5A6C7D552230BD3B00BAFEFA /* FilterViewController.swift in Sources */,

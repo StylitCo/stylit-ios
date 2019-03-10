@@ -235,7 +235,6 @@ extension HomeViewController: KolodaViewDelegate {
         let presenter: Presentr = Util.getPresentr()
         let controller = ModalViewController()
         let item = dataSource[index]
-        controller.num = index
         
         controller.setItem(item: item)
         
@@ -244,6 +243,11 @@ extension HomeViewController: KolodaViewDelegate {
     
     func koloda(_ koloda: KolodaView, allowedDirectionsForIndex index: Int) -> [SwipeResultDirection] {
         return [.left, .right, .up]
+    }
+    
+    func koloda(_ koloda: KolodaView, viewForCardOverlayAt index: Int) -> OverlayView? {
+        let cardOverlayView = CardOverlayView()
+        return cardOverlayView
     }
 }
 
