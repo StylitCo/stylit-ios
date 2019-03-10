@@ -7,12 +7,14 @@
 //
 
 import UIKit
-import Presentr
 import SnapKit
+import PMSuperButton
 
-class ModalViewController: UIViewController {
+class ItemModalViewController: UIViewController {
     
-    private let pulldownImage = UIImageView()
+    private let pulldownButton = PMSuperButton()
+    
+    let itemImageView = UIImageView()
     private let separatorView = UIView()
 
     private let scrollView = UIScrollView()
@@ -31,8 +33,12 @@ class ModalViewController: UIViewController {
     }
     
     private func setupSubviews() {
-        pulldownImage.image = UIImage(named: "Pulldown")
-        pulldownImage.backgroundColor = .white
+        pulldownButton.setImage(UIImage(named: "down-arrow"), for: .normal)
+        pulldownButton.tintColor = .purple
+        pulldownButton.animatedScaleWhenHighlighted = 1.2
+        pulldownButton.addTarget(self, action: #selector(ItemModalViewController.pulldownButtonTapped(_:)),                             for: .touchUpInside)
+
+        itemImageView.contentMode = .scaleAspectFit
         
         separatorView.backgroundColor = UIColor.purple
         
@@ -50,6 +56,7 @@ class ModalViewController: UIViewController {
         nameLabel.font = UIFont.systemFont(ofSize: 40, weight: .semibold)
         nameLabel.textAlignment = .left
         
+        contentView.addSubview(itemImageView)
         contentView.addSubview(nameLabel)
         contentView.addSubview(brandLabel)
         contentView.addSubview(priceLabel)
@@ -58,52 +65,56 @@ class ModalViewController: UIViewController {
         scrollView.addSubview(contentView)
         
         view.backgroundColor = .white
-        view.clipsToBounds = true
-        view.layer.cornerRadius = 50
-        view.addSubview(pulldownImage)
+        view.addSubview(pulldownButton)
         view.addSubview(separatorView)
         view.addSubview(scrollView)
     }
     
     private func setupLayout() {
-        pulldownImage.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(15)
+        pulldownButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(10)
             make.centerX.equalToSuperview()
-            make.width.equalTo(40)
-            make.height.equalTo(40)
+            make.width.equalTo(80)
+            make.height.equalTo(80)
         }
         
         separatorView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(15)
             make.trailing.equalToSuperview().offset(-15)
-            make.top.equalTo(pulldownImage.snp.bottom).offset(10)
-            
+            make.top.equalTo(pulldownButton.snp.bottom)
             make.height.equalTo(1)
         }
         
-        brandLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.leading.equalToSuperview().offset(20)
-            make.top.equalToSuperview().offset(20)
+        itemImageView.snp.makeConstraints { make in
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.top.equalToSuperview()
+            make.height.equalTo(400)
         }
         
         nameLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.leading.equalToSuperview().offset(20)
-            make.top.equalTo(brandLabel.snp.bottom)
+            make.top.equalTo(itemImageView.snp.bottom).offset(10)
         }
         
-        priceLabel.snp.makeConstraints { make in
+        brandLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.leading.equalToSuperview().offset(20)
             make.top.equalTo(nameLabel.snp.bottom).offset(5)
+        }
+
+        priceLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.leading.equalToSuperview().offset(20)
+            make.top.equalTo(brandLabel.snp.bottom).offset(5)
         }
         
         detailsLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.leading.equalToSuperview().offset(20)
             make.top.equalTo(priceLabel.snp.bottom).offset(20)
-            make.bottom.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-10)
         }
         
         contentView.snp.makeConstraints { make in
@@ -112,7 +123,7 @@ class ModalViewController: UIViewController {
         }
         
         scrollView.snp.makeConstraints { make in
-            make.top.equalTo(separatorView.snp.bottom)
+            make.top.equalTo(separatorView.snp.bottom).offset(10)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-10)
@@ -121,10 +132,17 @@ class ModalViewController: UIViewController {
     
     
     public func setItem(item: Item) {
+        itemImageView.image = item.image
         nameLabel.text = item.title
         brandLabel.text = item.brand
         priceLabel.text = "$\(item.price)"
         detailsLabel.text = item.description
     }
     
+}
+
+extension ItemModalViewController {
+    @objc func pulldownButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
 }

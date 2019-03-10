@@ -38,9 +38,6 @@ class LikesViewController: UIViewController {
         homeButton.setImage(homeImage, for: .normal)
         homeButton.tintColor = purple
         homeButton.addTarget(self, action: #selector(LikesViewController.homeButtonTapped(_:)),                             for: .touchUpInside)
-        
-        let glassImage = UIImage(named: "Star")
-       
 
         view.addSubview(homeButton)
         

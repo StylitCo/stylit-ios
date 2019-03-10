@@ -139,7 +139,7 @@ extension FilterViewController {
         view.addSubview(sweatersLabel)
         
         // set up back button
-        backButton.setImage(UIImage(named: "rounded-up-arrow"), for: .normal)
+        backButton.setImage(UIImage(named: "rounded-down-arrow"), for: .normal)
         backButton.tintColor = .purple
         backButton.animatedScaleWhenHighlighted = 1.2
         backButton.addTarget(self, action: #selector(FilterViewController.backButtonTapped(_:)),                             for: .touchUpInside)
