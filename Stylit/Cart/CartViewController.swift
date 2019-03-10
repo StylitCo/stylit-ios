@@ -22,7 +22,7 @@ class CartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.purple
+        view.backgroundColor = UIColor.white
         
         setupSubViews()
         setupLayout()
@@ -30,8 +30,9 @@ class CartViewController: UIViewController {
     
     private func setupSubViews() {
         let homeImage = UIImage(named: "Home")
+         let purple = UIColor(red:0.54, green:0.17, blue:0.89, alpha:1.0)
         homeButton.setImage(homeImage, for: .normal)
-        homeButton.tintColor = .white
+        homeButton.tintColor = purple
         homeButton.addTarget(self, action: #selector(CartViewController.homeButtonTapped(_:)),                             for: .touchUpInside)
         
         setupCollection()
@@ -44,7 +45,7 @@ class CartViewController: UIViewController {
         mainLabel.font = UIFont.systemFont(ofSize: 40, weight: .bold)
         mainLabel.numberOfLines = 1
         mainLabel.textAlignment = .right
-        mainLabel.textColor = UIColor.white
+        mainLabel.textColor = purple
         
         view.addSubview(mainLabel)
     }
@@ -119,7 +120,7 @@ extension CartViewController: CartCellButtonDelegate {
     }
     
     func didTapRemoveButton(atIndex index: Int) {
-        CartService.removeImageFromCart(atIndex: index)
+        CartService.removeItemFromCart(atIndex: index)
         let cartData = CartService.getCartItems()
         
         var data: [Int] = []

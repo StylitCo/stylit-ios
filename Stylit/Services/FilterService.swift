@@ -56,6 +56,7 @@ class FilterService {
     
     static func addItemToCart(swipedItem: Item) {
         // TODO: Add this functionality
+        
     }
     
     static func refreshItems() {

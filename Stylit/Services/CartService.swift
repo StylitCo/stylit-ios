@@ -12,7 +12,7 @@ class CartService {
     // TODO: Make network calls instead of storing locally
     private static var cartItems = [Item]()
     
-    static func addImageToCart(item: Item) -> Bool {
+    static func addItemToCart(item: Item) -> Bool {
         if (cartItems.contains(item)) {
             return false
         }
@@ -20,7 +20,7 @@ class CartService {
         return true
     }
     
-    static func removeImageFromCart(atIndex index: Int) {
+    static func removeItemFromCart(atIndex index: Int) {
         cartItems.remove(at: index)
     }
     
