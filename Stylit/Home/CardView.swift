@@ -62,7 +62,7 @@ extension CardView {
         hoverView.clipsToBounds = true
         hoverView.layer.borderColor = UIColor.black.cgColor
         hoverView.layer.borderWidth = 2
-        cardImageView.addSubview(hoverView)
+        self.addSubview(hoverView)
         
         self.backgroundColor = .white
         self.layer.cornerRadius = 8.0
