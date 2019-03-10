@@ -12,7 +12,7 @@ import UIKit
 class FilterService {
     
     
-    private static var chosenTags: Set<ClothingTag> = [.Hat, .Outerwear, .Pants, .Shirt, .Shoes]
+    private static var chosenTags: Set<ClothingTag> = [.Hat, .Hoodies, .Jacket, .Pants, .Shirt, .Shoes, .Sweater]
     
     private static var unswipedItems: [Item] = initItems()
     

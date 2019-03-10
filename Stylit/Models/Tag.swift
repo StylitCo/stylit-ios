@@ -12,6 +12,8 @@ enum ClothingTag {
     case Shirt
     case Pants
     case Shoes
-    case Outerwear
+    case Jacket
+    case Sweater
+    case Hoodies
     case Hat
 }
