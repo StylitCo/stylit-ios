@@ -13,7 +13,6 @@
 		5A519586221E7FDF00E5B839 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A519585221E7FDF00E5B839 /* CartViewController.swift */; };
 		5A6C7D532230A83500BAFEFA /* FilterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6C7D522230A83500BAFEFA /* FilterService.swift */; };
 		5A6C7D552230BD3B00BAFEFA /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6C7D542230BD3B00BAFEFA /* FilterViewController.swift */; };
-		5AF0D2212220CB3E00237FC6 /* RecommendedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF0D2202220CB3E00237FC6 /* RecommendedViewController.swift */; };
 		5DF0768FC9C2AE696F9340E0 /* Pods_Stylit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D597E7022FBE6153D8CE300 /* Pods_Stylit.framework */; };
 		710C13E7221D247A00A5A6F4 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710C13E6221D247A00A5A6F4 /* Util.swift */; };
 		710ED90D2223ACD800BDEB45 /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710ED90C2223ACD800BDEB45 /* CartCell.swift */; };
@@ -26,6 +25,7 @@
 		7137392C221B1FBB00CE4056 /* StylitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7137392B221B1FBB00CE4056 /* StylitTests.swift */; };
 		7137393B221B292200CE4056 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7137393A221B292200CE4056 /* HomeViewController.swift */; };
 		71B21587223427230099DD2D /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B21586223427230099DD2D /* Tag.swift */; };
+		71B2158F22356EF30099DD2D /* CardOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B2158E22356EF30099DD2D /* CardOverlayView.swift */; };
 		D5BD1744B4F1CD8CC3642FFC /* Pods_StylitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 607BA1F3D824FD37D4B98FF5 /* Pods_StylitTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +48,6 @@
 		5A519585221E7FDF00E5B839 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		5A6C7D522230A83500BAFEFA /* FilterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterService.swift; sourceTree = "<group>"; };
 		5A6C7D542230BD3B00BAFEFA /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
-		5AF0D2202220CB3E00237FC6 /* RecommendedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendedViewController.swift; sourceTree = "<group>"; };
 		607BA1F3D824FD37D4B98FF5 /* Pods_StylitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StylitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		710C13E6221D247A00A5A6F4 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		710ED90C2223ACD800BDEB45 /* CartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
@@ -65,6 +64,7 @@
 		7137392D221B1FBB00CE4056 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7137393A221B292200CE4056 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		71B21586223427230099DD2D /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		71B2158E22356EF30099DD2D /* CardOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardOverlayView.swift; sourceTree = "<group>"; };
 		7D597E7022FBE6153D8CE300 /* Pods_Stylit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stylit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA225A14954C52A998C2A754 /* Pods-StylitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StylitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StylitTests/Pods-StylitTests.release.xcconfig"; sourceTree = "<group>"; };
 		CF772CB0107A38F3CB1D4D0F /* Pods-Stylit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stylit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stylit/Pods-Stylit.release.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +132,7 @@
 		7122CAD9223086C40052232D /* Likes */ = {
 			isa = PBXGroup;
 			children = (
+				5A519583221E5D8C00E5B839 /* LikesViewController.swift */,
 				7122CADC223087350052232D /* LikeCell.swift */,
 			);
 			path = Likes;
@@ -160,6 +161,8 @@
 		71373913221B1FB900CE4056 /* Stylit */ = {
 			isa = PBXGroup;
 			children = (
+				71B2158D22356D800099DD2D /* Filter */,
+				71B2158C22356D770099DD2D /* Home */,
 				7122CAD9223086C40052232D /* Likes */,
 				4422305A2228BFB000B50DA2 /* Models */,
 				7122CAD0222632EE0052232D /* Services */,
@@ -167,11 +170,7 @@
 				71373914221B1FB900CE4056 /* AppDelegate.swift */,
 				7137391D221B1FBB00CE4056 /* Assets.xcassets */,
 				71373922221B1FBB00CE4056 /* Info.plist */,
-				7137393A221B292200CE4056 /* HomeViewController.swift */,
-				5A6C7D542230BD3B00BAFEFA /* FilterViewController.swift */,
 				710C13E6221D247A00A5A6F4 /* Util.swift */,
-				5A519583221E5D8C00E5B839 /* LikesViewController.swift */,
-				5AF0D2202220CB3E00237FC6 /* RecommendedViewController.swift */,
 				5A2784272223A7C000F38CE0 /* ModalViewController.swift */,
 				7122CAD52228D6160052232D /* DeleteAnimator.swift */,
 			);
@@ -185,6 +184,23 @@
 				7137392D221B1FBB00CE4056 /* Info.plist */,
 			);
 			path = StylitTests;
+			sourceTree = "<group>";
+		};
+		71B2158C22356D770099DD2D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				7137393A221B292200CE4056 /* HomeViewController.swift */,
+				71B2158E22356EF30099DD2D /* CardOverlayView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		71B2158D22356D800099DD2D /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				5A6C7D542230BD3B00BAFEFA /* FilterViewController.swift */,
+			);
+			path = Filter;
 			sourceTree = "<group>";
 		};
 		7A9BA366AD8A9CC613E20BF0 /* Frameworks */ = {
@@ -374,13 +390,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				71B21587223427230099DD2D /* Tag.swift in Sources */,
-				5AF0D2212220CB3E00237FC6 /* RecommendedViewController.swift in Sources */,
 				710ED90D2223ACD800BDEB45 /* CartCell.swift in Sources */,
 				7137393B221B292200CE4056 /* HomeViewController.swift in Sources */,
 				5A6C7D532230A83500BAFEFA /* FilterService.swift in Sources */,
 				7122CAD22226330A0052232D /* CartService.swift in Sources */,
 				7122CACF22262AF50052232D /* LikesService.swift in Sources */,
 				710C13E7221D247A00A5A6F4 /* Util.swift in Sources */,
+				71B2158F22356EF30099DD2D /* CardOverlayView.swift in Sources */,
 				4422305C2228C01C00B50DA2 /* Item.swift in Sources */,
 				7122CADD223087350052232D /* LikeCell.swift in Sources */,
 				5A6C7D552230BD3B00BAFEFA /* FilterViewController.swift in Sources */,

@@ -14,7 +14,6 @@ import CollectionKit
 class LikesViewController: UIViewController {
     
     private let homeButton = UIButton()
-    private let recommendedButton = UIButton()
     
     private let mainLabel = UILabel()
     
@@ -31,24 +30,19 @@ class LikesViewController: UIViewController {
         setupSubViews()
         setupLayout()
         
-        recommendedButton.hero.id = "hello"
     }
     
     private func setupSubViews() {
         let purple = UIColor(red:0.54, green:0.17, blue:0.89, alpha:1.0)
-        let lightPurple = UIColor(red:0.85, green:0.44, blue:0.84, alpha:1.0)
         let homeImage = UIImage(named: "Home")
         homeButton.setImage(homeImage, for: .normal)
         homeButton.tintColor = purple
         homeButton.addTarget(self, action: #selector(LikesViewController.homeButtonTapped(_:)),                             for: .touchUpInside)
         
         let glassImage = UIImage(named: "Star")
-        recommendedButton.setImage(glassImage, for: .normal)
-        recommendedButton.tintColor = .white
-        recommendedButton.addTarget(self, action: #selector(LikesViewController.recommendedButtonTapped(_:)),                             for: .touchUpInside)
+       
 
         view.addSubview(homeButton)
-        view.addSubview(recommendedButton)
         
         // top label
         mainLabel.text = "Likes"
@@ -60,7 +54,6 @@ class LikesViewController: UIViewController {
         view.addSubview(mainLabel)
         
         view.addSubview(collectionView)
-        
         view.backgroundColor = .white
     }
     
@@ -71,33 +64,19 @@ class LikesViewController: UIViewController {
             make.height.equalTo(40)
             make.width.equalTo(40)
         }
-        
-        recommendedButton.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin)
-            make.leading.equalToSuperview().offset(20)
-            make.height.equalTo(40)
-            make.width.equalTo(40)
-        }
+    
         
         mainLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
             make.centerY.equalTo(homeButton.snp.centerY)
+            make.leading.equalToSuperview().offset(30)
         }
         
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(recommendedButton.snp.bottom).offset(40)
+            make.top.equalTo(homeButton.snp.bottom).offset(40)
             make.bottom.equalToSuperview()
             make.width.equalToSuperview()
             make.leading.equalToSuperview()
         }
-    }
-    
-    // this could return a random image maybe
-    private func cellImage() -> UIImageView {
-        let image = UIImage(named: "StylishMan")
-        let imageView = UIImageView(image: image)
-        
-        return imageView
     }
     
     private func setupCollection() {
@@ -117,6 +96,7 @@ class LikesViewController: UIViewController {
             view.buttonDelegate = self
             view.layer.cornerRadius = 10.0
             view.clipsToBounds = true
+            
         })
         let sizeSource = { (index: Int, data: Int, collectionSize: CGSize) -> CGSize in
             return CGSize(width: self.view.frame.width - 20, height: 150)
@@ -144,13 +124,6 @@ class LikesViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    @objc func recommendedButtonTapped(_ sender: UIButton) {
-        // animate transition
-        let vc = RecommendedViewController()
-        vc.hero.isEnabled = true
-        vc.hero.modalAnimationType = .fade
-        present(vc, animated: true, completion: nil)
-    }
 }
 
 extension LikesViewController: CartCellButtonDelegate {
