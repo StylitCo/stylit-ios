@@ -88,8 +88,8 @@ private extension CartCellView {
         
         self.addSubview(titleLabel)
         self.addSubview(priceLabel)
-        
-        backgroundColor = UIColor.white
+        let lightGray = UIColor(red:0.66, green:0.66, blue:0.66, alpha:0.1)
+        backgroundColor = lightGray
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 12)
         layer.shadowRadius = 10

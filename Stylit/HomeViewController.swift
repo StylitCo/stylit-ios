@@ -123,9 +123,9 @@ extension HomeViewController {
         dislikeButton.addTarget(self, action: #selector(HomeViewController.dislikeButtonTapped(_:)), for: .touchUpInside)
         
         
-        let addToCartImage = UIImage(named: "superlike")
+        let addToCartImage = UIImage(named: "addtocart-new")
         addToCartButton.setImage(addToCartImage, for: .normal)
-        addToCartButton.imageEdgeInsets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        addToCartButton.imageEdgeInsets = UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25)
         addToCartButton.tintColor = gray
         addToCartButton.ripple = true
         addToCartButton.cornerRadius = 41
@@ -241,6 +241,10 @@ extension HomeViewController: KolodaViewDelegate {
         
         customPresentViewController(presenter, viewController: controller, animated: true, completion: nil)
     }
+    
+    func koloda(_ koloda: KolodaView, allowedDirectionsForIndex index: Int) -> [SwipeResultDirection] {
+        return [.left, .right, .up]
+    }
 }
 
 // Koloda datasource delegate
@@ -270,8 +274,10 @@ extension HomeViewController: KolodaViewDataSource {
             FilterService.dislikeItem(swipedItem: swipedItem)
         } else if direction == .right {
             FilterService.likeItem(swipedItem: swipedItem)
+        } else if direction == .up {
+            CartService.addItemToCart(item: swipedItem)
         } else {
-            fatalError("Unexpected direction: \(direction)")
+            print("Unexpected direction: \(direction)")
         }
         
     }
@@ -295,12 +301,7 @@ extension HomeViewController {
     }
     
     @objc func addToCartButtonTapped(_ sender: UIButton) {
-        let item = dataSource[kolodaView.currentCardIndex]
-        if CartService.addImageToCart(item: item) {
-            HUD.flash(.label("Added to Cart"), delay: 0.2)
-        } else {
-            HUD.flash(.label("Item Already in Cart"), delay: 0.2)
-        }
+        kolodaView.swipe(.up)
     }
     
     @objc func cartButtonTapped(_ sender: UIButton) {

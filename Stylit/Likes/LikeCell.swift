@@ -46,10 +46,12 @@ class LikeCellView: UIView {
         titleLabel.text = item.title
         priceLabel.text = "$\(item.price)"
     }
+    
 }
 
 private extension LikeCellView {
     func setupSubviews() {
+        let lightGray = UIColor(red:0.66, green:0.66, blue:0.66, alpha:0.1)
         itemImageView.image = UIImage(named: "StylishMan")
         itemImageView.layer.masksToBounds = true
         itemImageView.layer.cornerRadius = 25
@@ -92,7 +94,7 @@ private extension LikeCellView {
         self.addSubview(titleLabel)
         self.addSubview(priceLabel)
         
-        backgroundColor = UIColor.white
+        backgroundColor = lightGray
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 12)
         layer.shadowRadius = 10
