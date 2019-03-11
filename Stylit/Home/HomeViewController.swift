@@ -278,6 +278,7 @@ extension HomeViewController: KolodaViewDataSource {
         } else if direction == .right {
             FilterService.likeItem(swipedItem: swipedItem)
         } else if direction == .up {
+            FilterService.likeItem(swipedItem: swipedItem)
             CartService.addItemToCart(item: swipedItem)
         } else {
             print("Unexpected direction: \(direction)")
