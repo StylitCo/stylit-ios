@@ -14,6 +14,7 @@ class CardView: UIView {
     private let cardImageView = UIImageView()
     
     private let hoverView = UIView()
+    private let separatorView = UIView()
     private let nameLabel = UILabel()
     private let brandLabel = UILabel()
     private let priceLabel = UILabel()
@@ -42,27 +43,23 @@ extension CardView {
         cardImageView.contentMode = .scaleAspectFit
         self.addSubview(cardImageView)
         
-        brandLabel.font = UIFont.systemFont(ofSize: 18, weight: .light)
-        brandLabel.textAlignment = .natural
-        brandLabel.textColor = .black
-        hoverView.addSubview(brandLabel)
+        separatorView.backgroundColor = UIColor.lightGray
+        self.addSubview(separatorView)
         
-        priceLabel.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        brandLabel.font = UIFont.systemFont(ofSize: 20, weight: .light)
+        brandLabel.textAlignment = .natural
+        brandLabel.textColor = .gray
+        self.addSubview(brandLabel)
+        
+        priceLabel.font = UIFont.systemFont(ofSize: 20, weight: .regular)
         priceLabel.textAlignment = .natural
         priceLabel.textColor = .black
-        hoverView.addSubview(priceLabel)
+        self.addSubview(priceLabel)
         
-        nameLabel.font = UIFont.systemFont(ofSize: 26, weight: .semibold)
+        nameLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
         nameLabel.textAlignment = .natural
         nameLabel.textColor = .black
-        hoverView.addSubview(nameLabel)
-        
-        hoverView.backgroundColor = .white
-        hoverView.layer.cornerRadius = 8.0
-        hoverView.clipsToBounds = true
-        hoverView.layer.borderColor = UIColor.black.cgColor
-        hoverView.layer.borderWidth = 2
-        self.addSubview(hoverView)
+        self.addSubview(nameLabel)
         
         self.backgroundColor = .white
         self.layer.cornerRadius = 8.0
@@ -76,30 +73,28 @@ extension CardView {
             make.top.equalToSuperview()
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-            make.bottom.equalToSuperview()
+            make.height.equalTo(280)
         }
         
-        hoverView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(10)
-            make.bottom.equalToSuperview().offset(-10)
-            make.height.equalTo(100)
+        separatorView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.width.equalTo(332)
+            make.height.equalTo(1)
+            make.bottom.equalTo(nameLabel.snp.top).offset(-10)
         }
-
+        
         nameLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(10)
-            make.trailing.equalToSuperview().offset(-10)
             make.bottom.equalTo(brandLabel.snp.top).offset(-5)
         }
 
         brandLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(10)
-            make.trailing.equalToSuperview().offset(-10)
             make.bottom.equalTo(priceLabel.snp.top).offset(-5)
         }
 
         priceLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(10)
-            make.trailing.equalToSuperview().offset(-10)
             make.bottom.equalToSuperview().offset(-5)
         }
     }

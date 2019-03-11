@@ -198,26 +198,26 @@ extension HomeViewController {
         
         dislikeButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview().offset(-120)
-            make.top.equalTo(kolodaView.snp.bottom).offset(50)
+            make.top.equalTo(kolodaView.snp.bottom).offset(15)
             make.height.equalTo(80)
             make.width.equalTo(80)
-            make.bottom.equalToSuperview().offset(-50)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottomMargin).offset(-30)
         }
 
         likeButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview().offset(120)
-            make.top.equalTo(kolodaView.snp.bottom).offset(50)
+            make.top.equalTo(kolodaView.snp.bottom).offset(15)
             make.height.equalTo(80)
             make.width.equalTo(80)
-            make.bottom.equalToSuperview().offset(-50)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottomMargin).offset(-30)
         }
         
         addToCartButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(kolodaView.snp.bottom).offset(50)
+            make.top.equalTo(kolodaView.snp.bottom).offset(15)
             make.height.equalTo(80)
             make.width.equalTo(80)
-            make.bottom.equalToSuperview().offset(-50)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottomMargin).offset(-30)
         }
     }
 }
