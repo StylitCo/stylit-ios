@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4422305C2228C01C00B50DA2 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4422305B2228C01C00B50DA2 /* Item.swift */; };
+		44F868F422371BA400DA16C8 /* UIView+Borders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F868F322371BA400DA16C8 /* UIView+Borders.swift */; };
 		5A2784282223A7C000F38CE0 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2784272223A7C000F38CE0 /* ModalViewController.swift */; };
 		5A519584221E5D8C00E5B839 /* LikesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A519583221E5D8C00E5B839 /* LikesViewController.swift */; };
 		5A519586221E7FDF00E5B839 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A519585221E7FDF00E5B839 /* CartViewController.swift */; };
@@ -44,6 +45,7 @@
 		02B193B5F3200E89E72DEC68 /* Pods-StylitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StylitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StylitTests/Pods-StylitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3B63AE99E4CDBE5729645A2E /* Pods-Stylit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stylit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stylit/Pods-Stylit.debug.xcconfig"; sourceTree = "<group>"; };
 		4422305B2228C01C00B50DA2 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		44F868F322371BA400DA16C8 /* UIView+Borders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Borders.swift"; sourceTree = "<group>"; };
 		5A2784272223A7C000F38CE0 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		5A519583221E5D8C00E5B839 /* LikesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesViewController.swift; sourceTree = "<group>"; };
 		5A519585221E7FDF00E5B839 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				4422305B2228C01C00B50DA2 /* Item.swift */,
+				71B2158E22356EF30099DD2D /* CardOverlayView.swift */,
 				71B21586223427230099DD2D /* Tag.swift */,
 			);
 			path = Models;
@@ -175,6 +178,7 @@
 				71373922221B1FBB00CE4056 /* Info.plist */,
 				710C13E6221D247A00A5A6F4 /* Util.swift */,
 				7122CAD52228D6160052232D /* DeleteAnimator.swift */,
+				44F868F322371BA400DA16C8 /* UIView+Borders.swift */,
 			);
 			path = Stylit;
 			sourceTree = "<group>";
@@ -192,7 +196,6 @@
 			isa = PBXGroup;
 			children = (
 				7137393A221B292200CE4056 /* HomeViewController.swift */,
-				71B2158E22356EF30099DD2D /* CardOverlayView.swift */,
 				71B2159022357B290099DD2D /* CardView.swift */,
 			);
 			path = Home;
@@ -409,6 +412,7 @@
 				710C13E7221D247A00A5A6F4 /* Util.swift in Sources */,
 				71B2158F22356EF30099DD2D /* CardOverlayView.swift in Sources */,
 				4422305C2228C01C00B50DA2 /* Item.swift in Sources */,
+				44F868F422371BA400DA16C8 /* UIView+Borders.swift in Sources */,
 				7122CADD223087350052232D /* LikeCell.swift in Sources */,
 				5A6C7D552230BD3B00BAFEFA /* FilterViewController.swift in Sources */,
 				5A519586221E7FDF00E5B839 /* CartViewController.swift in Sources */,

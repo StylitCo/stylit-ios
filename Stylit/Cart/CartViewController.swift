@@ -10,11 +10,13 @@ import UIKit
 import SnapKit
 import Hero
 import CollectionKit
+import PMSuperButton
 
 class CartViewController: UIViewController {
     
     private let homeButton = UIButton()
     private let collectionView = CollectionView()
+    private let checkoutButton = PMSuperButton()
     
     private let mainLabel = UILabel()
     
@@ -29,8 +31,19 @@ class CartViewController: UIViewController {
     }
     
     private func setupSubViews() {
+        
+        let purple = UIColor(red:0.54, green:0.17, blue:0.89, alpha:1.0)
+        
+        
+        checkoutButton.setTitle("Checkout", for: .normal)
+        checkoutButton.setTitleColor(.white, for: .normal)
+        checkoutButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        checkoutButton.backgroundColor = purple
+        checkoutButton.ripple = true
+       
+        
         let homeImage = UIImage(named: "Home")
-         let purple = UIColor(red:0.54, green:0.17, blue:0.89, alpha:1.0)
+        
         homeButton.setImage(homeImage, for: .normal)
         homeButton.tintColor = purple
         homeButton.addTarget(self, action: #selector(CartViewController.homeButtonTapped(_:)),                             for: .touchUpInside)
@@ -39,6 +52,7 @@ class CartViewController: UIViewController {
         
         view.addSubview(homeButton)
         view.addSubview(collectionView)
+        view.addSubview(checkoutButton)
         
         // top label
         mainLabel.text = "Your Cart"
@@ -62,9 +76,14 @@ class CartViewController: UIViewController {
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.top.equalTo(homeButton.snp.bottom).offset(30)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+            make.bottom.equalTo(checkoutButton.snp.top).offset(-5)
         }
-        
+        checkoutButton.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(15)
+            make.trailing.equalToSuperview().offset(-20)
+            make.bottom.equalToSuperview().offset(-50)
+            make.height.equalTo(50)
+        }
         mainLabel.snp.makeConstraints { make in
             make.centerY.equalTo(homeButton.snp.centerY)
             make.trailing.equalToSuperview().offset(-20)
@@ -112,12 +131,10 @@ class CartViewController: UIViewController {
         // animate transition
         dismiss(animated: true, completion: nil)
     }
+    
 }
 
 extension CartViewController: CartCellButtonDelegate {
-    func didTapBuyButton(atIndex index: Int) {
-        print("Currently doing nothing.")
-    }
     
     func didTapRemoveButton(atIndex index: Int) {
         CartService.removeItemFromCart(atIndex: index)

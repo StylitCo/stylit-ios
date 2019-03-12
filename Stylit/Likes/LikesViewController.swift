@@ -124,9 +124,6 @@ class LikesViewController: UIViewController {
 }
 
 extension LikesViewController: CartCellButtonDelegate {
-    func didTapBuyButton(atIndex index: Int) {
-        print("Currently doing nothing.")
-    }
     
     func didTapRemoveButton(atIndex index: Int) {
         LikesService.removeItemFromLikes(atIndex: index)
