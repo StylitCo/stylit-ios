@@ -137,7 +137,6 @@ private extension LikeCellView {
 extension LikeCellView {
     @objc func addToCartButtonPressed(_ sender: UIButton) {
         guard let index = self.likeIndex else { fatalError("Index is not defined") }
-        buttonDelegate?.didTapBuyButton(atIndex: index)
     }
     
     @objc func removeButtonPressed(_ sender: UIButton) {

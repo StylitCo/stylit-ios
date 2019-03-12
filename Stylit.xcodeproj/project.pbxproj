@@ -96,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				4422305B2228C01C00B50DA2 /* Item.swift */,
+				71B2158E22356EF30099DD2D /* CardOverlayView.swift */,
 				71B21586223427230099DD2D /* Tag.swift */,
 			);
 			path = Models;
@@ -192,7 +193,6 @@
 			isa = PBXGroup;
 			children = (
 				7137393A221B292200CE4056 /* HomeViewController.swift */,
-				71B2158E22356EF30099DD2D /* CardOverlayView.swift */,
 				71B2159022357B290099DD2D /* CardView.swift */,
 			);
 			path = Home;

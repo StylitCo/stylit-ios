@@ -11,14 +11,13 @@ import UIKit
 import PMSuperButton
 
 protocol CartCellButtonDelegate {
-    func didTapBuyButton(atIndex index: Int)
     func didTapRemoveButton(atIndex index: Int)
 }
 
 class CartCellView: UIView {
     let itemImageView = UIImageView()
-    let buyButton = PMSuperButton()
     let removeButton = PMSuperButton()
+    private let separator = UIView()
     
     let titleLabel = UILabel()
     let priceLabel = UILabel()
@@ -49,29 +48,18 @@ class CartCellView: UIView {
 
 private extension CartCellView {
     func setupSubviews() {
+        let lightGray = UIColor(red:0.66, green:0.66, blue:0.66, alpha:0.1)
+        let darkGray = UIColor(red:0.50, green:0.50, blue:0.50, alpha:1.0)
         itemImageView.image = UIImage(named: "StylishMan")
         itemImageView.layer.masksToBounds = true
         itemImageView.layer.cornerRadius = 25
         self.addSubview(itemImageView)
         
-        buyButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        buyButton.titleLabel?.textAlignment = .natural
-        buyButton.setTitle("Buy Now", for: .normal)
-        buyButton.setTitleColor(.white, for: .normal)
-        buyButton.backgroundColor = .purple
-        buyButton.clipsToBounds = true
-        buyButton.layer.cornerRadius = 10
-        buyButton.ripple = true
-        buyButton.addTarget(self, action: #selector(CartCellView.buyButtonPressed(_:)), for: .touchUpInside)
-        self.addSubview(buyButton)
+        let removeImage = UIImage(named: "trash")
         
-        removeButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        removeButton.titleLabel?.textAlignment = .natural
-        removeButton.setTitle("Remove", for: .normal)
-        removeButton.setTitleColor(.white, for: .normal)
-        removeButton.backgroundColor = UIColor.init(red: 0.61, green: 0.0156, blue: 0.004, alpha: 1.0)
-        removeButton.clipsToBounds = true
-        removeButton.layer.cornerRadius = 10
+        
+        removeButton.setImage(removeImage, for: .normal)
+        removeButton.tintColor = darkGray
         removeButton.ripple = true
         removeButton.addTarget(self, action: #selector(CartCellView.removeButtonPressed(_:)), for: .touchUpInside)
         self.addSubview(removeButton)
@@ -86,10 +74,13 @@ private extension CartCellView {
         priceLabel.textAlignment = .natural
         priceLabel.text = "Item Price"
         
+        separator.backgroundColor = darkGray
+        self.addSubview(separator)
+        
         self.addSubview(titleLabel)
         self.addSubview(priceLabel)
-        let lightGray = UIColor(red:0.66, green:0.66, blue:0.66, alpha:0.1)
-        backgroundColor = lightGray
+        
+        backgroundColor = .white
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 12)
         layer.shadowRadius = 10
@@ -98,7 +89,7 @@ private extension CartCellView {
     
     func setupLayout() {
         itemImageView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(5)
+            make.leading.equalToSuperview().offset(15)
             make.top.equalToSuperview().offset(10)
             make.bottom.equalToSuperview().offset(-10)
             make.width.equalTo(100)
@@ -115,25 +106,24 @@ private extension CartCellView {
         }
         
         removeButton.snp.makeConstraints { make in
-            make.leading.equalTo(itemImageView.snp.trailing).offset(20)
-            make.bottom.equalToSuperview().offset(-15)
-            make.width.equalTo(100)
+            make.trailing.equalToSuperview().offset(-15)
+            make.top.equalTo(titleLabel.snp.top)
+            make.width.equalTo(25)
+            make.height.equalTo(23)
         }
         
-        buyButton.snp.makeConstraints { make in
-            make.leading.equalTo(removeButton.snp.trailing).offset(10)
-            make.bottom.equalToSuperview().offset(-15)
-            make.width.equalTo(100)
+        separator.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(15)
+            make.trailing.equalToSuperview().offset(-20)
+            make.bottom.equalToSuperview()
+            make.height.equalTo(2)
         }
+        
     }
 }
 
 // Button functions
 extension CartCellView {
-    @objc func buyButtonPressed(_ sender: UIButton) {
-        guard let index = self.cartIndex else { fatalError("Index is not defined") }
-        buttonDelegate?.didTapBuyButton(atIndex: index)
-    }
     
     @objc func removeButtonPressed(_ sender: UIButton) {
         guard let index = self.cartIndex else { fatalError("Index is not defined") }
