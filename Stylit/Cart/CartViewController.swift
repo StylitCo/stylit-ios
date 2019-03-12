@@ -17,6 +17,8 @@ class CartViewController: UIViewController {
     private let homeButton = UIButton()
     private let collectionView = CollectionView()
     private let checkoutButton = PMSuperButton()
+    private let totalLabel = UILabel()
+    private let priceLabel = UILabel()
     
     private let mainLabel = UILabel()
     
@@ -34,6 +36,15 @@ class CartViewController: UIViewController {
         
         let purple = UIColor(red:0.54, green:0.17, blue:0.89, alpha:1.0)
         
+        priceLabel.textColor = purple
+        priceLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        priceLabel.textAlignment = .natural
+        updatePriceLabel()
+        
+        totalLabel.textColor = purple
+        totalLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        totalLabel.textAlignment = .natural
+        totalLabel.text = "Total"
         
         checkoutButton.setTitle("Checkout", for: .normal)
         checkoutButton.setTitleColor(.white, for: .normal)
@@ -54,6 +65,7 @@ class CartViewController: UIViewController {
         view.addSubview(collectionView)
         view.addSubview(checkoutButton)
         
+        
         // top label
         mainLabel.text = "Your Cart"
         mainLabel.font = UIFont.systemFont(ofSize: 40, weight: .bold)
@@ -62,6 +74,8 @@ class CartViewController: UIViewController {
         mainLabel.textColor = purple
         
         view.addSubview(mainLabel)
+        view.addSubview(totalLabel)
+        view.addSubview(priceLabel)
     }
     
     private func setupLayout() {
@@ -76,7 +90,7 @@ class CartViewController: UIViewController {
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.top.equalTo(homeButton.snp.bottom).offset(30)
-            make.bottom.equalTo(checkoutButton.snp.top).offset(-5)
+            make.bottom.equalTo(totalLabel.snp.top).offset(-5)
         }
         checkoutButton.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(15)
@@ -87,6 +101,16 @@ class CartViewController: UIViewController {
         mainLabel.snp.makeConstraints { make in
             make.centerY.equalTo(homeButton.snp.centerY)
             make.trailing.equalToSuperview().offset(-20)
+        }
+        
+        totalLabel.snp.makeConstraints { make in
+            make.leading.equalTo(homeButton.snp.leading)
+            make.bottom.equalTo(checkoutButton.snp.top).offset(-30)
+        }
+        
+        priceLabel.snp.makeConstraints { make in
+            make.trailing.equalTo(checkoutButton.snp.trailing)
+            make.bottom.equalTo(checkoutButton.snp.top).offset(-30)
         }
     }
     
@@ -125,7 +149,14 @@ class CartViewController: UIViewController {
         //lastly assign this provider to the collectionView to display the content
         collectionView.provider = provider
     }
-
+    
+    private func updatePriceLabel() {
+        if (CartService.getCartPrice() < 1000) {
+            priceLabel.text = "$\(CartService.getCartPrice()).00"
+        } else {
+            priceLabel.text = "$\(CartService.getCartPrice()/1000),\(CartService.getCartPrice()%1000).00"
+        }
+    }
     
     @objc func homeButtonTapped(_ sender: UIButton) {
         // animate transition
@@ -146,7 +177,9 @@ extension CartViewController: CartCellButtonDelegate {
                 data.append(i)
             }
         }
-
+        
+        updatePriceLabel()
+        
         self.arrayDataSource?.data = data
     }
 }
