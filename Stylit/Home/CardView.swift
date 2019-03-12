@@ -73,7 +73,7 @@ extension CardView {
             make.top.equalToSuperview()
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-            make.height.equalTo(280)
+            make.height.equalTo(500)
         }
         
         separatorView.snp.makeConstraints { make in
