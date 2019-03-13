@@ -11,6 +11,7 @@ import UIKit
 import DynamicButton
 import PMSuperButton
 
+
 protocol FilterViewDelegate {
     func applyFilters()
 }
