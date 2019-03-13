@@ -138,8 +138,9 @@ extension HomeViewController {
         cartButton.tintColor = purple
         cartButton.addTarget(self, action: #selector(HomeViewController.cartButtonTapped(_:)),                             for: .touchUpInside)
         
-        let feedImage = UIImage(named: "Grid")
-        feedButton.setImage(feedImage, for: .normal)
+        let feedImage = UIImage(named: "Profile")
+        let tintableImage = feedImage?.withRenderingMode(.alwaysTemplate)
+        feedButton.setImage(tintableImage, for: .normal)
         feedButton.tintColor = purple
         feedButton.addTarget(self, action: #selector(HomeViewController.feedButtonTapped(_:)),                             for: .touchUpInside)
 
@@ -176,7 +177,7 @@ extension HomeViewController {
         }
         
         feedButton.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(5)
             make.leading.equalToSuperview().offset(20)
             make.height.equalTo(40)
             make.width.equalTo(40)
