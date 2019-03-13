@@ -91,7 +91,7 @@ class LikesViewController: UIViewController {
         heightLabel.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         view.addSubview(heightLabel)
         
-        height.text = "6'4\""
+        height.text = "6'2\""
         height.font = UIFont.systemFont(ofSize: 18, weight: .light)
         view.addSubview(height)
         
@@ -99,7 +99,7 @@ class LikesViewController: UIViewController {
         weightLabel.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         view.addSubview(weightLabel)
         
-        weight.text = "205 lbs"
+        weight.text = "170 lbs"
         weight.font = UIFont.systemFont(ofSize: 18, weight: .light)
         view.addSubview(weight)
         
@@ -107,7 +107,7 @@ class LikesViewController: UIViewController {
         shirtSizeLabel.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         view.addSubview(shirtSizeLabel)
         
-        shirtSize.text = "XL"
+        shirtSize.text = "M"
         shirtSize.font = UIFont.systemFont(ofSize: 18, weight: .light)
         view.addSubview(shirtSize)
         
@@ -121,7 +121,7 @@ class LikesViewController: UIViewController {
         waistSizeLabel.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         view.addSubview(waistSizeLabel)
         
-        waistSize.text = "34"
+        waistSize.text = "32"
         waistSize.font = UIFont.systemFont(ofSize: 18, weight: .light)
         view.addSubview(waistSize)
         
@@ -129,7 +129,7 @@ class LikesViewController: UIViewController {
         pantLengthLabel.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         view.addSubview(pantLengthLabel)
         
-        pantLength.text = "36"
+        pantLength.text = "34"
         pantLength.font = UIFont.systemFont(ofSize: 18, weight: .light)
         view.addSubview(pantLength)
         
@@ -137,7 +137,7 @@ class LikesViewController: UIViewController {
         shoeSizeLabel.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         view.addSubview(shoeSizeLabel)
         
-        shoeSize.text = "14"
+        shoeSize.text = "13"
         shoeSize.font = UIFont.systemFont(ofSize: 18, weight: .light)
         view.addSubview(shoeSize)
         
