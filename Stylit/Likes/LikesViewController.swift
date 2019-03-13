@@ -178,7 +178,7 @@ class LikesViewController: UIViewController {
         }
         
         heightLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(20)
+            make.leading.equalToSuperview().offset(30)
             make.width.equalTo(140)
             make.top.equalTo(name.snp.bottom).offset(40)
         }
@@ -190,7 +190,7 @@ class LikesViewController: UIViewController {
         }
         
         weightLabel.snp.makeConstraints { make in
-            make.centerX.equalTo(name.snp.centerX)
+            make.centerX.equalTo(name.snp.centerX).offset(44)
             make.width.equalTo(140)
             make.top.equalTo(name.snp.bottom).offset(40)
         }
