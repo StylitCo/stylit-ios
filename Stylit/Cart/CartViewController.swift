@@ -178,6 +178,7 @@ class CartViewController: UIViewController {
         
         alertView.addButton("Purchase", backgroundColor: UIColor(red:0.54, green:0.17, blue:0.89, alpha:1.0)) {
             CartService.clear()
+            self.updatePriceLabel()
             self.setupCollection()
         }
         
