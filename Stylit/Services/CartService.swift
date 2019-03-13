@@ -34,4 +34,9 @@ class CartService {
     static func getCartPrice() -> Int {
         return currentPrice
     }
+    
+    static func clear() {
+        cartItems.removeAll()
+        currentPrice = 0
+    }
 }

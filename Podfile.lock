@@ -9,10 +9,10 @@ PODS:
   - Hero (1.4.0)
   - Koloda (4.6):
     - pop (~> 1.0)
-  - PKHUD (5.2.1)
   - PMSuperButton (2.2.0)
   - pop (1.0.12)
   - Presentr (1.9)
+  - SCLAlertView (0.8)
   - SnapKit (4.0.1)
   - YetAnotherAnimationLibrary (1.3.0)
 
@@ -22,9 +22,9 @@ DEPENDENCIES:
   - DynamicButton (~> 6.1.0)
   - Hero
   - Koloda
-  - PKHUD (~> 5.0)
   - PMSuperButton
   - Presentr
+  - SCLAlertView
   - SnapKit (~> 4.0.0)
 
 SPEC REPOS:
@@ -33,10 +33,10 @@ SPEC REPOS:
     - DynamicButton
     - Hero
     - Koloda
-    - PKHUD
     - PMSuperButton
     - pop
     - Presentr
+    - SCLAlertView
     - SnapKit
     - YetAnotherAnimationLibrary
 
@@ -45,13 +45,13 @@ SPEC CHECKSUMS:
   DynamicButton: 5a3ae2bf26dc196fb6c85b3e1aac956add860718
   Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   Koloda: bcf5acded25fc49020d1447ed8ddd87e14d01e7e
-  PKHUD: 4e6162c4c39ac367c6934e9855c6b4762ee16256
   PMSuperButton: 5e7b2eb79468dba1ced3fd00e47a7ce88a1fa664
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   Presentr: 7078d7eb5d1661ebeaae60c9e42a1e534de1b993
+  SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   YetAnotherAnimationLibrary: 69655d8bc9986919f334c940ddebde8e42bdd007
 
-PODFILE CHECKSUM: bdd0369bb8f2785a4df01a9e91686baffe953502
+PODFILE CHECKSUM: d3583110c3d035cd76a4ff8b08e7ef2721f1446f
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.0
