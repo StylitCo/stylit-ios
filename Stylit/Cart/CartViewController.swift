@@ -11,6 +11,7 @@ import SnapKit
 import Hero
 import CollectionKit
 import PMSuperButton
+import SCLAlertView
 
 class CartViewController: UIViewController {
     
@@ -51,6 +52,7 @@ class CartViewController: UIViewController {
         checkoutButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         checkoutButton.backgroundColor = purple
         checkoutButton.ripple = true
+        checkoutButton.addTarget(self, action: #selector(CartViewController.checkoutButtonTapped(_:)),                             for: .touchUpInside)
        
         
         let homeImage = UIImage(named: "Home")
@@ -161,6 +163,25 @@ class CartViewController: UIViewController {
     @objc func homeButtonTapped(_ sender: UIButton) {
         // animate transition
         dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func checkoutButtonTapped(_ sender: UIButton) {
+        let appearance = SCLAlertView.SCLAppearance(
+            showCloseButton: false,
+            showCircularIcon: false
+        )
+        let alertView = SCLAlertView(appearance: appearance)
+        
+        alertView.addButton("Cancel", backgroundColor: .red) {
+            print("cancel button tapped")
+        }
+        
+        alertView.addButton("Purchase", backgroundColor: UIColor(red:0.54, green:0.17, blue:0.89, alpha:1.0)) {
+            CartService.clear()
+            self.setupCollection()
+        }
+        
+        alertView.showSuccess("Confirm Checkout", subTitle: "Total: $\(CartService.getCartPrice())")
     }
     
 }
