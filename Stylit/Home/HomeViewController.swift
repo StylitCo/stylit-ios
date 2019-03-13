@@ -12,7 +12,6 @@ import Koloda
 import Hero
 import Presentr
 import PMSuperButton
-import PKHUD
 
 class HomeViewController: UIViewController {
     

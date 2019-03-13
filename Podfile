@@ -13,7 +13,7 @@ target 'Stylit' do
   pod 'CollectionKit/WobbleAnimator'
   pod 'Presentr'
   pod 'PMSuperButton'
-  pod 'PKHUD', '~> 5.0'
+  pod 'SCLAlertView'
   pod 'DynamicButton', '~> 6.1.0'
 
   target 'StylitTests' do
